@@ -96,7 +96,7 @@ class LoginPage extends ConsumerWidget {
       redirectTo: "fluttertemplate.co.kr://oauth",
       // redirectTo: "io.supabase.flutterquickstart://login-callback",
       // redirectTo: "flutter_template.co.kr://login-callback",
-      // redirectTo: "com.example.flutter_template.dev://oauth",
+      // redirectTo: "com.example.flutter_sample.dev://oauth",
       // redirectTo: 'myteam.co.kr://login-callback',
       // authScreenLaunchMode: LaunchMode.externalApplication,
       // authScreenLaunchMode: LaunchMode.platformDefault,
