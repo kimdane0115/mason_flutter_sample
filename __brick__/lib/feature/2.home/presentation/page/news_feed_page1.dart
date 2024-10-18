@@ -47,12 +47,12 @@ class NewsFeedPage1 extends StatelessWidget {
                                   TextSpan(
                                     text: " @${item.user.userName}",
                                     style:
-                                        Theme.of(context).textTheme.subtitle1,
+                                        Theme.of(context).textTheme.bodyLarge,
                                   ),
                                 ]),
                               )),
                               Text('· 5m',
-                                  style: Theme.of(context).textTheme.subtitle1),
+                                  style: Theme.of(context).textTheme.bodyLarge),
                               const Padding(
                                 padding: EdgeInsets.only(left: 8.0),
                                 child: Icon(Icons.more_horiz),
