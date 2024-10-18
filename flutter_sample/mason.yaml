@@ -1,0 +1,5 @@
+bricks:
+  mason_flutter_sample:
+    git:
+      url: "https://github.com/kimdane0115/mason_flutter_sample.git"
+      path: 

@@ -9,14 +9,26 @@ class F {
 
   static String get name => appFlavor?.name ?? '';
 
+  // static String get title {
+  //   switch (appFlavor) {
+  //     case Flavor.dev:
+  //       return '{{appname}}(dev)';
+  //     case Flavor.staging:
+  //       return '{{appname}}(staging)';
+  //     case Flavor.prod:
+  //       return '{{appname}}';
+  //     default:
+  //       return 'title';
+  //   }
+  // }
   static String get title {
     switch (appFlavor) {
       case Flavor.dev:
-        return '{{appname}}(dev)';
+        return '플러터샘플(dev)';
       case Flavor.staging:
-        return '{{appname}}(staging)';
+        return '플러터샘플(staging)';
       case Flavor.prod:
-        return '{{appname}}';
+        return '플러터샘플';
       default:
         return 'title';
     }
