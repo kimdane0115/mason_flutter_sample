@@ -1,0 +1,72 @@
+flavorizr:
+  # ide: "vscode"
+  instructions:
+    - assets:download # Downloads the assets zip from the network
+    - assets:extract # Extracts the downloaded zip in the project .tmp directory
+    - android:buildGradle # Adds the flavors to the Android build.gradle file
+    - android:androidManifest # Changes the reference of the app name in the AndroidManifest.xml
+    # - android:dummyAssets # Generates some default icons for your custom flavors
+    # - android:icons # Creates a set of icons for each flavor according to the icon directive
+    - flutter:flavors # Creates the flutter flavor configuration file
+    # - flutter:app # Creates the app.dart entry
+    # - flutter:pages # Creates a set of default pages for the app
+    # - flutter:targets # Creates a set of targets for each flavor instance
+    # - ide:config # Generates debugging configurations for each flavor of your IDE
+    - ios:xcconfig # Creates a set of xcconfig files for each flavor and build configuration
+    - ios:buildTargets # Creates a set of build targets for each flavor and build configuration
+    - ios:schema # Creates a set of schemas for each flavor
+    # - ios:dummyAssets # Generates some default icons for your custom flavors
+    # - ios:icons # Creates a set of icons for each flavor according to the icon directive
+    - ios:plist # Updates the info.plist file
+    # - ios:launchScreen # Creates a set of launchscreens for each flavor
+    - google:firebase # Adds Google Firebase configurations for Android and iOS for each flavor
+    - assets:clean # Removes the assets from the project directory
+
+flavors:
+  dev:
+    app:
+      name: "플러터샘플(dev)"
+
+    android:
+      applicationId: "com.example.flutter_sample.dev"
+      generateDummyAssets: false
+      firebase:
+        config: ".firebase/dev/google-services.json"
+
+    ios:
+      bundleId: "com.example.flutterSample.dev"
+      generateDummyAssets: false
+      firebase:
+        config: ".firebase/dev/GoogleService-Info.plist"
+
+  staging:
+    app:
+      name: "플러터샘플(staging)"
+
+    android:
+      applicationId: "com.example.flutter_sample.staging"
+      generateDummyAssets: false
+      firebase:
+        config: ".firebase/staging/google-services.json"
+
+    ios:
+      bundleId: "com.example.flutterSample.staging"
+      generateDummyAssets: false
+      firebase:
+        config: ".firebase/staging/GoogleService-Info.plist"
+
+  prod:
+    app:
+      name: "플러터샘플"
+
+    android:
+      applicationId: "com.example.flutter_sample"
+      generateDummyAssets: false
+      firebase:
+        config: ".firebase/prod/google-services.json"
+
+    ios:
+      bundleId: "com.example.flutterSample"
+      generateDummyAssets: false
+      firebase:
+        config: ".firebase/prod/GoogleService-Info.plist"
