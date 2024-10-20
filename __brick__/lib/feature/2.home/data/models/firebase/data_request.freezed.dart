@@ -19,7 +19,9 @@ mixin _$DataRequest<T> {
 // required int iconCodePoint,
   T? get data => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DataRequest
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $DataRequestCopyWith<T, DataRequest<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -43,6 +45,8 @@ class _$DataRequestCopyWithImpl<T, $Res, $Val extends DataRequest<T>>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of DataRequest
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -76,6 +80,8 @@ class __$$DataRequestImplCopyWithImpl<T, $Res>
       _$DataRequestImpl<T> _value, $Res Function(_$DataRequestImpl<T>) _then)
       : super(_value, _then);
 
+  /// Create a copy of DataRequest
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -116,7 +122,9 @@ class _$DataRequestImpl<T> extends _DataRequest<T> {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DataRequest
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$DataRequestImplCopyWith<T, _$DataRequestImpl<T>> get copyWith =>
@@ -128,10 +136,14 @@ abstract class _DataRequest<T> extends DataRequest<T> {
   const factory _DataRequest({final T? data}) = _$DataRequestImpl<T>;
   const _DataRequest._() : super._();
 
-  @override // required int iconCodePoint,
-  T? get data;
+// required int iconCodePoint,
   @override
-  @JsonKey(ignore: true)
+  T? get data;
+
+  /// Create a copy of DataRequest
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DataRequestImplCopyWith<T, _$DataRequestImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -59,18 +59,18 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 children: [
-                  customCalendar(),
-                  const VerticalDivider(),
-                  const Column(
-                    children: [
-                      Text(' 2024년 5월 일정'),
-                      SizedBox(height: 4,),
-                      Text(' vs team_name', style: TextStyle(color: Color(0xFFBFBFBF),),),
-                      Text(' vs team_name', style: TextStyle(color: Color(0xFFBFBFBF),),),
-                      Text(' vs team_name', style: TextStyle(color: Color(0xFFBFBFBF),),),
-                      Text(' vs team_name', style: TextStyle(fontWeight: FontWeight.bold),),
-                    ],
-                  )
+                  // customCalendar(),
+                  // const VerticalDivider(),
+                  // const Column(
+                  //   children: [
+                  //     Text(' 2024년 5월 일정'),
+                  //     SizedBox(height: 4,),
+                  //     Text(' vs team_name', style: TextStyle(color: Color(0xFFBFBFBF),),),
+                  //     Text(' vs team_name', style: TextStyle(color: Color(0xFFBFBFBF),),),
+                  //     Text(' vs team_name', style: TextStyle(color: Color(0xFFBFBFBF),),),
+                  //     Text(' vs team_name', style: TextStyle(fontWeight: FontWeight.bold),),
+                  //   ],
+                  // )
                 ],
               ),
             ),

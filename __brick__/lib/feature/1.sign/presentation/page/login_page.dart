@@ -51,7 +51,7 @@ class LoginPage extends ConsumerWidget {
     // final loading = await showLoadingIndicator(context);
     print('>>>>>>>>>> start _googleSignin');
     await showLoadingIndicator(context);
-    ref.watch(supaBaseAuthAsyncNotifierProvider.notifier).signInWithGoogle();
+    ref.read(supaBaseAuthAsyncNotifierProvider.notifier).signInWithGoogle();
     
     // try {
     //   if (await GoogleSignIn().isSignedIn()) {

@@ -25,8 +25,12 @@ mixin _$RecordModel {
   Map<String, dynamic> get assist => throw _privateConstructorUsedError;
   Map<String, dynamic> get mom => throw _privateConstructorUsedError;
 
+  /// Serializes this RecordModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of RecordModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $RecordModelCopyWith<RecordModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -54,6 +58,8 @@ class _$RecordModelCopyWithImpl<$Res, $Val extends RecordModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of RecordModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -106,6 +112,8 @@ class __$$RecordModelImplCopyWithImpl<$Res>
       _$RecordModelImpl _value, $Res Function(_$RecordModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of RecordModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -200,7 +208,7 @@ class _$RecordModelImpl implements _RecordModel {
             const DeepCollectionEquality().equals(other._mom, _mom));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -209,7 +217,9 @@ class _$RecordModelImpl implements _RecordModel {
       const DeepCollectionEquality().hash(_assist),
       const DeepCollectionEquality().hash(_mom));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RecordModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$RecordModelImplCopyWith<_$RecordModelImpl> get copyWith =>
@@ -241,8 +251,11 @@ abstract class _RecordModel implements RecordModel {
   Map<String, dynamic> get assist;
   @override
   Map<String, dynamic> get mom;
+
+  /// Create a copy of RecordModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$RecordModelImplCopyWith<_$RecordModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

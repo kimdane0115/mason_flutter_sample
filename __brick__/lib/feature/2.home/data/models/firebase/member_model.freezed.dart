@@ -25,8 +25,12 @@ mixin _$MemberModel {
   Map<String, dynamic> get memberId => throw _privateConstructorUsedError;
   Map<String, dynamic> get phone => throw _privateConstructorUsedError;
 
+  /// Serializes this MemberModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MemberModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MemberModelCopyWith<MemberModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -54,6 +58,8 @@ class _$MemberModelCopyWithImpl<$Res, $Val extends MemberModel>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MemberModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -106,6 +112,8 @@ class __$$MemberModelImplCopyWithImpl<$Res>
       _$MemberModelImpl _value, $Res Function(_$MemberModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MemberModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -202,7 +210,7 @@ class _$MemberModelImpl implements _MemberModel {
             const DeepCollectionEquality().equals(other._phone, _phone));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -211,7 +219,9 @@ class _$MemberModelImpl implements _MemberModel {
       const DeepCollectionEquality().hash(_memberId),
       const DeepCollectionEquality().hash(_phone));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MemberModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MemberModelImplCopyWith<_$MemberModelImpl> get copyWith =>
@@ -243,8 +253,11 @@ abstract class _MemberModel implements MemberModel {
   Map<String, dynamic> get memberId;
   @override
   Map<String, dynamic> get phone;
+
+  /// Create a copy of MemberModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MemberModelImplCopyWith<_$MemberModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

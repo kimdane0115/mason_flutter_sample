@@ -19,7 +19,9 @@ mixin _$CommonRequest<T> {
 // required int iconCodePoint,
   T? get fields => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CommonRequest
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CommonRequestCopyWith<T, CommonRequest<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -43,6 +45,8 @@ class _$CommonRequestCopyWithImpl<T, $Res, $Val extends CommonRequest<T>>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of CommonRequest
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -76,6 +80,8 @@ class __$$CommonRequestImplCopyWithImpl<T, $Res>
       $Res Function(_$CommonRequestImpl<T>) _then)
       : super(_value, _then);
 
+  /// Create a copy of CommonRequest
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -116,7 +122,9 @@ class _$CommonRequestImpl<T> extends _CommonRequest<T> {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(fields));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CommonRequest
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CommonRequestImplCopyWith<T, _$CommonRequestImpl<T>> get copyWith =>
@@ -128,10 +136,14 @@ abstract class _CommonRequest<T> extends CommonRequest<T> {
   const factory _CommonRequest({final T? fields}) = _$CommonRequestImpl<T>;
   const _CommonRequest._() : super._();
 
-  @override // required int iconCodePoint,
-  T? get fields;
+// required int iconCodePoint,
   @override
-  @JsonKey(ignore: true)
+  T? get fields;
+
+  /// Create a copy of CommonRequest
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CommonRequestImplCopyWith<T, _$CommonRequestImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

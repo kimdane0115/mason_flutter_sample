@@ -21,7 +21,9 @@ mixin _$FirebaseDataResponse<T> {
   String get createTime => throw _privateConstructorUsedError;
   String get updateTime => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FirebaseDataResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FirebaseDataResponseCopyWith<T, FirebaseDataResponse<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -46,6 +48,8 @@ class _$FirebaseDataResponseCopyWithImpl<T, $Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of FirebaseDataResponse
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -96,6 +100,8 @@ class __$$FirebaseDataResponseImplCopyWithImpl<T, $Res>
       $Res Function(_$FirebaseDataResponseImpl<T>) _then)
       : super(_value, _then);
 
+  /// Create a copy of FirebaseDataResponse
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -166,7 +172,9 @@ class _$FirebaseDataResponseImpl<T> extends _FirebaseDataResponse<T> {
   int get hashCode => Object.hash(runtimeType, name,
       const DeepCollectionEquality().hash(fields), createTime, updateTime);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FirebaseDataResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FirebaseDataResponseImplCopyWith<T, _$FirebaseDataResponseImpl<T>>
@@ -190,8 +198,11 @@ abstract class _FirebaseDataResponse<T> extends FirebaseDataResponse<T> {
   String get createTime;
   @override
   String get updateTime;
+
+  /// Create a copy of FirebaseDataResponse
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FirebaseDataResponseImplCopyWith<T, _$FirebaseDataResponseImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
 }
