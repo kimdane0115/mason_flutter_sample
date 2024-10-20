@@ -28,13 +28,13 @@ flavors:
       name: "{{appname}}(dev)"
 
     android:
-      applicationId: "{{packagename}}.dev"
+      applicationId: "{{packagename_aos}}.dev"
       generateDummyAssets: false
       firebase:
         config: ".firebase/dev/google-services.json"
 
     ios:
-      bundleId: "{{packagename}}.dev"
+      bundleId: "{{packagename_ios}}.dev"
       generateDummyAssets: false
       firebase:
         config: ".firebase/dev/GoogleService-Info.plist"
@@ -44,13 +44,13 @@ flavors:
       name: "{{appname}}(staging)"
 
     android:
-      applicationId: "{{packagename}}.staging"
+      applicationId: "{{packagename_aos}}.staging"
       generateDummyAssets: false
       firebase:
         config: ".firebase/staging/google-services.json"
 
     ios:
-      bundleId: "{{packagename}}.staging"
+      bundleId: "{{packagename_ios}}.staging"
       generateDummyAssets: false
       firebase:
         config: ".firebase/staging/GoogleService-Info.plist"
@@ -60,13 +60,13 @@ flavors:
       name: "{{appname}}"
 
     android:
-      applicationId: "{{packagename}}"
+      applicationId: "{{packagename_aos}}"
       generateDummyAssets: false
       firebase:
         config: ".firebase/prod/google-services.json"
 
     ios:
-      bundleId: "{{packagename}}"
+      bundleId: "{{packagename_ios}}"
       generateDummyAssets: false
       firebase:
         config: ".firebase/prod/GoogleService-Info.plist"

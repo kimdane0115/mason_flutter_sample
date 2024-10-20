@@ -36,8 +36,13 @@ vars:
     description: Your name
     default: Dash
     prompt: What is your app_name?
-  packagename:
+  packagename_aos:
     type: string
     description: Your name
     default: Dash
-    prompt: What is your package_name?  
+    prompt: What is your package_name (android)?  
+  packagename_ios:
+    type: string
+    description: Your name
+    default: Dash
+    prompt: What is your package_name (ios)?  
