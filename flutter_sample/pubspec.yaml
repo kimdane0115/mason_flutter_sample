@@ -45,11 +45,11 @@ dependencies:
   google_sign_in: ^6.2.1
   firebase_auth: ^5.3.1
   riverpod_annotation: ^2.3.5
-  supabase_flutter: ^2.3.4
   firebase_messaging: ^15.1.3
   flutter_native_splash: ^2.4.0
   kakao_flutter_sdk: ^1.9.1+2
   table_calendar: ^3.1.1
+  supabase_flutter: ^2.8.0
 
 dev_dependencies:
   flutter_test:
@@ -121,5 +121,7 @@ flutter_native_splash:
 
 flutter_launcher_icons:
   image_path: "assets/images/appicon.png"
+  adaptive_icon_background: "#FFFFFF"
+  adaptive_icon_foreground: "assets/images/appicon.png"
   android: true
   ios: true
