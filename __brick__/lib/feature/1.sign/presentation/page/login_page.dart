@@ -52,35 +52,6 @@ class LoginPage extends ConsumerWidget {
     print('>>>>>>>>>> start _googleSignin');
     await showLoadingIndicator(context);
     ref.read(supaBaseAuthAsyncNotifierProvider.notifier).signInWithGoogle();
-    
-    // try {
-    //   if (await GoogleSignIn().isSignedIn()) {
-    //     await GoogleSignIn().signOut();
-    //   }
-
-    //   selectedSns = DingdonguAuthType.google;
-    //   final googleToken = await SocialService().signInWithGoogle();
-    //   if (mounted) {
-    //     context.pop(loading);
-    //   }
-
-    //   logger.d('googleToken : $googleToken');
-    //   if (googleToken == null) return; // 선택 안하고 취소했을 경우
-
-    //   DingdonguDeviceType deviceType = getDeviceType();
-
-    //   DingdonguApiVerifySnsRequest request = DingdonguApiVerifySnsRequest(
-    //     snsType: DingdonguSnsType.google,
-    //     deviceType: deviceType,
-    //     idToken: googleToken,
-    //   );
-
-    //   ref.read(snsVerificationAsyncNotifierProvider.notifier).snsVerify(request);
-    // } catch (e) {
-    //   if (mounted) {
-    //     context.pop(loading);
-    //   }
-    // }
   }
 
   Future<void> _kakaoSignIn(BuildContext context, WidgetRef ref) async {
