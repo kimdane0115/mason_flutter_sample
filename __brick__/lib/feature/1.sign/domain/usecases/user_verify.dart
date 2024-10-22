@@ -5,7 +5,7 @@ class UserVerify {
 
   UserVerify(this.repository);
 
-  Future<void> call(String email) {
-    return repository.userVerify(email);
+  Future<void> call(String email, String idToken, String accessToken) {
+    return repository.userVerify(email, idToken, accessToken);
   }
 }

@@ -8,10 +8,8 @@ class SignRepositoryImpl extends SignRepository {
   SignRepositoryImpl(this._supabaseSignApiService);
   
   @override
-  Future<void> userVerify(String email) async {
-    // TODO: implement snsVerify
-    await _supabaseSignApiService.userVerify(email);
-    // throw UnimplementedError();
+  Future<void> userVerify(String email, String idToken, String accessToken) {
+    // TODO: implement userVerify
+    throw UnimplementedError();
   }
-  
 }
