@@ -1,7 +1,7 @@
 
 import 'dart:async';
 
-import '../../../../core/constants/index.dart';
+import '../../../../index.dart';
 
 Future<BuildContext> showLoadingIndicator(BuildContext context) {
     var dialogContext = Completer<BuildContext>();

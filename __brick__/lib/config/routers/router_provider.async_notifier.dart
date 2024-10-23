@@ -1,6 +1,6 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-import '../../../../core/constants/index.dart';
+import '../../index.dart';
 import '../../feature/1.sign/presentation/provider/supabase_auth_provider.async_notifier.dart';
 
 final GlobalKey<NavigatorState> rootNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'root');

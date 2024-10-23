@@ -1,5 +1,5 @@
 
-import '../../../../core/constants/index.dart';
+import '../../../../index.dart';
 
 class SignUpScreen extends ConsumerStatefulWidget {
   const SignUpScreen({super.key});

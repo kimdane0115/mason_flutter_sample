@@ -1,6 +1,6 @@
 import 'collapsing_appbarwith_tabs_page.dart';
 
-import '../../../../core/constants/index.dart';
+import '../../../../index.dart';
 
 class HomeScreen3 extends ConsumerStatefulWidget {
   const HomeScreen3({super.key});

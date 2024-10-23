@@ -3,7 +3,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:table_calendar/table_calendar.dart';
 
-import '../../../../core/constants/index.dart';
+import '../../../../index.dart';
 import '../../../1.sign/presentation/provider/supabase_auth_provider.async_notifier.dart';
 import '../provider/home_provider.dart';
 

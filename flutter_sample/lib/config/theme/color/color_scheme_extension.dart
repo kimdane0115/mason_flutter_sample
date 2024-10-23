@@ -1,4 +1,4 @@
-import '../../../core/constants/index.dart';
+import '../../../index.dart';
 
 extension ColorSchemeExtension on ColorScheme {
   Color get customBlack => const Color(0xFF000000);

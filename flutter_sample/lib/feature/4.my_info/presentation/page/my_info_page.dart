@@ -1,4 +1,4 @@
-import '../../../../core/constants/index.dart';
+import '../../../../index.dart';
 import '../../../1.sign/presentation/provider/supabase_auth_provider.async_notifier.dart';
 
 class MyInfoPage extends ConsumerStatefulWidget {

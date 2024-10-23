@@ -1,4 +1,4 @@
-import '../../../../core/constants/index.dart';
+import '../../../../index.dart';
 
 class ImageWidget extends StatefulWidget {
   const ImageWidget({super.key, required this.imageUrl});

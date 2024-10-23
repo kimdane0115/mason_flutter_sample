@@ -1,4 +1,4 @@
-import './core/constants/index.dart';
+import 'index.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {
   const SplashScreen({super.key});

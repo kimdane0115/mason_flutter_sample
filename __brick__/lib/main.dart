@@ -4,7 +4,7 @@ import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import 'app.dart';
-import 'core/constants/index.dart';
+import 'index.dart';
 import 'flavors.dart';
 
 FutureOr<void> main() async {

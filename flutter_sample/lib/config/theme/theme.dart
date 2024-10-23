@@ -1,6 +1,6 @@
 // ignore_for_file: unused_element
 
-import '../../core/constants/index.dart';
+import '../../index.dart';
 
 ThemeData lightThemeData(ColorScheme colorScheme, BuildContext context) {
   return ThemeData(

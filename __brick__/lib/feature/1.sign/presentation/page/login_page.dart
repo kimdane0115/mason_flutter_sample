@@ -5,9 +5,7 @@ import 'dart:async';
 import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-import '../../../../core/constants/index.dart';
-import '../provider/supabase_auth_provider.async_notifier.dart';
-import '../widget/show_loadingIndicator.dart';
+import '../../../../index.dart';
 
 class LoginPage extends ConsumerWidget {
   const LoginPage({super.key});

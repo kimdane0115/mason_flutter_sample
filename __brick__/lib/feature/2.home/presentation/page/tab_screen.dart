@@ -1,5 +1,5 @@
 
-import '../../../../core/constants/index.dart';
+import '../../../../index.dart';
 
 class TabScreen extends ConsumerStatefulWidget {
   const TabScreen({super.key, required this.child});

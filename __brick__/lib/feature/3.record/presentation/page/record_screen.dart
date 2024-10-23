@@ -1,4 +1,4 @@
-import '../../../../core/constants/index.dart';
+import '../../../../index.dart';
 
 class RecordScreen extends ConsumerStatefulWidget {
   const RecordScreen({super.key});
