@@ -53,9 +53,6 @@ class LoginPage extends ConsumerWidget {
     await showLoadingIndicator(context);
     ref.read(supaBaseAuthAsyncNotifierProvider.notifier).signInWithGoogle();
   }
-  void test () {dfdf
-    
-  }
 
   Future<void> _kakaoSignIn(BuildContext context, WidgetRef ref) async {
       // var hash = await KakaoSdk.origin;
