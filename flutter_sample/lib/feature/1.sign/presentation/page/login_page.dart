@@ -120,9 +120,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
   }
 
   Future<void> _googleSignIn() async {
-    // final loading = await showLoadingIndicator(context);
-    print('>>>>>>>>>> start _googleSignin');
-    await showLoadingIndicator(context);
+    loading = await showLoadingIndicator(context);
     ref.read(supaBaseAuthAsyncNotifierProvider.notifier).signInWithGoogle();
   }
 
