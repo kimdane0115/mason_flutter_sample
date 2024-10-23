@@ -3,6 +3,8 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+import 'sign_async_notifier.dart';
+
 // import 'sign_async_notifier.dart';
 part 'supabase_auth_provider.async_notifier.g.dart';
 
@@ -43,15 +45,15 @@ class SupaBaseAuthAsyncNotifier extends _$SupaBaseAuthAsyncNotifier {
 
       print('>>> token : ${googleAuth?.idToken}');
 
-  // ref.read(snsVerificationAsyncNotifierProvider.notifier).snsVerify(request);
-      // await ref.read(signAsyncNotifierProvider.notifier).userVerify(
-      //     email, idToken, accessToken);
+      // ref.read(snsVerificationAsyncNotifierProvider.notifier).snsVerify(request);
+      await ref.read(signAsyncNotifierProvider.notifier).userVerify(
+          email, idToken, accessToken);
 
-      await Supabase.instance.client.auth.signInWithIdToken(
-        provider: OAuthProvider.google,
-        idToken: idToken,
-        accessToken: accessToken,
-      );
+      // await Supabase.instance.client.auth.signInWithIdToken(
+      //   provider: OAuthProvider.google,
+      //   idToken: idToken,
+      //   accessToken: accessToken,
+      // );
 
       return true;
     });

@@ -1,3 +1,4 @@
+import '../entities/profile.dart';
 import '../repository/sign_repository.dart';
 
 class UserVerify {
@@ -5,7 +6,7 @@ class UserVerify {
 
   UserVerify(this.repository);
 
-  Future<void> call(String email, String idToken, String accessToken) {
+  Future<Profile> call(String email, String idToken, String accessToken) {
     return repository.userVerify(email, idToken, accessToken);
   }
 }

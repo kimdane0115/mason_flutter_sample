@@ -1,12 +1,9 @@
 
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../../data/data_sources/supabase/supabase_sign_api_service.dart';
-import '../../data/repository/sign_repository_impl.dart';
-import '../../domain/repository/sign_repository.dart';
-import '../../domain/usecases/user_verify.dart';
+import '../../../../index.dart';
 
-part 'sign_provider.g.dart';
+part 'sign_repository_provider.g.dart';
 
 @riverpod
 SupabaseSignApiService supabaseSignApiService (SupabaseSignApiServiceRef ref) {

@@ -1,3 +1,5 @@
+import '../entities/profile.dart';
+
 abstract class SignRepository {
-  Future<void> userVerify(String email, String idToken, String accessToken);
+  Future<Profile> userVerify(String email, String idToken, String accessToken);
 }
