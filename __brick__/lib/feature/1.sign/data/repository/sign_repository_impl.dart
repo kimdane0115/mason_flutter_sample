@@ -9,6 +9,6 @@ class SignRepositoryImpl extends SignRepository {
   
   @override
   Future<void> userVerify(String email, String idToken, String accessToken) async {
-    _supabaseSignApiService.userVerify(email);
+    _supabaseSignApiService.userVerify(email, idToken, accessToken);
   }
 }
