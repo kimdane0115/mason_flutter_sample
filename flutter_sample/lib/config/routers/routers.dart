@@ -1,10 +1,4 @@
-
-
-
-
 import '../../index.dart';
-import '../../feature/1.sign/presentation/page/login_page.dart';
-import '../../feature/1.sign/presentation/page/sign_up_screen.dart';
 import '../../feature/2.home/presentation/page/home_screen.dart';
 import '../../feature/2.home/presentation/page/home_screen2.dart';
 import '../../feature/2.home/presentation/page/home_screen3.dart';
@@ -28,6 +22,7 @@ class Routers {
 
   // 2 depth routes
   static const String signUp = 'sign_up';
+  static const String signUpAgreement = 'sign_up_agreement';
 }
 
 @TypedGoRoute<SplashRoute>(
@@ -45,8 +40,11 @@ class SplashRoute extends GoRouteData {
   path: Routers.login,
   routes: [
     TypedGoRoute<SignUpScreenRoute>(
-    path: Routers.signUp,
-  ),
+      path: Routers.signUp,
+    ),
+  TypedGoRoute<SignUpAgreementScreenRoute>(
+      path: Routers.signUpAgreement,
+    ),
   ]
 )
 class LoginPageRoute extends GoRouteData {
@@ -63,6 +61,15 @@ class SignUpScreenRoute extends GoRouteData {
   @override
   Page<void> buildPage(BuildContext context, GoRouterState state) {
     return const MaterialPage(child: SignUpScreen());
+  }
+}
+
+class SignUpAgreementScreenRoute extends GoRouteData {
+  const SignUpAgreementScreenRoute();
+
+  @override
+  Page<void> buildPage(BuildContext context, GoRouterState state) {
+    return const MaterialPage(child: SignUpAgreementScreen());
   }
 }
 

@@ -209,8 +209,7 @@ class __$$SbProfileModelImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
-@JsonSerializable(includeIfNull: false, explicitToJson: true)
+@JsonSerializable()
 class _$SbProfileModelImpl implements _SbProfileModel {
   _$SbProfileModelImpl(
       {required this.id,

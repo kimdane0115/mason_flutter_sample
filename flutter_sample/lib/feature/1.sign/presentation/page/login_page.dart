@@ -34,11 +34,10 @@ class _LoginPageState extends ConsumerState<LoginPage> {
 
             if (value.accessToken!.isEmpty) {
               print('signup screen page move!!!');
-              // const SignUpAgreementScreenRoute().push(context).then((value) {
-              //   if (value == true) {
-              //     _signUp();
-              //   }
-              // });
+              const SignUpAgreementScreenRoute().push(context).then((value) {
+                if (value == true) {
+                }
+              });
             } else {
               await Supabase.instance.client.auth.signInWithIdToken(
                 provider: OAuthProvider.google,
@@ -65,7 +64,6 @@ class _LoginPageState extends ConsumerState<LoginPage> {
     return SafeArea(
       child: test.maybeWhen(
         data: (data) {
-
           // if (data == true) {
           //   return const SizedBox.shrink();
           // }
