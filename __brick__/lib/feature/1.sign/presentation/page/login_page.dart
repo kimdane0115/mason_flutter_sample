@@ -164,6 +164,10 @@ class _LoginPageState extends ConsumerState<LoginPage> {
   }
 
   Future<void> _signUp() async {
+    // signup 페이지가 필요한 경우
     const SignUpScreenRoute().push(context);
+
+    // signup 페이지가 필요 없는 경우
+    // ref.read(supaBaseAuthAsyncNotifierProvider.notifier).signUpWithGoogle();
   }
 }
