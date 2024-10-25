@@ -40,4 +40,9 @@ class SignRepositoryImpl extends SignRepository {
       throw UnimplementedError();
     }
   }
+  
+  @override
+  Future<void> addProfile(Map<String, dynamic> request) async {
+    final res = _supabaseSignApiService.addProfile(request);
+  }
 }

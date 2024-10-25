@@ -53,5 +53,19 @@ final userVerifyProvider = AutoDisposeProvider<UserVerify>.internal(
 );
 
 typedef UserVerifyRef = AutoDisposeProviderRef<UserVerify>;
+String _$addProfileHash() => r'56b06ea30cc8b741340877c8e917808f3dc8213f';
+
+/// See also [addProfile].
+@ProviderFor(addProfile)
+final addProfileProvider = AutoDisposeProvider<AddProfile>.internal(
+  addProfile,
+  name: r'addProfileProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$addProfileHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef AddProfileRef = AutoDisposeProviderRef<AddProfile>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

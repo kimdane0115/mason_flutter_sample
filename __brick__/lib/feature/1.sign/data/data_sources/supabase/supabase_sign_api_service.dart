@@ -4,6 +4,7 @@ import '../../models/supabase/sb_profile_model.dart';
 
 abstract class SupabaseSignApiService {
   Future<SbProfileModel?> userVerify(String email, String idToken, String accessToken);
+  Future<void> addProfile(Map<String, dynamic> request);
 }
 
 class SupabaseSignApiServiceImpl implements SupabaseSignApiService {
@@ -37,5 +38,12 @@ class SupabaseSignApiServiceImpl implements SupabaseSignApiService {
     } catch (e) {
       rethrow; 
     }
+  }
+  
+  @override
+  Future<void> addProfile(Map<String, dynamic> request) async {
+    final client = Supabase.instance.client;
+    final response = await client.from('profiles').insert([request]).select();
+    print('>>>> response : $response');
   }
 }

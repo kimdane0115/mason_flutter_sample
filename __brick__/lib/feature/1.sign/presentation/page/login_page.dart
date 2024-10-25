@@ -24,7 +24,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
 
   Widget body() {
     // final verificationState = ref.watch(signAsyncNotifierProvider);
-    final test = ref.watch(supaBaseAuthAsyncNotifierProvider);
+    final supabaseAuthState = ref.watch(supaBaseAuthAsyncNotifierProvider);
     ref.listen(
       signAsyncNotifierProvider,
       (prev, next) {
@@ -36,6 +36,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
               print('signup screen page move!!!');
               const SignUpAgreementScreenRoute().push(context).then((value) {
                 if (value == true) {
+                  _signUp();
                 }
               });
             } else {
@@ -62,7 +63,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
     );
 
     return SafeArea(
-      child: test.maybeWhen(
+      child: supabaseAuthState.maybeWhen(
         data: (data) {
           // if (data == true) {
           //   return const SizedBox.shrink();
@@ -160,5 +161,9 @@ class _LoginPageState extends ConsumerState<LoginPage> {
         //             }
         //           });
 
+  }
+
+  Future<void> _signUp() async {
+    const SignUpScreenRoute().push(context);
   }
 }

@@ -21,3 +21,9 @@ UserVerify userVerify(UserVerifyRef ref) {
   final repository = ref.read(signRepositoryProvider);
   return UserVerify(repository);
 }
+
+@riverpod
+AddProfile addProfile(AddProfileRef ref) {
+  final repository = ref.read(signRepositoryProvider);
+  return AddProfile(repository);
+}

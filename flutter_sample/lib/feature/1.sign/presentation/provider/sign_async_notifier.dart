@@ -16,15 +16,15 @@ class SignAsyncNotifier extends _$SignAsyncNotifier {
   //   return ref.read(userVerifyProvider)(email, idToken);
   // }
 
-  // Future<void> addProfie(Map<String, dynamic> request) async {
-  //   state = const AsyncValue.loading();
-  //   state = await AsyncValue.guard(() async {
-  //     final addProfile = ref.read(addProfileProvider);
-  //     addProfile(request);
+  Future<void> addProfie(Map<String, dynamic> request) async {
+    state = const AsyncValue.loading();
+    state = await AsyncValue.guard(() async {
+      final addProfile = ref.read(addProfileProvider);
+      addProfile(request);
 
-  //     return null;
-  //   });
-  // }
+      return null;
+    });
+  }
 
   Future<void> userVerify(String email, String idToken, String accessToken) async {
     state = const AsyncValue.loading();
