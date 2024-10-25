@@ -64,8 +64,9 @@ class SupaBaseAuthAsyncNotifier extends _$SupaBaseAuthAsyncNotifier {
     state = await AsyncValue.guard(() async {
       
       final GoogleSignInAccount? googleUser = await GoogleSignIn(
-        clientId: '257746472366-nis9odkp8hnm80lkpmuvg2jefs7dgq2j.apps.googleusercontent.com',
-        serverClientId: '257746472366-i63jfjv30f9avq3vp12723gmap541lgh.apps.googleusercontent.com',
+        scopes: ["profile", "email"],
+        clientId: '179101698842-s9k7mn7rjoteh3saqhiu2an5jilg3om5.apps.googleusercontent.com',
+        serverClientId: '179101698842-96paod6qq0lddjqmq5a8jt7ig8iuada7.apps.googleusercontent.com',
       ).signIn();
 
       // Obtain the auth details from the request
@@ -93,7 +94,7 @@ class SupaBaseAuthAsyncNotifier extends _$SupaBaseAuthAsyncNotifier {
         // 'createdAt': DateTime.now().toIso8601String(),
       };
       
-      // ref.read(signAsyncNotifierProvider.notifier).addProfie(request);
+      ref.read(signAsyncNotifierProvider.notifier).addProfie(request);
 
       return null;
     });

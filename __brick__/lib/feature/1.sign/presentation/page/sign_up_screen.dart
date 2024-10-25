@@ -69,7 +69,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
           padding: const EdgeInsets.only(bottom: 16),
           child: ElevatedButton(
             onPressed: () {
-              // 회원가입 로직 구현
+              ref.read(supaBaseAuthAsyncNotifierProvider.notifier).signUpWithGoogle();
             },
             child: const Text('회원가입 완료'),
           ),
