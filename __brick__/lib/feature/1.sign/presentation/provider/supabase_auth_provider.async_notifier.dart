@@ -62,10 +62,6 @@ class SupaBaseAuthAsyncNotifier extends _$SupaBaseAuthAsyncNotifier {
   FutureOr<void> signUpWithGoogle() async {
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(() async {
-
-      if (await GoogleSignIn().isSignedIn()) {
-        await GoogleSignIn().signOut();
-      }
       
       final GoogleSignInAccount? googleUser = await GoogleSignIn(
         scopes: ["profile", "email"],
