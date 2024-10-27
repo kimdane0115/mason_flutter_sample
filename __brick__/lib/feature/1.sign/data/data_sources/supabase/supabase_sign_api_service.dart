@@ -42,8 +42,13 @@ class SupabaseSignApiServiceImpl implements SupabaseSignApiService {
   
   @override
   Future<void> addProfile(Map<String, dynamic> request) async {
-    final client = Supabase.instance.client;
-    final response = await client.from('profiles').insert([request]).select();
-    print('>>>> response : $response');
+
+    try {
+      final client = Supabase.instance.client;
+      final response = await client.from('profiles').insert([request]).select();
+      print('>>>> response : $response');
+    } catch (e) {
+      rethrow;
+    }
   }
 }
