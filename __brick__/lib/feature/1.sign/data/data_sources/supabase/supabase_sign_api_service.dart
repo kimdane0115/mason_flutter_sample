@@ -23,7 +23,7 @@ class SupabaseSignApiServiceImpl implements SupabaseSignApiService {
           .update({
             'idToken': idToken,
             'accessToken': accessToken,
-            'updatedAt': DateTime.now().toIso8601String()
+            // 'updatedAt': DateTime.now().toIso8601String()
           })
           .eq('email', email)
           .select()

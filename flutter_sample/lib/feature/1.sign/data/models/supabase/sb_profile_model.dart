@@ -15,7 +15,6 @@ class SbProfileModel with _$SbProfileModel {
     required String idToken,
     required String fcmToken,
     required DateTime createdAt,
-    required DateTime updatedAt,
   }) = _SbProfileModel;
 
   factory SbProfileModel.fromJson(Map<String, dynamic> json) => _$SbProfileModelFromJson(json);

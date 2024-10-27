@@ -87,10 +87,10 @@ class SupaBaseAuthAsyncNotifier extends _$SupaBaseAuthAsyncNotifier {
         'uuid': res.user?.id,
         'email': email,
         'name': name,
-        'fcm_token': '',
-        'profile_image_url': '',
-        'id_token': idToken,
-        'access_token': accessToken,
+        'fcmToken': '',
+        'profileImageUrl': '',
+        'idToken': idToken,
+        'accessToken': accessToken,
         // 'createdAt': DateTime.now().toIso8601String(),
       };
       

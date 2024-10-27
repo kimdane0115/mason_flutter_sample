@@ -28,7 +28,6 @@ mixin _$SbProfileModel {
   String get idToken => throw _privateConstructorUsedError;
   String get fcmToken => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
-  DateTime get updatedAt => throw _privateConstructorUsedError;
 
   /// Serializes this SbProfileModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -54,8 +53,7 @@ abstract class $SbProfileModelCopyWith<$Res> {
       String accessToken,
       String idToken,
       String fcmToken,
-      DateTime createdAt,
-      DateTime updatedAt});
+      DateTime createdAt});
 }
 
 /// @nodoc
@@ -81,7 +79,6 @@ class _$SbProfileModelCopyWithImpl<$Res, $Val extends SbProfileModel>
     Object? idToken = null,
     Object? fcmToken = null,
     Object? createdAt = null,
-    Object? updatedAt = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -116,10 +113,6 @@ class _$SbProfileModelCopyWithImpl<$Res, $Val extends SbProfileModel>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
     ) as $Val);
   }
 }
@@ -140,8 +133,7 @@ abstract class _$$SbProfileModelImplCopyWith<$Res>
       String accessToken,
       String idToken,
       String fcmToken,
-      DateTime createdAt,
-      DateTime updatedAt});
+      DateTime createdAt});
 }
 
 /// @nodoc
@@ -165,7 +157,6 @@ class __$$SbProfileModelImplCopyWithImpl<$Res>
     Object? idToken = null,
     Object? fcmToken = null,
     Object? createdAt = null,
-    Object? updatedAt = null,
   }) {
     return _then(_$SbProfileModelImpl(
       id: null == id
@@ -200,10 +191,6 @@ class __$$SbProfileModelImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
     ));
   }
 }
@@ -219,8 +206,7 @@ class _$SbProfileModelImpl implements _SbProfileModel {
       required this.accessToken,
       required this.idToken,
       required this.fcmToken,
-      required this.createdAt,
-      required this.updatedAt});
+      required this.createdAt});
 
   factory _$SbProfileModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$SbProfileModelImplFromJson(json);
@@ -241,12 +227,10 @@ class _$SbProfileModelImpl implements _SbProfileModel {
   final String fcmToken;
   @override
   final DateTime createdAt;
-  @override
-  final DateTime updatedAt;
 
   @override
   String toString() {
-    return 'SbProfileModel(id: $id, email: $email, name: $name, profileImageUrl: $profileImageUrl, accessToken: $accessToken, idToken: $idToken, fcmToken: $fcmToken, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'SbProfileModel(id: $id, email: $email, name: $name, profileImageUrl: $profileImageUrl, accessToken: $accessToken, idToken: $idToken, fcmToken: $fcmToken, createdAt: $createdAt)';
   }
 
   @override
@@ -265,15 +249,13 @@ class _$SbProfileModelImpl implements _SbProfileModel {
             (identical(other.fcmToken, fcmToken) ||
                 other.fcmToken == fcmToken) &&
             (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt) &&
-            (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt));
+                other.createdAt == createdAt));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, id, email, name, profileImageUrl,
-      accessToken, idToken, fcmToken, createdAt, updatedAt);
+      accessToken, idToken, fcmToken, createdAt);
 
   /// Create a copy of SbProfileModel
   /// with the given fields replaced by the non-null parameter values.
@@ -301,8 +283,7 @@ abstract class _SbProfileModel implements SbProfileModel {
       required final String accessToken,
       required final String idToken,
       required final String fcmToken,
-      required final DateTime createdAt,
-      required final DateTime updatedAt}) = _$SbProfileModelImpl;
+      required final DateTime createdAt}) = _$SbProfileModelImpl;
 
   factory _SbProfileModel.fromJson(Map<String, dynamic> json) =
       _$SbProfileModelImpl.fromJson;
@@ -323,8 +304,6 @@ abstract class _SbProfileModel implements SbProfileModel {
   String get fcmToken;
   @override
   DateTime get createdAt;
-  @override
-  DateTime get updatedAt;
 
   /// Create a copy of SbProfileModel
   /// with the given fields replaced by the non-null parameter values.
