@@ -4,3 +4,4 @@ export 'repository/sign_repository.dart';
 
 export 'usecases/user_verify.dart';
 export 'usecases/add_profile.dart';
+export 'usecases/delete_profile.dart';

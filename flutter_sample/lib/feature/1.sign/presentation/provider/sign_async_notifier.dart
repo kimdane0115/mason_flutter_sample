@@ -35,5 +35,15 @@ class SignAsyncNotifier extends _$SignAsyncNotifier {
     //   return fetchProfile(email, token);
     });
   }
+
+  Future<void> deleteProfile(String uuid) async {
+    state = const AsyncValue.loading();
+    state = await AsyncValue.guard(() async {
+      final deleteProfile = ref.read(deleteProfileProvider);
+      deleteProfile(uuid);
+
+      return null;
+    });
+  }
 }
 

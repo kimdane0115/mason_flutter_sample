@@ -45,4 +45,9 @@ class SignRepositoryImpl extends SignRepository {
   Future<void> addProfile(Map<String, dynamic> request) async {
     final res = _supabaseSignApiService.addProfile(request);
   }
+  
+  @override
+  Future<void> deleteProfile(String uuid) async {
+    final res = await _supabaseSignApiService.deleteProfile(uuid);
+  }
 }

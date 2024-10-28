@@ -27,3 +27,9 @@ AddProfile addProfile(AddProfileRef ref) {
   final repository = ref.read(signRepositoryProvider);
   return AddProfile(repository);
 }
+
+@riverpod
+DeleteProfile deleteProfile(DeleteProfileRef ref) {
+  final repository = ref.read(signRepositoryProvider);
+  return DeleteProfile(repository);
+}
