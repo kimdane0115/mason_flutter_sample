@@ -34,6 +34,32 @@ class F {
     }
   }
 
+  static String get iosClientId {
+    switch (appFlavor) {
+      case Flavor.dev:
+        return '179101698842-s9k7mn7rjoteh3saqhiu2an5jilg3om5.apps.googleusercontent.com';
+      case Flavor.staging:
+        return '179101698842-s9k7mn7rjoteh3saqhiu2an5jilg3om5.apps.googleusercontent.com';
+      case Flavor.prod:
+        return '179101698842-s9k7mn7rjoteh3saqhiu2an5jilg3om5.apps.googleusercontent.com';
+      default:
+        return '179101698842-s9k7mn7rjoteh3saqhiu2an5jilg3om5.apps.googleusercontent.com';
+    }
+  }
+
+  static String get webServerClientId {
+    switch (appFlavor) {
+      case Flavor.dev:
+        return '179101698842-96paod6qq0lddjqmq5a8jt7ig8iuada7.apps.googleusercontent.com';
+      case Flavor.staging:
+        return '179101698842-96paod6qq0lddjqmq5a8jt7ig8iuada7.apps.googleusercontent.com';
+      case Flavor.prod:
+        return '179101698842-96paod6qq0lddjqmq5a8jt7ig8iuada7.apps.googleusercontent.com';
+      default:
+        return '179101698842-96paod6qq0lddjqmq5a8jt7ig8iuada7.apps.googleusercontent.com';
+    }
+  }
+
   static String get supabaseUrl {
     switch (appFlavor) {
       case Flavor.dev:
