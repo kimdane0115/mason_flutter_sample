@@ -1,9 +1,7 @@
 // import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
-
-import 'sign_async_notifier.dart';
+import '../../../../index.dart';
 
 part 'supabase_auth_provider.async_notifier.g.dart';
 
@@ -33,8 +31,8 @@ class SupaBaseAuthAsyncNotifier extends _$SupaBaseAuthAsyncNotifier {
 
       _cachedGoogleUser = await GoogleSignIn(
         scopes: ["profile", "email"],
-        clientId: '179101698842-s9k7mn7rjoteh3saqhiu2an5jilg3om5.apps.googleusercontent.com',
-        serverClientId: '179101698842-96paod6qq0lddjqmq5a8jt7ig8iuada7.apps.googleusercontent.com',
+        clientId: F.iosClientId,
+        serverClientId: F.webServerClientId,
       ).signIn();
 
       final GoogleSignInAuthentication? googleAuth = await _cachedGoogleUser?.authentication;
