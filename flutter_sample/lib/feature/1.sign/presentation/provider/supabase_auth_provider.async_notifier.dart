@@ -5,7 +5,6 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 import 'sign_async_notifier.dart';
 
-// import 'sign_async_notifier.dart';
 part 'supabase_auth_provider.async_notifier.g.dart';
 
 final authStreamProvider = StreamProvider<AuthState>((ref) {
@@ -14,6 +13,11 @@ final authStreamProvider = StreamProvider<AuthState>((ref) {
 
 @Riverpod(keepAlive: true)
 class SupaBaseAuthAsyncNotifier extends _$SupaBaseAuthAsyncNotifier {
+  
+  GoogleSignInAccount? _cachedGoogleUser;
+
+  GoogleSignInAccount? get cachedGoogleUser => _cachedGoogleUser;
+
   @override
   FutureOr<bool?> build() async {
     return null;
@@ -27,15 +31,15 @@ class SupaBaseAuthAsyncNotifier extends _$SupaBaseAuthAsyncNotifier {
         await GoogleSignIn().signOut();
       }
 
-      final GoogleSignInAccount? googleUser = await GoogleSignIn(
+      _cachedGoogleUser = await GoogleSignIn(
         scopes: ["profile", "email"],
         clientId: '179101698842-s9k7mn7rjoteh3saqhiu2an5jilg3om5.apps.googleusercontent.com',
         serverClientId: '179101698842-96paod6qq0lddjqmq5a8jt7ig8iuada7.apps.googleusercontent.com',
       ).signIn();
 
-      final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
+      final GoogleSignInAuthentication? googleAuth = await _cachedGoogleUser?.authentication;
 
-      String email = googleUser?.email ?? '';
+      String email = _cachedGoogleUser?.email ?? '';
       String idToken = googleAuth?.idToken ?? '';
       String accessToken = googleAuth?.accessToken ?? '';
 
@@ -45,15 +49,8 @@ class SupaBaseAuthAsyncNotifier extends _$SupaBaseAuthAsyncNotifier {
 
       print('>>> token : ${googleAuth?.idToken}');
 
-      // ref.read(snsVerificationAsyncNotifierProvider.notifier).snsVerify(request);
       await ref.read(signAsyncNotifierProvider.notifier).userVerify(
           email, idToken, accessToken);
-
-      // await Supabase.instance.client.auth.signInWithIdToken(
-      //   provider: OAuthProvider.google,
-      //   idToken: idToken,
-      //   accessToken: accessToken,
-      // );
 
       return true;
     });
@@ -62,18 +59,11 @@ class SupaBaseAuthAsyncNotifier extends _$SupaBaseAuthAsyncNotifier {
   FutureOr<void> signUpWithGoogle() async {
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(() async {
-      
-      final GoogleSignInAccount? googleUser = await GoogleSignIn(
-        scopes: ["profile", "email"],
-        clientId: '179101698842-s9k7mn7rjoteh3saqhiu2an5jilg3om5.apps.googleusercontent.com',
-        serverClientId: '179101698842-96paod6qq0lddjqmq5a8jt7ig8iuada7.apps.googleusercontent.com',
-      ).signIn();
 
-      // Obtain the auth details from the request
-      final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
+      final GoogleSignInAuthentication? googleAuth = await _cachedGoogleUser?.authentication;
 
-      String name = googleUser?.displayName ?? '';
-      String email = googleUser?.email ?? '';
+      String name = _cachedGoogleUser?.displayName ?? '';
+      String email = _cachedGoogleUser?.email ?? '';
       String idToken = googleAuth?.idToken ?? '';
       String accessToken = googleAuth?.accessToken ?? '';
       
@@ -109,7 +99,16 @@ class SupaBaseAuthAsyncNotifier extends _$SupaBaseAuthAsyncNotifier {
       // FirebaseService().unsubscribe();
       await GoogleSignIn().signOut();
       await Supabase.instance.client.auth.signOut();
-
+      return null;
+    });
+  }
+  
+  Future<void> deleteUser(String userId) async {
+    state = const AsyncValue.loading();
+    state = await AsyncValue.guard(() async {
+      await Supabase.instance.client.rpc('delete_user', params: {'user_id': userId});
+      await GoogleSignIn().signOut();
+      await Supabase.instance.client.auth.signOut();
       return null;
     });
   }

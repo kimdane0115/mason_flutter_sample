@@ -123,7 +123,13 @@ class _MyInfoPageState extends ConsumerState<MyInfoPage> {
                             ref
                                 .read(signAsyncNotifierProvider.notifier)
                                 .deleteProfile(Supabase.instance.client.auth.currentUser?.id ?? '');
-                            ref.watch(supaBaseAuthAsyncNotifierProvider.notifier).signOut();
+                            // await ref.watch(supaBaseAuthAsyncNotifierProvider.notifier).signOut();
+                            await ref
+                                .watch(supaBaseAuthAsyncNotifierProvider.notifier)
+                                .deleteUser(Supabase.instance.client.auth.currentUser?.id ?? '');
+                            // ref
+                            //     .watch(supaBaseAuthAsyncNotifierProvider.notifier)
+                            //     .deleteUser(Supabase.instance.client.auth.currentUser?.id ?? '');
                             // if (mounted) {
                             //   const LoginPageRoute().go(context);
                             // }

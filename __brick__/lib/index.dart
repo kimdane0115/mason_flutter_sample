@@ -11,3 +11,5 @@ export 'config/routers/routers.dart';
 export 'config/theme/themes.dart';
 
 export 'feature/1.sign/sign.dart';
+
+export 'flavors.dart';

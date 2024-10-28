@@ -33,7 +33,6 @@ class _LoginPageState extends ConsumerState<LoginPage> {
             if (value == null) return;
 
             if (value.accessToken!.isEmpty) {
-              print('signup screen page move!!!');
               const SignUpAgreementScreenRoute().push(context).then((value) {
                 if (value == true) {
                   _signUp();
@@ -50,8 +49,6 @@ class _LoginPageState extends ConsumerState<LoginPage> {
             if (mounted) {
               context.pop(loading);
             }
-
-            print('>>>>>> value : $value');
           },
           error: (error, stackTrace) {
             if (context.mounted) {
@@ -82,7 +79,6 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                 ElevatedButton(
                   onPressed: () {
                     _googleSignIn();
-                    // const SignUpAgreementScreenRoute().push(context);
                   },
                   child: const Text('GOGGLE 로그인'),
                 ),
@@ -94,18 +90,11 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                   child: const Text('카카오 로그인'),
                 ),
                 const SizedBox(height: 8,),
-                ElevatedButton(
-                  onPressed: () {
-                    const SignUpScreenRoute().push(context);
-                  },
-                  child: const Text('회원가입'),
-                ),
                 // ElevatedButton(
                 //   onPressed: () {
-                //     // googlelogin();
-                //     _googleSignIn(context, ref);
+                //     const SignUpScreenRoute().push(context);
                 //   },
-                //   child: const Text('Login Button'),
+                //   child: const Text('회원가입'),
                 // ),
               ],
             ),

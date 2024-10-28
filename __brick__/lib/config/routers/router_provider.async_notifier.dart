@@ -1,3 +1,4 @@
+import 'package:google_sign_in/google_sign_in.dart';
 import '../../index.dart';
 
 final GlobalKey<NavigatorState> rootNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'root');
@@ -44,7 +45,10 @@ final routerProvider = Provider<GoRouter>(
         }
 
         final authState = ref.watch(authStreamProvider);
+
         bool loggedIn = authState.value?.session?.user != null;
+
+        print('>>>>> authState.value?.session?.user : ${authState.value?.session?.user.id}');
 
         if (authState.value?.session?.isExpired ?? false) {
           AuthResponse result = await Supabase.instance.client.auth.refreshSession();
@@ -52,6 +56,11 @@ final routerProvider = Provider<GoRouter>(
         }
 
         if (loggedIn) {
+          if(!(await checkUser(authState.value?.session?.user.id ?? ''))) {
+            await GoogleSignIn().signOut();
+            await Supabase.instance.client.auth.signOut();
+            return null;
+          }
           return const HomeScreenRoute().location;
         }
         // final auth = ref.read(authAsyncNotifierProvider);
@@ -67,3 +76,13 @@ final routerProvider = Provider<GoRouter>(
   },
   name: 'routerProvider',
 );
+
+Future<bool> checkUser(String userId) async {
+  try {
+    final response = await Supabase.instance.client
+        .rpc('check_user', params: {'user_id': userId});
+    return response as bool;
+  } catch (e) {
+    throw Exception('사용자 확인 중 오류가 발생했습니다: $e');
+  }
+}
