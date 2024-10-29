@@ -8,15 +8,21 @@ part 'sign_async_notifier.g.dart';
 class SignAsyncNotifier extends _$SignAsyncNotifier {
   @override
   FutureOr<Profile?> build() async {
-    return null;
+    return Supabase.instance.client.auth.currentUser?.id != null
+        ? fetchProfile(Supabase.instance.client.auth.currentUser?.id ?? '')
+        : null;
   }
 
-  // Future<Profile> fetchProfile(String email, String idToken) async {
-  //   // final getMembers = ref.read(getMembersProvider);
-  //   return ref.read(userVerifyProvider)(email, idToken);
-  // }
+  FutureOr<Profile?> fetchProfile(String uuid) async {
+    state = const AsyncValue.loading();
+    state = await AsyncValue.guard(() async {
+      final getProfile = ref.read(getProfileProvider);
+      return getProfile(uuid);
+    });
+    return state.value;
+  }
 
-  Future<void> addProfie(Map<String, dynamic> request) async {
+  Future<void> addProfile(Map<String, dynamic> request) async {
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(() async {
       final addProfile = ref.read(addProfileProvider);

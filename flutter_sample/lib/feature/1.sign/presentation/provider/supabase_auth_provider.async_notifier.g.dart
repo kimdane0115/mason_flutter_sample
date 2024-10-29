@@ -7,7 +7,7 @@ part of 'supabase_auth_provider.async_notifier.dart';
 // **************************************************************************
 
 String _$supaBaseAuthAsyncNotifierHash() =>
-    r'ddbd5f805ef0232b09244b745b591f773959f979';
+    r'9198c4f20a80f32ac512878de1711171daa9fb21';
 
 /// See also [SupaBaseAuthAsyncNotifier].
 @ProviderFor(SupaBaseAuthAsyncNotifier)

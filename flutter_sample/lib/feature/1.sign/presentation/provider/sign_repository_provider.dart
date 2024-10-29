@@ -33,3 +33,9 @@ DeleteProfile deleteProfile(DeleteProfileRef ref) {
   final repository = ref.read(signRepositoryProvider);
   return DeleteProfile(repository);
 }
+
+@riverpod
+GetProfile getProfile(GetProfileRef ref) {
+  final repository = ref.read(signRepositoryProvider);
+  return GetProfile(repository);
+}

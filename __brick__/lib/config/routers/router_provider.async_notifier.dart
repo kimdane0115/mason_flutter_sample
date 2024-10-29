@@ -48,19 +48,12 @@ final routerProvider = Provider<GoRouter>(
 
         bool loggedIn = authState.value?.session?.user != null;
 
-        print('>>>>> authState.value?.session?.user : ${authState.value?.session?.user.id}');
-
         if (authState.value?.session?.isExpired ?? false) {
           AuthResponse result = await Supabase.instance.client.auth.refreshSession();
           result.session?.user != null ? loggedIn = true : loggedIn = false;
         }
 
         if (loggedIn) {
-          if(!(await checkUser(authState.value?.session?.user.id ?? ''))) {
-            await GoogleSignIn().signOut();
-            await Supabase.instance.client.auth.signOut();
-            return null;
-          }
           return const HomeScreenRoute().location;
         }
         // final auth = ref.read(authAsyncNotifierProvider);

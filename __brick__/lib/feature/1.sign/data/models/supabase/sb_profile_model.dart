@@ -14,6 +14,7 @@ class SbProfileModel with _$SbProfileModel {
     required String accessToken,
     required String idToken,
     required String fcmToken,
+    required String status,
     required DateTime createdAt,
   }) = _SbProfileModel;
 

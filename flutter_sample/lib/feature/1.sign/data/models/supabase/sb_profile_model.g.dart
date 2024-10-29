@@ -15,6 +15,7 @@ _$SbProfileModelImpl _$$SbProfileModelImplFromJson(Map<String, dynamic> json) =>
       accessToken: json['accessToken'] as String,
       idToken: json['idToken'] as String,
       fcmToken: json['fcmToken'] as String,
+      status: json['status'] as String,
       createdAt: DateTime.parse(json['createdAt'] as String),
     );
 
@@ -28,5 +29,6 @@ Map<String, dynamic> _$$SbProfileModelImplToJson(
       'accessToken': instance.accessToken,
       'idToken': instance.idToken,
       'fcmToken': instance.fcmToken,
+      'status': instance.status,
       'createdAt': instance.createdAt.toIso8601String(),
     };

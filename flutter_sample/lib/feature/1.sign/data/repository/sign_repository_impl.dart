@@ -50,4 +50,20 @@ class SignRepositoryImpl extends SignRepository {
   Future<void> deleteProfile(String uuid) async {
     final res = await _supabaseSignApiService.deleteProfile(uuid);
   }
+  
+  @override
+  Future<Profile> getProfile(String uuid) async {
+    final res = await _supabaseSignApiService.getProfile(uuid);
+    return Profile(
+      id: res?.id ?? 0,
+      email: res?.email ?? '',
+      name: res?.name ?? '',
+      profileImageUrl: res?.profileImageUrl ?? '',
+      fcmToken: res?.fcmToken ?? '',
+      accessToken: res?.accessToken ?? '',
+      idToken: res?.idToken ?? '',
+      status: res?.status ?? '',
+      createdAt: res?.createdAt ?? DateTime.now(),
+    );
+  }
 }

@@ -11,6 +11,7 @@ class Profile {
   final String fcmToken;
   final String? accessToken;
   final String? idToken;
+  final String? status;
   final DateTime? createdAt;
   Profile({
     this.id,
@@ -20,6 +21,7 @@ class Profile {
     required this.fcmToken,
     this.accessToken,
     this.idToken,
+    this.status,
     this.createdAt,
   });
 
@@ -35,6 +37,7 @@ class Profile {
     String? fcmToken,
     String? accessToken,
     String? idToken,
+    String? status,
     DateTime? createdAt,
   }) {
     return Profile(
@@ -45,6 +48,7 @@ class Profile {
       fcmToken: fcmToken ?? this.fcmToken,
       accessToken: accessToken ?? this.accessToken,
       idToken: idToken ?? this.idToken,
+      status: status ?? this.status,
       createdAt: createdAt ?? this.createdAt,
     );
   }

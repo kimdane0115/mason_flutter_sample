@@ -82,5 +82,19 @@ final deleteProfileProvider = AutoDisposeProvider<DeleteProfile>.internal(
 );
 
 typedef DeleteProfileRef = AutoDisposeProviderRef<DeleteProfile>;
+String _$getProfileHash() => r'0eac40fd2366b0793deae265e8b340de799d61ea';
+
+/// See also [getProfile].
+@ProviderFor(getProfile)
+final getProfileProvider = AutoDisposeProvider<GetProfile>.internal(
+  getProfile,
+  name: r'getProfileProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$getProfileHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef GetProfileRef = AutoDisposeProviderRef<GetProfile>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

@@ -79,10 +79,11 @@ class SupaBaseAuthAsyncNotifier extends _$SupaBaseAuthAsyncNotifier {
         'profileImageUrl': '',
         'idToken': idToken,
         'accessToken': accessToken,
+        'status': 'active',
         // 'createdAt': DateTime.now().toIso8601String(),
       };
       
-      ref.read(signAsyncNotifierProvider.notifier).addProfie(request);
+      ref.read(signAsyncNotifierProvider.notifier).addProfile(request);
 
       return null;
     });

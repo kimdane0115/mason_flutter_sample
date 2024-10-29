@@ -14,6 +14,7 @@ Profile _$ProfileFromJson(Map<String, dynamic> json) => Profile(
       fcmToken: json['fcmToken'] as String,
       accessToken: json['accessToken'] as String?,
       idToken: json['idToken'] as String?,
+      status: json['status'] as String?,
       createdAt: json['createdAt'] == null
           ? null
           : DateTime.parse(json['createdAt'] as String),
@@ -27,5 +28,6 @@ Map<String, dynamic> _$ProfileToJson(Profile instance) => <String, dynamic>{
       'fcmToken': instance.fcmToken,
       'accessToken': instance.accessToken,
       'idToken': instance.idToken,
+      'status': instance.status,
       'createdAt': instance.createdAt?.toIso8601String(),
     };

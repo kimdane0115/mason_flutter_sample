@@ -16,6 +16,36 @@ class HomeScreen extends ConsumerStatefulWidget {
 class _HomeScreenState extends ConsumerState<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    
+    ref.listen(signAsyncNotifierProvider, (previous, next) {
+      if (previous != null && previous.hasValue) {
+        return;
+      }
+      if (next.hasValue) {
+        if (next.isLoading == false && next.value?.status == 'drop') {
+          showDialog(
+            context: context,
+            barrierDismissible: false,
+            builder: (context) => PopScope(
+              canPop: false,
+              child: AlertDialog(
+                title: const Text('알림'),
+                content: const Text('탈퇴된 계정입니다.\n로그인 페이지로 이동합니다.'),
+                actions: [
+                  TextButton(
+                    onPressed: () {
+                      ref.read(supaBaseAuthAsyncNotifierProvider.notifier).signOut();
+                    },
+                    child: const Text('확인'),
+                  ),
+                ],
+              ),
+            ),
+          );
+        }
+      }
+    });
+    
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
