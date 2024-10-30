@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
+// import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
 
 import '../../../../index.dart';
 
@@ -122,18 +122,13 @@ class _LoginPageState extends ConsumerState<LoginPage> {
 
     await Supabase.instance.client.auth.signInWithOAuth(
       OAuthProvider.kakao,
-      redirectTo: "fluttertemplate.co.kr://oauth",
-      // redirectTo: "io.supabase.flutterquickstart://login-callback",
-      // redirectTo: "flutter_template.co.kr://login-callback",
-      // redirectTo: "com.example.flutter_sample.dev://oauth",
-      // redirectTo: 'myteam.co.kr://login-callback',
-      // authScreenLaunchMode: LaunchMode.externalApplication,
-      // authScreenLaunchMode: LaunchMode.platformDefault,
+      redirectTo: "fluttersample.co.kr://oauth",
+      authScreenLaunchMode: LaunchMode.externalApplication,
     );
 
-      Supabase.instance.client.auth.onAuthStateChange.listen((data) { 
-        print('>>> ${data.event}');
-      });
+      // Supabase.instance.client.auth.onAuthStateChange.listen((data) { 
+      //   print('>>> ${data.event}');
+      // });
 
         // await  Supabase.instance.client.auth.signInWithOAuth(OAuthProvider.kakao);
 
