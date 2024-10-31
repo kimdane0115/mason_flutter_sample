@@ -90,11 +90,33 @@ class SupaBaseAuthAsyncNotifier extends _$SupaBaseAuthAsyncNotifier {
   }
 
   Future<void> signInWithKakao() async {
-    await Supabase.instance.client.auth.signInWithOAuth(
+    state = const AsyncValue.loading();
+    state = await AsyncValue.guard(() async {
+      await Supabase.instance.client.auth.signInWithOAuth(
       OAuthProvider.kakao,
       redirectTo: "fluttersample.co.kr://oauth",
-      authScreenLaunchMode: LaunchMode.externalApplication,
-    );
+        authScreenLaunchMode: LaunchMode.externalApplication,
+      );
+
+      Supabase.instance.client.auth.onAuthStateChange.listen((data) {
+        final AuthChangeEvent event = data.event;
+        if (event == AuthChangeEvent.signedIn) {
+          final request = {
+            'uuid': data.session?.user.id,
+            'email': data.session?.user.userMetadata!['email'],
+            'name': data.session?.user.userMetadata!['name'],
+            'fcmToken': '',
+            'profileImageUrl': '',
+            'idToken': data.session?.providerToken,
+            'accessToken': data.session?.accessToken,
+            'status': 'active',
+          };
+          // print('>>> data : ${data.session}');
+          ref.read(signAsyncNotifierProvider.notifier).addProfile(request);
+        }
+      });
+      return null;
+    });
   }
 
   Future<void> signOut() async {
