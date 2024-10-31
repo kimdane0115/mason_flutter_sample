@@ -82,14 +82,18 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                   },
                   child: const Text('GOGGLE 로그인'),
                 ),
-                const SizedBox(height: 8,),
+                const SizedBox(
+                  height: 8,
+                ),
                 ElevatedButton(
                   onPressed: () {
                     _kakaoSignIn();
                   },
                   child: const Text('카카오 로그인'),
                 ),
-                const SizedBox(height: 8,),
+                const SizedBox(
+                  height: 8,
+                ),
                 // ElevatedButton(
                 //   onPressed: () {
                 //     const SignUpScreenRoute().push(context);
@@ -100,7 +104,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
             ),
           );
         },
-        orElse:() {
+        orElse: () {
           return const SizedBox.shrink();
         },
       ),
@@ -113,38 +117,24 @@ class _LoginPageState extends ConsumerState<LoginPage> {
   }
 
   Future<void> _kakaoSignIn() async {
-      // var hash = await KakaoSdk.origin;
-      // if (hash.isNotEmpty) {
-      //   print('>>>> has key is exist');
-      // } else {
-      //   print('>>>> has key is not exist');
-      // }
+    await ref.read(supaBaseAuthAsyncNotifierProvider.notifier).signInWithKakao();
 
-    await Supabase.instance.client.auth.signInWithOAuth(
-      OAuthProvider.kakao,
-      redirectTo: "fluttersample.co.kr://oauth",
-      authScreenLaunchMode: LaunchMode.externalApplication,
-    );
+    // Supabase.instance.client.auth.onAuthStateChange.listen((data) {
+    //   print('>>> ${data.event}');
+    // });
 
-      // Supabase.instance.client.auth.onAuthStateChange.listen((data) { 
-      //   print('>>> ${data.event}');
-      // });
+    // await  Supabase.instance.client.auth.signInWithOAuth(OAuthProvider.kakao);
 
-        // await  Supabase.instance.client.auth.signInWithOAuth(OAuthProvider.kakao);
-
-        //           // Listen to auth state changes in order to detect when ther OAuth login is complete.
-        //            Supabase.instance.client.auth.onAuthStateChange.listen((data) {
-        //             final AuthChangeEvent event = data.event;
-        //             if (event == AuthChangeEvent.signedIn) {
-        //               debugPrint('데이터 : $data');
-        //               debugPrint('세션 : ${data.session}');
-        //               final snackBarText = SnackBar(
-        //                   content: Text(
-        //                       '${data.session?.user.userMetadata!['email']}님 반갑습니다'));
-        //               ScaffoldMessenger.of(context).showSnackBar(snackBarText);
-        //             }
-        //           });
-
+    //           // Listen to auth state changes in order to detect when ther OAuth login is complete.
+    // Supabase.instance.client.auth.onAuthStateChange.listen((data) {
+    //   final AuthChangeEvent event = data.event;
+    //   if (event == AuthChangeEvent.signedIn) {
+    //     debugPrint('데이터 : $data');
+    //     debugPrint('세션 : ${data.session}');
+    //     final snackBarText = SnackBar(content: Text('${data.session?.user.userMetadata!['email']}님 반갑습니다'));
+    //     ScaffoldMessenger.of(context).showSnackBar(snackBarText);
+    //   }
+    // });
   }
 
   Future<void> _signUp() async {
