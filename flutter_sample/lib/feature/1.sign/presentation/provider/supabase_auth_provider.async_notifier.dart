@@ -89,6 +89,14 @@ class SupaBaseAuthAsyncNotifier extends _$SupaBaseAuthAsyncNotifier {
     });
   }
 
+  Future<void> signInWithKakao() async {
+    await Supabase.instance.client.auth.signInWithOAuth(
+      OAuthProvider.kakao,
+      redirectTo: "fluttersample.co.kr://oauth",
+      authScreenLaunchMode: LaunchMode.externalApplication,
+    );
+  }
+
   Future<void> signOut() async {
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(() async {
