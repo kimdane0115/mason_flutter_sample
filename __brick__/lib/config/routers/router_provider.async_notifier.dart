@@ -14,7 +14,7 @@ final routerProvider = Provider<GoRouter>(
         }
         final context = rootNavigatorKey.currentContext;
         if (context != null) {
-          GoRouter.maybeOf(context)?.refresh();
+          // GoRouter.maybeOf(context)?.refresh();
         }
       },
     );
