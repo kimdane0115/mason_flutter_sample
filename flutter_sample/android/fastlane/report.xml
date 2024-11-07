@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="fastlane.lanes">
+    
+    
+    
+      
+      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.00086">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="1: Switch to android flutter_build_android lane" time="0.000413">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="2: flutter clean" time="16.226812">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="3: cd .." time="0.014889">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="4: flutter build apk --debug --flavor prod -t lib/main_prod.dart" time="23.096145">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="5: get_properties_value" time="0.000439">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="6: get_properties_value" time="0.000142">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="7: firebase_app_distribution" time="37.142195">
+        
+      </testcase>
+    
+  </testsuite>
+</testsuites>
