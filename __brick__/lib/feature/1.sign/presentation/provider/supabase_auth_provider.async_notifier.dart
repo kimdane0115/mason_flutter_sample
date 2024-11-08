@@ -80,6 +80,7 @@ class SupaBaseAuthAsyncNotifier extends _$SupaBaseAuthAsyncNotifier {
         'idToken': idToken,
         'accessToken': accessToken,
         'status': 'active',
+        'socialType': SocialType.google.name,
         // 'createdAt': DateTime.now().toIso8601String(),
       };
       
@@ -110,6 +111,7 @@ class SupaBaseAuthAsyncNotifier extends _$SupaBaseAuthAsyncNotifier {
             'idToken': data.session?.providerToken,
             'accessToken': data.session?.accessToken,
             'status': 'active',
+            'socialType': SocialType.kakao.name,
           };
           // print('>>> data : ${data.session}');
           ref.read(signAsyncNotifierProvider.notifier).addProfile(request);
