@@ -1,11 +1,9 @@
 import 'dart:async';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 
 import 'app.dart';
 import 'index.dart';
-import 'flavors.dart';
 
 FutureOr<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

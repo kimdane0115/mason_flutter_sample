@@ -21,14 +21,15 @@ class F {
   //       return 'title';
   //   }
   // }
+
   static String get title {
     switch (appFlavor) {
       case Flavor.dev:
-        return '플러터샘플(dev)';
+        return '플러터모바일샘플(dev)';
       case Flavor.staging:
-        return '플러터샘플(staging)';
+        return '플러터모바일샘플(staging)';
       case Flavor.prod:
-        return '플러터샘플';
+        return '플러터모바일샘플';
       default:
         return 'title';
     }
@@ -37,26 +38,26 @@ class F {
   static String get iosClientId {
     switch (appFlavor) {
       case Flavor.dev:
-        return '179101698842-s9k7mn7rjoteh3saqhiu2an5jilg3om5.apps.googleusercontent.com';
+        return '1086274562041-0p112sd6pdse7c19404q1kv15r4huo1a.apps.googleusercontent.com';
       case Flavor.staging:
-        return '179101698842-s9k7mn7rjoteh3saqhiu2an5jilg3om5.apps.googleusercontent.com';
+        return '1086274562041-0p112sd6pdse7c19404q1kv15r4huo1a.apps.googleusercontent.com';
       case Flavor.prod:
-        return '179101698842-s9k7mn7rjoteh3saqhiu2an5jilg3om5.apps.googleusercontent.com';
+        return '1086274562041-0p112sd6pdse7c19404q1kv15r4huo1a.apps.googleusercontent.com';
       default:
-        return '179101698842-s9k7mn7rjoteh3saqhiu2an5jilg3om5.apps.googleusercontent.com';
+        return '1086274562041-0p112sd6pdse7c19404q1kv15r4huo1a.apps.googleusercontent.com';
     }
   }
 
   static String get webServerClientId {
     switch (appFlavor) {
       case Flavor.dev:
-        return '179101698842-96paod6qq0lddjqmq5a8jt7ig8iuada7.apps.googleusercontent.com';
+        return '1086274562041-ehdeiuiovc7ap80eoukvmq3va1hkc2oa.apps.googleusercontent.com';
       case Flavor.staging:
-        return '179101698842-96paod6qq0lddjqmq5a8jt7ig8iuada7.apps.googleusercontent.com';
+        return '1086274562041-ehdeiuiovc7ap80eoukvmq3va1hkc2oa.apps.googleusercontent.com';
       case Flavor.prod:
-        return '179101698842-96paod6qq0lddjqmq5a8jt7ig8iuada7.apps.googleusercontent.com';
+        return '1086274562041-ehdeiuiovc7ap80eoukvmq3va1hkc2oa.apps.googleusercontent.com';
       default:
-        return '179101698842-96paod6qq0lddjqmq5a8jt7ig8iuada7.apps.googleusercontent.com';
+        return '1086274562041-ehdeiuiovc7ap80eoukvmq3va1hkc2oa.apps.googleusercontent.com';
     }
   }
 
