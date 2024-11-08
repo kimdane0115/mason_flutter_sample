@@ -1,6 +1,5 @@
 import 'config/routers/router_provider.async_notifier.dart';
 import 'index.dart';
-import 'flavors.dart';
 
 class App extends ConsumerWidget {
   const App({Key? key}) : super(key: key);

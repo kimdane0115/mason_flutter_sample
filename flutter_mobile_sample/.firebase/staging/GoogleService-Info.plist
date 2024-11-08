@@ -3,23 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>881065404338-6fvphbb1352hlfegibla789f9m555kuo.apps.googleusercontent.com</string>
+	<string>1086274562041-0p112sd6pdse7c19404q1kv15r4huo1a.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.881065404338-6fvphbb1352hlfegibla789f9m555kuo</string>
+	<string>com.googleusercontent.apps.1086274562041-0p112sd6pdse7c19404q1kv15r4huo1a</string>
 	<key>ANDROID_CLIENT_ID</key>
-	<string>881065404338-hutov2mu437rdeip6l8gik624kjjsfdh.apps.googleusercontent.com</string>
+	<string>1086274562041-5k3m7mcjk22m7o8q8r15f61a7qmlq700.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDhDUOZeNHoo6SxSLQ8Nu9DunLyNrKDRXE</string>
+	<string>AIzaSyCCsVLytG9pXNo0uToP64mSqzDot8MHMeM</string>
 	<key>GCM_SENDER_ID</key>
-	<string>881065404338</string>
+	<string>1086274562041</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.example.flutterSample.staging</string>
+	<string>com.kimdane.flutterMobileSample</string>
 	<key>PROJECT_ID</key>
-	<string>flutter-template-1cf39</string>
+	<string>flutter-mobile-sample-9c35b</string>
 	<key>STORAGE_BUCKET</key>
-	<string>flutter-template-1cf39.appspot.com</string>
+	<string>flutter-mobile-sample-9c35b.firebasestorage.app</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -31,6 +31,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:881065404338:ios:b81a7d2c6243c3e1f1a6ab</string>
+	<string>1:1086274562041:ios:e2871eaa26a7429133bf28</string>
 </dict>
 </plist>
