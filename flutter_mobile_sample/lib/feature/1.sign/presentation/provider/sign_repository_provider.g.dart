@@ -22,6 +22,8 @@ final supabaseSignApiServiceProvider =
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef SupabaseSignApiServiceRef
     = AutoDisposeProviderRef<SupabaseSignApiService>;
 String _$signRepositoryHash() => r'd1ed961768798085f7155d70b01f2bd77365daa0';
@@ -38,6 +40,8 @@ final signRepositoryProvider = Provider<SignRepository>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef SignRepositoryRef = ProviderRef<SignRepository>;
 String _$userVerifyHash() => r'455fa4422e7dcc2eea8f445533dd4dfe0fa58f01';
 
@@ -52,6 +56,8 @@ final userVerifyProvider = AutoDisposeProvider<UserVerify>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef UserVerifyRef = AutoDisposeProviderRef<UserVerify>;
 String _$addProfileHash() => r'56b06ea30cc8b741340877c8e917808f3dc8213f';
 
@@ -66,6 +72,8 @@ final addProfileProvider = AutoDisposeProvider<AddProfile>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef AddProfileRef = AutoDisposeProviderRef<AddProfile>;
 String _$deleteProfileHash() => r'3946f18190df69a0b584115819baf803f683eee1';
 
@@ -81,6 +89,8 @@ final deleteProfileProvider = AutoDisposeProvider<DeleteProfile>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef DeleteProfileRef = AutoDisposeProviderRef<DeleteProfile>;
 String _$getProfileHash() => r'0eac40fd2366b0793deae265e8b340de799d61ea';
 
@@ -95,6 +105,8 @@ final getProfileProvider = AutoDisposeProvider<GetProfile>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef GetProfileRef = AutoDisposeProviderRef<GetProfile>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

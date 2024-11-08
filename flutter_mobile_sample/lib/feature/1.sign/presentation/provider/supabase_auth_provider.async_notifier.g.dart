@@ -7,7 +7,7 @@ part of 'supabase_auth_provider.async_notifier.dart';
 // **************************************************************************
 
 String _$supaBaseAuthAsyncNotifierHash() =>
-    r'd95b9a1b71900a439465afb7b1ad8fcd8739d2d9';
+    r'1d7f13935b4188968af7f6f339d8434157cd724c';
 
 /// See also [SupaBaseAuthAsyncNotifier].
 @ProviderFor(SupaBaseAuthAsyncNotifier)
@@ -24,4 +24,4 @@ final supaBaseAuthAsyncNotifierProvider =
 
 typedef _$SupaBaseAuthAsyncNotifier = AsyncNotifier<bool?>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
