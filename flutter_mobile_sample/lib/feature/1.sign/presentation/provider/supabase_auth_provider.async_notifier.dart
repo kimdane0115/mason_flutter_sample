@@ -114,7 +114,7 @@ class SupaBaseAuthAsyncNotifier extends _$SupaBaseAuthAsyncNotifier {
             'socialType': SocialType.kakao.name,
           };
           // print('>>> data : ${data.session}');
-          ref.read(signAsyncNotifierProvider.notifier).addProfile(request);
+          // ref.read(signAsyncNotifierProvider.notifier).addProfile(request);
         }
       });
       return null;
