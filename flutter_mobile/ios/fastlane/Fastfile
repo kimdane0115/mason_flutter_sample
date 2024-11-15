@@ -1,0 +1,73 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  desc "Push a new beta build to TestFlight"
+  lane :beta do
+    begin
+      # Send slack message
+      # before_send_slack_message(msg: "💫 IOS TestFlight 배포를 시작합니다.")
+
+      ## cocoapods 설치
+      cocoapods(clean_install: true, use_bundle_exec: false)
+      
+      # Flutter build iOS
+      flutter_build_ios
+
+      # firebase distribute
+      firebase_app_distribution(
+        app: "1:753175679683:ios:8ed4dde72ce557e476c876",
+        ipa_path: "../build/ios/ipa/플러터모바일.ipa",
+        groups: "ios"
+      )
+
+      # Send slack message
+      # after_send_slack_message(msg: "🚀 Successfully distributed a new beta build ✨")
+    ensure #finally
+      # 앱 아이콘 이미지 초기화
+      # icon_initialize
+    end
+  end
+
+  desc "Push a new release build to the App Store"
+  lane :release do
+    increment_build_number(xcodeproj: "Runner.xcodeproj")
+    build_app(workspace: "Runner.xcworkspace", scheme: "Runner")
+    upload_to_app_store(skip_metadata: true, skip_screenshots: true)
+  end
+
+  # Flutter build iOS
+  desc "Flutter build iOS"
+  lane :flutter_build_ios do
+    # sh("pod", "repo", "update")
+    # sh("flutter", "clean")
+    puts "Flutter build iOS"
+    if ENV["ENV"] == "dev"
+      sh("flutter", "build", "ipa", "--flavor", ENV['ENV'] , "-t", ENV['MAIN_TARGET'], "--export-method", "ad-hoc")
+    end
+
+    if ENV["ENV"] == "staging"
+      sh("flutter", "build", "ipa", "--flavor", ENV['ENV'] , "-t", ENV['MAIN_TARGET'], "--export-method", "ad-hoc")
+    end
+    
+    if ENV["ENV"] == "prod"
+      # sh("flutter", "build", "ios", "--flavor", ENV['ENV'] , "-t", ENV['MAIN_TARGET'],"--no-codesign")
+      sh("flutter", "build", "ipa", "--flavor", ENV['ENV'] , "-t", ENV['MAIN_TARGET'], "--export-method", "ad-hoc")
+    end
+
+  end
+end
