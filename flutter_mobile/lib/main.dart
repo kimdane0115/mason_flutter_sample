@@ -15,8 +15,8 @@ FutureOr<void> main() async {
   );
 
   KakaoSdk.init(
-    nativeAppKey: '8c84ca03ae37cae84e54f8701e72a736',
-    javaScriptAppKey: '9b033a06176fed225a504a4856d92bb2',
+    nativeAppKey: '590c17080799106b8f5e245e02df17a4',
+    javaScriptAppKey: '12a62e944d4fd8681eff650d2d07ff0f',
   );
   runApp(const ProviderScope(child: App()));
 }

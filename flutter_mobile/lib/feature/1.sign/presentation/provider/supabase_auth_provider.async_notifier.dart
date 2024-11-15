@@ -94,8 +94,8 @@ class SupaBaseAuthAsyncNotifier extends _$SupaBaseAuthAsyncNotifier {
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(() async {
       await Supabase.instance.client.auth.signInWithOAuth(
-      OAuthProvider.kakao,
-      redirectTo: "fluttersample.co.kr://oauth",
+        OAuthProvider.kakao,
+        redirectTo: "fluttersample.co.kr://oauth",
         authScreenLaunchMode: LaunchMode.externalApplication,
       );
 
