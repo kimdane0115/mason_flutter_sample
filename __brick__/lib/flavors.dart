@@ -25,11 +25,11 @@ class F {
   static String get title {
     switch (appFlavor) {
       case Flavor.dev:
-        return '플러터모바일샘플(dev)';
+        return '플러터모바일(dev)';
       case Flavor.staging:
-        return '플러터모바일샘플(staging)';
+        return '플러터모바일(staging)';
       case Flavor.prod:
-        return '플러터모바일샘플';
+        return '플러터모바일';
       default:
         return 'title';
     }
@@ -38,26 +38,26 @@ class F {
   static String get iosClientId {
     switch (appFlavor) {
       case Flavor.dev:
-        return '1086274562041-0p112sd6pdse7c19404q1kv15r4huo1a.apps.googleusercontent.com';
+        return '753175679683-v555dtqrpdui9mfh943ie7v92ats9c1k.apps.googleusercontent.com';
       case Flavor.staging:
-        return '1086274562041-0p112sd6pdse7c19404q1kv15r4huo1a.apps.googleusercontent.com';
+        return '753175679683-v555dtqrpdui9mfh943ie7v92ats9c1k.apps.googleusercontent.com';
       case Flavor.prod:
-        return '1086274562041-0p112sd6pdse7c19404q1kv15r4huo1a.apps.googleusercontent.com';
+        return '753175679683-v555dtqrpdui9mfh943ie7v92ats9c1k.apps.googleusercontent.com';
       default:
-        return '1086274562041-0p112sd6pdse7c19404q1kv15r4huo1a.apps.googleusercontent.com';
+        return '753175679683-v555dtqrpdui9mfh943ie7v92ats9c1k.apps.googleusercontent.com';
     }
   }
 
   static String get webServerClientId {
     switch (appFlavor) {
       case Flavor.dev:
-        return '1086274562041-ehdeiuiovc7ap80eoukvmq3va1hkc2oa.apps.googleusercontent.com';
+        return '753175679683-6svf5t8tnnbh5793akrir07nhqnhoh9l.apps.googleusercontent.com';
       case Flavor.staging:
-        return '1086274562041-ehdeiuiovc7ap80eoukvmq3va1hkc2oa.apps.googleusercontent.com';
+        return '753175679683-6svf5t8tnnbh5793akrir07nhqnhoh9l.apps.googleusercontent.com';
       case Flavor.prod:
-        return '1086274562041-ehdeiuiovc7ap80eoukvmq3va1hkc2oa.apps.googleusercontent.com';
+        return '753175679683-6svf5t8tnnbh5793akrir07nhqnhoh9l.apps.googleusercontent.com';
       default:
-        return '1086274562041-ehdeiuiovc7ap80eoukvmq3va1hkc2oa.apps.googleusercontent.com';
+        return '753175679683-6svf5t8tnnbh5793akrir07nhqnhoh9l.apps.googleusercontent.com';
     }
   }
 

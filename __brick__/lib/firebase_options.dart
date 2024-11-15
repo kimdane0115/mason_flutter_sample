@@ -47,29 +47,29 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAGMEHxoOhc3inDb5bM4gabgYCbcr-8C74',
-    appId: '1:1086274562041:web:41bba807aa61180833bf28',
-    messagingSenderId: '1086274562041',
-    projectId: 'flutter-mobile-sample-9c35b',
-    authDomain: 'flutter-mobile-sample-9c35b.firebaseapp.com',
-    storageBucket: 'flutter-mobile-sample-9c35b.firebasestorage.app',
-    measurementId: 'G-713SLJRGRN',
+    apiKey: 'AIzaSyD9HRhL0qJOhncnHShQpBXu5lS_XDP1JM8',
+    appId: '1:753175679683:web:1bb32918a7fd833176c876',
+    messagingSenderId: '753175679683',
+    projectId: 'flutter-mobile-a063e',
+    authDomain: 'flutter-mobile-a063e.firebaseapp.com',
+    storageBucket: 'flutter-mobile-a063e.firebasestorage.app',
+    measurementId: 'G-9MNT8LWV9J',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBfPGcPy7dZVuk6umRZ9jARv6Wd4DM-Rk8',
-    appId: '1:1086274562041:android:f13cd35e0b3d907433bf28',
-    messagingSenderId: '1086274562041',
-    projectId: 'flutter-mobile-sample-9c35b',
-    storageBucket: 'flutter-mobile-sample-9c35b.firebasestorage.app',
+    apiKey: 'AIzaSyDbE2WVGBqf7xZqENBriL6yxb4JgOWKg2s',
+    appId: '1:753175679683:android:753e65d46178d08a76c876',
+    messagingSenderId: '753175679683',
+    projectId: 'flutter-mobile-a063e',
+    storageBucket: 'flutter-mobile-a063e.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCCsVLytG9pXNo0uToP64mSqzDot8MHMeM',
-    appId: '1:1086274562041:ios:e2871eaa26a7429133bf28',
-    messagingSenderId: '1086274562041',
-    projectId: 'flutter-mobile-sample-9c35b',
-    storageBucket: 'flutter-mobile-sample-9c35b.firebasestorage.app',
-    iosBundleId: 'com.kimdane.flutterMobileSample',
+    apiKey: 'AIzaSyAAU-5--dkrnpYdHwtmDqFW0EhhqFPjshg',
+    appId: '1:753175679683:ios:8ed4dde72ce557e476c876',
+    messagingSenderId: '753175679683',
+    projectId: 'flutter-mobile-a063e',
+    storageBucket: 'flutter-mobile-a063e.firebasestorage.app',
+    iosBundleId: 'com.kimdane.flutterMobile',
   );
 }

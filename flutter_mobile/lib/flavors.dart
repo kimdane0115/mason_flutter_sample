@@ -12,11 +12,11 @@ class F {
   // static String get title {
   //   switch (appFlavor) {
   //     case Flavor.dev:
-  //       return '플러터모바일(dev)';
+  //       return '{{appname}}(dev)';
   //     case Flavor.staging:
-  //       return '플러터모바일(staging)';
+  //       return '{{appname}}(staging)';
   //     case Flavor.prod:
-  //       return '플러터모바일';
+  //       return '{{appname}}';
   //     default:
   //       return 'title';
   //   }
@@ -25,11 +25,11 @@ class F {
   static String get title {
     switch (appFlavor) {
       case Flavor.dev:
-        return '플러터모바일샘플(dev)';
+        return '플러터모바일(dev)';
       case Flavor.staging:
-        return '플러터모바일샘플(staging)';
+        return '플러터모바일(staging)';
       case Flavor.prod:
-        return '플러터모바일샘플';
+        return '플러터모바일';
       default:
         return 'title';
     }
