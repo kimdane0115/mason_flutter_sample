@@ -1,6 +1,8 @@
 // import 'package:firebase_auth/firebase_auth.dart';
+import 'package:crypto/crypto.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 import '../../../../index.dart';
 
 part 'supabase_auth_provider.async_notifier.g.dart';
@@ -117,6 +119,53 @@ class SupaBaseAuthAsyncNotifier extends _$SupaBaseAuthAsyncNotifier {
           // ref.read(signAsyncNotifierProvider.notifier).addProfile(request);
         }
       });
+      return null;
+    });
+  }
+
+  Future<void> signInWithApple() async {
+    state = const AsyncValue.loading();
+    state = await AsyncValue.guard(() async {
+      final rawNonce = Supabase.instance.client.auth.generateRawNonce();
+      final hashedNonce = sha256.convert(utf8.encode(rawNonce)).toString();
+
+      try {
+        final credential = await SignInWithApple.getAppleIDCredential(
+          scopes: [
+            AppleIDAuthorizationScopes.email,
+            AppleIDAuthorizationScopes.fullName,
+          ],
+          nonce: hashedNonce,
+        );
+
+        final idToken = credential.identityToken;
+        if (idToken == null) {
+          return null;
+          // throw const AuthException(
+          //     'Could not find ID Token from generated credential.');
+        }
+        
+        await Supabase.instance.client.auth.signInWithIdToken(
+          provider: OAuthProvider.apple,
+          idToken: idToken,
+          nonce: rawNonce,
+        );
+        // 성공적으로 인증된 경우 처리
+      } catch (error) {
+        if (error is SignInWithAppleAuthorizationException) {
+          if (error.code == AuthorizationErrorCode.canceled) {
+            // 사용자가 인증을 취소한 경우
+            // Navigator.pop(context); // 이전 화면으로 이동
+            return null;
+          } else {
+            // 다른 오류 처리
+            print("Authorization error: ${error.code}");
+          }
+        } else {
+          // 예상하지 못한 에러 처리
+          print("Unknown error: $error");
+        }
+      }
       return null;
     });
   }
