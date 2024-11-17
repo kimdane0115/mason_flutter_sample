@@ -72,6 +72,7 @@
 		347C4D3F977469112C248610 /* Pods-RunnerTests.profile-dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunnerTests.profile-dev.xcconfig"; path = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests.profile-dev.xcconfig"; sourceTree = "<group>"; };
 		3A2D7A9424FA87FE508D5599 /* stagingLaunchScreen.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = stagingLaunchScreen.storyboard; path = Runner/stagingLaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AppFrameworkInfo.plist; path = Flutter/AppFrameworkInfo.plist; sourceTree = "<group>"; };
+		3B9DC0602CEA193500FDC5C1 /* Runner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Runner.entitlements; sourceTree = "<group>"; };
 		3DC1053099EF561D42092206 /* Pods-RunnerTests.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunnerTests.profile.xcconfig"; path = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests.profile.xcconfig"; sourceTree = "<group>"; };
 		41EF09486E99FD8165A0B1EE /* Pods-Runner.debug-prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.debug-prod.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.debug-prod.xcconfig"; sourceTree = "<group>"; };
 		4A92780585EF5CA46D4E1204 /* devProfile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = devProfile.xcconfig; path = Flutter/devProfile.xcconfig; sourceTree = "<group>"; };
@@ -159,7 +160,6 @@
 				119CFC66F6F70C382178467D /* Pods-RunnerTests.profile-prod.xcconfig */,
 				793FCE28E9530AFA0792D824 /* Pods-RunnerTests.release-prod.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -228,6 +228,7 @@
 		97C146F01CF9000F007C117D /* Runner */ = {
 			isa = PBXGroup;
 			children = (
+				3B9DC0602CEA193500FDC5C1 /* Runner.entitlements */,
 				97C146FA1CF9000F007C117D /* Main.storyboard */,
 				97C146FD1CF9000F007C117D /* Assets.xcassets */,
 				97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */,
@@ -666,6 +667,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 4S36SD982W;
 				ENABLE_BITCODE = NO;
@@ -806,6 +808,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F77D33889CA491E37E099A31 /* Pods-Runner.debug-dev.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
 				DEVELOPMENT_TEAM = 4S36SD982W;
 				PRODUCT_NAME = Runner;
 			};
@@ -815,6 +818,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9DC7E1F8621E8FC4EE9D41B2 /* Pods-Runner.profile-dev.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
 				DEVELOPMENT_TEAM = 4S36SD982W;
 				PRODUCT_NAME = Runner;
 			};
@@ -824,6 +828,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4AAFC3FBAB067DA6885A6E94 /* Pods-Runner.release-dev.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
 				DEVELOPMENT_TEAM = 4S36SD982W;
 				PRODUCT_NAME = Runner;
 			};
@@ -833,6 +838,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 63AAD02E8D478A6357D7268E /* Pods-Runner.debug-staging.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
 				DEVELOPMENT_TEAM = 4S36SD982W;
 				PRODUCT_NAME = Runner;
 			};
@@ -842,6 +848,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C89F3CF159EBF5B443456104 /* Pods-Runner.profile-staging.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
 				DEVELOPMENT_TEAM = 4S36SD982W;
 				PRODUCT_NAME = Runner;
 			};
@@ -851,6 +858,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 74043C1105D5C2131AA7D694 /* Pods-Runner.release-staging.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
 				DEVELOPMENT_TEAM = 4S36SD982W;
 				PRODUCT_NAME = Runner;
 			};
@@ -860,6 +868,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 41EF09486E99FD8165A0B1EE /* Pods-Runner.debug-prod.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
 				DEVELOPMENT_TEAM = 4S36SD982W;
 				PRODUCT_NAME = Runner;
 			};
@@ -869,6 +878,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7EA7A9C06B72EED881692414 /* Pods-Runner.profile-prod.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
 				DEVELOPMENT_TEAM = 4S36SD982W;
 				PRODUCT_NAME = Runner;
 			};
@@ -878,6 +888,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6F9FF9099A128D627A34B3C1 /* Pods-Runner.release-prod.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
 				DEVELOPMENT_TEAM = 4S36SD982W;
 				PRODUCT_NAME = Runner;
 			};
@@ -1366,6 +1377,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 4S36SD982W;
 				ENABLE_BITCODE = NO;
@@ -1389,6 +1401,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 4S36SD982W;
 				ENABLE_BITCODE = NO;

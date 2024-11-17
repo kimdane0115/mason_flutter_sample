@@ -94,6 +94,15 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                 const SizedBox(
                   height: 8,
                 ),
+                ElevatedButton(
+                  onPressed: () {
+                    _appleLogIn();
+                  },
+                  child: const Text('애플 로그인'),
+                ),
+                const SizedBox(
+                  height: 8,
+                ),
                 // ElevatedButton(
                 //   onPressed: () {
                 //     const SignUpScreenRoute().push(context);
@@ -135,6 +144,10 @@ class _LoginPageState extends ConsumerState<LoginPage> {
     //     ScaffoldMessenger.of(context).showSnackBar(snackBarText);
     //   }
     // });
+  }
+
+  Future<void> _appleLogIn() async {
+    await ref.read(supaBaseAuthAsyncNotifierProvider.notifier).signInWithApple();
   }
 
   Future<void> _signUp() async {
