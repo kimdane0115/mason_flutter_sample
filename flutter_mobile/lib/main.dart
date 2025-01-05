@@ -1,5 +1,7 @@
 import 'dart:async';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter_mobile/core/service/firebase_service.dart';
 import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
 
 import 'app.dart';
@@ -8,6 +10,10 @@ import 'index.dart';
 FutureOr<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+
+  String? fcmToken = await FirebaseMessaging.instance.getToken();
+  print('>>> fcmToken : $fcmToken');
+  await FirebaseService().initialize();
 
   await Supabase.initialize(
     url: F.supabaseUrl,
