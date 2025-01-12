@@ -2,7 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:table_calendar/table_calendar.dart';
+import 'package:url_launcher/url_launcher.dart';
 
+import '../../../../core/service/firebase_service.dart';
 import '../../../../index.dart';
 import '../provider/home_provider.dart';
 
@@ -14,6 +16,53 @@ class HomeScreen extends ConsumerStatefulWidget {
 }
 
 class _HomeScreenState extends ConsumerState<HomeScreen> {
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    // FirebaseMessaging.instance
+    //     .getInitialMessage()
+    //     .then((RemoteMessage? message) {
+    //   if (message != null) {
+    //     if (message.notification != null) {
+    //         print("test message!!!!!");
+    //       	print(message.notification!.title);
+    //         print(message.notification!.body);
+    //         print(message.notification!.android!.priority);
+    //         // print(message.data["click_action"]);
+    //     }
+    //   }
+    // });
+    // 앱이 꺼져있는 상태에서 알림 클릭 시
+      FirebaseMessaging.instance.getInitialMessage().then((message) async {
+        print('FCM Click(FirebaseMessaging.getInitialMessage)');
+        if (message != null) {
+          if (previousMessage?.messageId == message.messageId) {
+            return;
+          }
+          print('message : $message');
+          String moveToUrl = 'http://www.phoenixdarts.com/kr/member/app_login_prc?query=0tYvQzr3hVw4BUJpEXbMaYYe%2F5CT8gdhqJKq32hPcbxRga9jihIKXjIlew%2Bl2W6%2By828FXaUK6KF%0D%0AyJT07LovF%2BdszNAGA%2BFBh23FGs5IY2dyX0n7oYXmIa4q3IXsfS0di1mY0oXyedEClr0VPA5JqBJN%0D%0AwjGYeV9j%2BIwTMABsKrPKRd9R8%2FVR2nqAZsNeHz5hurIxTz5NkGhlL6RXyMH5YaamU41My27WQDiq%0D%0AW1Ye8CIjJtYW3v%2B%2BtKERdqtYhNx7%0D%0A';
+          final Uri uri = Uri.parse(moveToUrl);
+
+          await launchUrl(uri, mode: LaunchMode.externalApplication);
+          previousMessage = message;
+          // await handleFirebaseMessage(message);
+        }
+      });
+
+      // 백그라운드에서 알림 클릭 시
+      FirebaseMessaging.onMessageOpenedApp.listen(
+        (message) async {
+          print('FCM Click(FirebaseMessaging.onMessageOpenedApp.listen)');
+          String moveToUrl = 'http://www.phoenixdarts.com/kr/member/app_login_prc?query=0tYvQzr3hVw4BUJpEXbMaYYe%2F5CT8gdhqJKq32hPcbxRga9jihIKXjIlew%2Bl2W6%2By828FXaUK6KF%0D%0AyJT07LovF%2BdszNAGA%2BFBh23FGs5IY2dyX0n7oYXmIa4q3IXsfS0di1mY0oXyedEClr0VPA5JqBJN%0D%0AwjGYeV9j%2BIwTMABsKrPKRd9R8%2FVR2nqAZsNeHz5hurIxTz5NkGhlL6RXyMH5YaamU41My27WQDiq%0D%0AW1Ye8CIjJtYW3v%2B%2BtKERdqtYhNx7%0D%0A';
+          final Uri uri = Uri.parse(moveToUrl);
+
+          await launchUrl(uri, mode: LaunchMode.externalApplication);
+          // await handleFirebaseMessage(message);
+        },
+      );
+  }
   @override
   Widget build(BuildContext context) {
     
@@ -263,15 +312,15 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       print('>>>> accessToken : ${googleAuth?.accessToken}');
       print('>>>> idToken : ${googleAuth?.idToken}');
 
-       OAuthCredential _googleCredential = GoogleAuthProvider.credential(
+       OAuthCredential googleCredential = GoogleAuthProvider.credential(
         idToken: googleAuth?.idToken,
         accessToken: googleAuth?.accessToken,
       );
 
-      UserCredential _credential =
-          await FirebaseAuth.instance.signInWithCredential(_googleCredential);
-      if (_credential.user != null) {
-        print(">>>> ${_credential.user}");
+      UserCredential credential =
+          await FirebaseAuth.instance.signInWithCredential(googleCredential);
+      if (credential.user != null) {
+        print(">>>> ${credential.user}");
       }
 
       // Create a new credential
