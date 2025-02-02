@@ -104,17 +104,17 @@ class SupaBaseAuthAsyncNotifier extends _$SupaBaseAuthAsyncNotifier {
       Supabase.instance.client.auth.onAuthStateChange.listen((data) {
         final AuthChangeEvent event = data.event;
         if (event == AuthChangeEvent.signedIn) {
-          final request = {
-            'uuid': data.session?.user.id,
-            'email': data.session?.user.userMetadata!['email'],
-            'name': data.session?.user.userMetadata!['name'],
-            'fcmToken': '',
-            'profileImageUrl': '',
-            'idToken': data.session?.providerToken,
-            'accessToken': data.session?.accessToken,
-            'status': 'active',
-            'socialType': SocialType.kakao.name,
-          };
+          // final request = {
+          //   'uuid': data.session?.user.id,
+          //   'email': data.session?.user.userMetadata!['email'],
+          //   'name': data.session?.user.userMetadata!['name'],
+          //   'fcmToken': '',
+          //   'profileImageUrl': '',
+          //   'idToken': data.session?.providerToken,
+          //   'accessToken': data.session?.accessToken,
+          //   'status': 'active',
+          //   'socialType': SocialType.kakao.name,
+          // };
           // print('>>> data : ${data.session}');
           // ref.read(signAsyncNotifierProvider.notifier).addProfile(request);
         }

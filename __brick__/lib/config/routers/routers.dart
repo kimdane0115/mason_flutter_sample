@@ -11,6 +11,7 @@ import 'router.dart';
 part 'routers.g.dart';
 
 class Routers {
+  static const String root = '/';
   static const String splash = '/splash';
   static const String login = '/login';
   static const String home = '/home';
@@ -24,6 +25,17 @@ class Routers {
   static const String signUp = 'sign_up';
   static const String signUpAgreement = 'sign_up_agreement';
 }
+
+// @TypedGoRoute<RootRoute>(
+//   path: Routers.root,
+// )
+// class RootRoute extends GoRouteData {
+//   const RootRoute();
+//   @override
+//   Page<void> buildPage(BuildContext context, GoRouterState state) {
+//     return const MaterialPage(child: SplashScreen());
+//   }
+// }
 
 @TypedGoRoute<SplashRoute>(
   path: Routers.splash,
