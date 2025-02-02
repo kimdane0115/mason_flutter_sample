@@ -15,6 +15,43 @@ class _LoginPageState extends ConsumerState<LoginPage> {
   late BuildContext loading;
 
   @override
+  void initState() {
+    super.initState();
+    Supabase.instance.client.auth.onAuthStateChange.listen((data) async {
+      final AuthChangeEvent event = data.event;
+      if (event == AuthChangeEvent.signedIn) {
+        final res = await checkUser(Supabase.instance.client.auth.currentUser?.id.toString() ?? '');
+        if (!res && mounted) {
+          await showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: const Text('회원가입'),
+                content: const Text('계정이 없습니다. 회원가입 하시겠습니까?'),
+                actions: [
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pop(); // '취소' 선택
+                    },
+                    child: const Text('취소'),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pop(); // '확인' 선택
+                      _signUp();
+                    },
+                    child: const Text('확인'),
+                  ),
+                ],
+              );
+            },
+          );
+        }
+      }
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
@@ -23,127 +60,62 @@ class _LoginPageState extends ConsumerState<LoginPage> {
   }
 
   Widget body() {
-    // final verificationState = ref.watch(signAsyncNotifierProvider);
-    final supabaseAuthState = ref.watch(supaBaseAuthAsyncNotifierProvider);
-    ref.listen(
-      signAsyncNotifierProvider,
-      (prev, next) {
-        next.whenOrNull(
-          data: (value) async {
-            if (value == null) return;
-
-            if (value.accessToken!.isEmpty) {
-              const SignUpAgreementScreenRoute().push(context).then((value) {
-                if (value == true) {
-                  _signUp();
-                }
-              });
-            } else {
-              await Supabase.instance.client.auth.signInWithIdToken(
-                provider: OAuthProvider.google,
-                idToken: value.idToken ?? '',
-                accessToken: value.accessToken,
-              );
-            }
-
-            if (mounted) {
-              context.pop(loading);
-            }
-          },
-          error: (error, stackTrace) {
-            if (context.mounted) {
-              context.pop(loading);
-            }
-          },
-        );
-      },
-    );
-
     return SafeArea(
-      child: supabaseAuthState.maybeWhen(
-        data: (data) {
-          // if (data == true) {
-          //   return const SizedBox.shrink();
-          // }
-
-          if (data == false) {
-            context.pop(loading);
-          }
-
-          return Container(
-            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    _googleSignIn();
-                  },
-                  child: const Text('GOGGLE 로그인'),
-                ),
-                const SizedBox(
-                  height: 8,
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    _kakaoSignIn();
-                  },
-                  child: const Text('카카오 로그인'),
-                ),
-                const SizedBox(
-                  height: 8,
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    _appleLogIn();
-                  },
-                  child: const Text('애플 로그인'),
-                ),
-                const SizedBox(
-                  height: 8,
-                ),
-                // ElevatedButton(
-                //   onPressed: () {
-                //     const SignUpScreenRoute().push(context);
-                //   },
-                //   child: const Text('회원가입'),
-                // ),
-              ],
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                _googleSignIn();
+              },
+              child: const Text('GOGGLE 로그인'),
             ),
-          );
-        },
-        orElse: () {
-          return const SizedBox.shrink();
-        },
+            const SizedBox(
+              height: 8,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                _kakaoSignIn();
+              },
+              child: const Text('카카오 로그인'),
+            ),
+            const SizedBox(
+              height: 8,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                _appleLogIn();
+              },
+              child: const Text('애플 로그인'),
+            ),
+            const SizedBox(
+              height: 8,
+            ),
+            // ElevatedButton(
+            //   onPressed: () {
+            //     const SignUpScreenRoute().push(context);
+            //   },
+            //   child: const Text('회원가입'),
+            // ),
+          ],
+        ),
       ),
     );
   }
 
   Future<void> _googleSignIn() async {
     loading = await showLoadingIndicator(context);
-    ref.read(supaBaseAuthAsyncNotifierProvider.notifier).signInWithGoogle();
+    // ref.read(supaBaseAuthAsyncNotifierProvider.notifier).signInWithGoogle();
+    await SocialService().signInWithGoogle();
+
   }
 
   Future<void> _kakaoSignIn() async {
-    await ref.read(supaBaseAuthAsyncNotifierProvider.notifier).signInWithKakao();
-
-    // Supabase.instance.client.auth.onAuthStateChange.listen((data) {
-    //   print('>>> ${data.event}');
-    // });
-
-    // await  Supabase.instance.client.auth.signInWithOAuth(OAuthProvider.kakao);
-
-    //           // Listen to auth state changes in order to detect when ther OAuth login is complete.
-    // Supabase.instance.client.auth.onAuthStateChange.listen((data) {
-    //   final AuthChangeEvent event = data.event;
-    //   if (event == AuthChangeEvent.signedIn) {
-    //     debugPrint('데이터 : $data');
-    //     debugPrint('세션 : ${data.session}');
-    //     final snackBarText = SnackBar(content: Text('${data.session?.user.userMetadata!['email']}님 반갑습니다'));
-    //     ScaffoldMessenger.of(context).showSnackBar(snackBarText);
-    //   }
-    // });
+    loading = await showLoadingIndicator(context);
+    await SocialService().signInWithKakao();
   }
 
   Future<void> _appleLogIn() async {
@@ -157,4 +129,14 @@ class _LoginPageState extends ConsumerState<LoginPage> {
     // signup 페이지가 필요 없는 경우
     // ref.read(supaBaseAuthAsyncNotifierProvider.notifier).signUpWithGoogle();
   }
+
+  Future<bool> checkUser(String userId) async {
+  try {
+    final response = await Supabase.instance.client
+        .rpc('check_user', params: {'user_id': userId});
+    return response as bool;
+  } catch (e) {
+    throw Exception('사용자 확인 중 오류가 발생했습니다: $e');
+  }
+}
 }
