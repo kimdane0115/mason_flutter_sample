@@ -44,16 +44,15 @@ final routerProvider = Provider<GoRouter>(
       // },
       redirect: (BuildContext context, GoRouterState goState) async {
 
-        final authState = ref.watch(authStreamProvider);
-        bool loggedIn = authState.value?.session?.user != null;
-
-        if (authState.value?.session?.isExpired ?? false) {
-          AuthResponse result = await Supabase.instance.client.auth.refreshSession();
-          result.session?.user != null ? loggedIn = true : loggedIn = false;
-        }
-
         final isSplash = goState.uri.toString() == const SplashRoute().location;
         if (isSplash) {
+          final authState = ref.watch(authStreamProvider);
+          bool loggedIn = authState.value?.session?.user != null;
+
+          if (authState.value?.session?.isExpired ?? false) {
+            AuthResponse result = await Supabase.instance.client.auth.refreshSession();
+            result.session?.user != null ? loggedIn = true : loggedIn = false;
+          }
           if (loggedIn) {
             final res = await checkUser(authState.value?.session?.user.id.toString() ?? '');
             if (res) {
@@ -61,6 +60,8 @@ final routerProvider = Provider<GoRouter>(
             } else {
               return const LoginPageRoute().location;
             }
+          } else {
+            return const LoginPageRoute().location;
           }
         }
         return null;

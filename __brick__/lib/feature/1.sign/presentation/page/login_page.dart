@@ -110,12 +110,17 @@ class _LoginPageState extends ConsumerState<LoginPage> {
     loading = await showLoadingIndicator(context);
     // ref.read(supaBaseAuthAsyncNotifierProvider.notifier).signInWithGoogle();
     await SocialService().signInWithGoogle();
-
+    if (mounted) {
+      context.pop(loading);
+    }
   }
 
   Future<void> _kakaoSignIn() async {
     loading = await showLoadingIndicator(context);
     await SocialService().signInWithKakao();
+    if (mounted) {
+      context.pop(loading);
+    }
   }
 
   Future<void> _appleLogIn() async {
