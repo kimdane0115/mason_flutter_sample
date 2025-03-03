@@ -31,7 +31,6 @@ final routerProvider = Provider<GoRouter>(
     return GoRouter(
       navigatorKey: rootNavigatorKey,
       debugLogDiagnostics: true,
-      // initialLocation: const LoginPageRoute().location,
       initialLocation: const SplashRoute().location,
       routes: $appRoutes,
       // errorPageBuilder: (_, state) {
@@ -46,6 +45,14 @@ final routerProvider = Provider<GoRouter>(
 
         final isSplash = goState.uri.toString() == const SplashRoute().location;
         if (isSplash) {
+          return const LoginPageRoute().location;
+        }
+
+        if (goState.uri.toString().contains('/?code=')) {
+          return const SplashRoute().location;
+        }
+
+        if (goState.uri.toString() == const LoginPageRoute().location) {
           final authState = ref.watch(authStreamProvider);
           bool loggedIn = authState.value?.session?.user != null;
 
@@ -53,30 +60,21 @@ final routerProvider = Provider<GoRouter>(
             AuthResponse result = await Supabase.instance.client.auth.refreshSession();
             result.session?.user != null ? loggedIn = true : loggedIn = false;
           }
+
+          // Auto Login
           if (loggedIn) {
-            final res = await checkUser(authState.value?.session?.user.id.toString() ?? '');
-            if (res) {
+            final uuid = ref.read(localRepositoryProvider).getUUID();
+            if (uuid == authState.value?.session?.user.id.toString()) {
               return const HomeScreenRoute().location;
-            } else {
-              return const LoginPageRoute().location;
             }
           } else {
             return const LoginPageRoute().location;
           }
         }
+
         return null;
       },
     );
   },
   name: 'routerProvider',
 );
-
-Future<bool> checkUser(String userId) async {
-  try {
-    final response = await Supabase.instance.client
-        .rpc('check_user', params: {'user_id': userId});
-    return response as bool;
-  } catch (e) {
-    throw Exception('사용자 확인 중 오류가 발생했습니다: $e');
-  }
-}

@@ -23,5 +23,14 @@ FutureOr<void> main() async {
     nativeAppKey: '590c17080799106b8f5e245e02df17a4',
     javaScriptAppKey: '12a62e944d4fd8681eff650d2d07ff0f',
   );
-  runApp(const ProviderScope(child: App()));
+
+  var prefs = await SharedPreferences.getInstance();
+  runApp(
+    ProviderScope(
+      overrides: [
+        sharedPreferencesProvider.overrideWithValue(prefs),
+      ],
+      child: App(),
+    ),
+  );
 }
