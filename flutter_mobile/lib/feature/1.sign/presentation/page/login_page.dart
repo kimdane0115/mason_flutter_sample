@@ -12,7 +12,6 @@ class LoginPage extends ConsumerStatefulWidget {
 }
 
 class _LoginPageState extends ConsumerState<LoginPage> {
-  late BuildContext loading;
 
   @override
   void initState() {
@@ -46,6 +45,11 @@ class _LoginPageState extends ConsumerState<LoginPage> {
               );
             },
           );
+        } else {
+          if (mounted) {
+            ref.read(localRepositoryProvider).setUUID(Supabase.instance.client.auth.currentUser!.id);
+            const HomeScreenRoute().push(context);
+          }
         }
       }
     });
@@ -107,20 +111,15 @@ class _LoginPageState extends ConsumerState<LoginPage> {
   }
 
   Future<void> _googleSignIn() async {
-    loading = await showLoadingIndicator(context);
-    // ref.read(supaBaseAuthAsyncNotifierProvider.notifier).signInWithGoogle();
+    final loading = await showLoadingIndicator(context);
     await SocialService().signInWithGoogle();
-    if (mounted) {
-      context.pop(loading);
-    }
+    if (loading.mounted) loading.pop();
   }
 
   Future<void> _kakaoSignIn() async {
-    loading = await showLoadingIndicator(context);
+    final loading = await showLoadingIndicator(context);
     await SocialService().signInWithKakao();
-    if (mounted) {
-      context.pop(loading);
-    }
+    if (loading.mounted) loading.pop();
   }
 
   Future<void> _appleLogIn() async {
