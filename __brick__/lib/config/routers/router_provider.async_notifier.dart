@@ -63,7 +63,7 @@ final routerProvider = Provider<GoRouter>(
 
           // Auto Login
           if (loggedIn) {
-            final uuid = ref.read(localRepositoryProvider).getUUID();
+            final uuid = ref.watch(localRepositoryProvider).getUUID();
             if (uuid == authState.value?.session?.user.id.toString()) {
               return const HomeScreenRoute().location;
             }
