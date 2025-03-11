@@ -48,12 +48,14 @@ final routerProvider = Provider<GoRouter>(
           return const LoginPageRoute().location;
         }
 
-        if (goState.uri.toString().contains('/?code=')) {
+        // kakao${app_key}://kakaolink과 같은  Custom URL Scheme도 있으므로 uri.authority까지 체크 필요
+        if (goState.uri.scheme.contains('fluttersample.co.kr') && goState.uri.authority == 'oauth') {
           return const SplashRoute().location;
         }
 
         if (goState.uri.toString() == const LoginPageRoute().location) {
           final authState = ref.watch(authStreamProvider);
+          final uuid = ref.read(localRepositoryProvider).getUUID();
           bool loggedIn = authState.value?.session?.user != null;
 
           if (authState.value?.session?.isExpired ?? false) {
@@ -63,7 +65,6 @@ final routerProvider = Provider<GoRouter>(
 
           // Auto Login
           if (loggedIn) {
-            final uuid = ref.watch(localRepositoryProvider).getUUID();
             if (uuid == authState.value?.session?.user.id.toString()) {
               return const HomeScreenRoute().location;
             }

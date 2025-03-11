@@ -120,6 +120,7 @@ class _MyInfoPageState extends ConsumerState<MyInfoPage> {
                         ),
                         TextButton(
                           onPressed: () async {
+                            ref.read(localRepositoryProvider).clearAllSharedPreferences();
                             ref
                                 .read(signAsyncNotifierProvider.notifier)
                                 .deleteProfile(Supabase.instance.client.auth.currentUser?.id ?? '');
