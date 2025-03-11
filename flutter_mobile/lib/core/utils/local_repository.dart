@@ -1,8 +1,12 @@
 import '../../../index.dart';
 
-final localRepositoryProvider = ChangeNotifierProvider<LocalRepository>((ref) {
-  return LocalRepository(ref);
-});
+final localRepositoryProvider = ChangeNotifierProvider<LocalRepository>(
+  (ref) {
+    return LocalRepository(ref);
+  },
+  name: 'localRepositoryProvider',
+  dependencies: [sharedPreferencesProvider],
+);
 
 class LocalRepository extends ChangeNotifier {
   final Ref ref;
@@ -76,5 +80,9 @@ class LocalRepository extends ChangeNotifier {
   String? getUUID() {
     var uuid = ref.read(sharedPreferencesProvider).getString(SharedPreferencesKey.uuid.name);
     return uuid;
+  }
+
+  Future<void> clearAllSharedPreferences() async {
+    ref.read(sharedPreferencesProvider).clear(); // 저장된 모든 데이터 삭제
   }
 }

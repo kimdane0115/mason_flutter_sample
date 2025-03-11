@@ -72,20 +72,19 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
               // ref.read(supaBaseAuthAsyncNotifierProvider.notifier).signUpWithGoogle();
               final authState = ref.read(authStreamProvider);
               final request = {
-              'uuid': authState.value?.session?.user.id,
-              'email': authState.value?.session?.user.userMetadata!['email'],
-              'name': authState.value?.session?.user.userMetadata!['name'],
-              'fcmToken': '',
-              'profileImageUrl': '',
-              'idToken': authState.value?.session?.providerToken,
-              'accessToken': authState.value?.session?.accessToken,
-              'status': 'active',
-              'socialType': authState.value?.session?.user.appMetadata['provider'],
-            };
-            print('>>> request : $request');
-            ref.read(signAsyncNotifierProvider.notifier).addProfile(request);
-            final sharedPreferences = await SharedPreferences.getInstance();
-            sharedPreferences.setString('uuid', authState.value!.session!.user.id);
+                'uuid': authState.value?.session?.user.id,
+                'email': authState.value?.session?.user.userMetadata!['email'],
+                'name': authState.value?.session?.user.userMetadata!['name'],
+                'fcmToken': '',
+                'profileImageUrl': '',
+                'idToken': authState.value?.session?.providerToken,
+                'accessToken': authState.value?.session?.accessToken,
+                'status': 'active',
+                'socialType': authState.value?.session?.user.appMetadata['provider'],
+              };
+              print('>>> request : $request');
+              ref.read(signAsyncNotifierProvider.notifier).addProfile(request);
+              ref.read(localRepositoryProvider).setUUID(authState.value!.session!.user.id);
             },
             child: const Text('회원가입 완료'),
           ),
