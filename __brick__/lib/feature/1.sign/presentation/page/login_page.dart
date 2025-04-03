@@ -12,6 +12,7 @@ class LoginPage extends ConsumerStatefulWidget {
 }
 
 class _LoginPageState extends ConsumerState<LoginPage> {
+  bool isLoading = false;
 
   @override
   void initState() {
@@ -57,9 +58,25 @@ class _LoginPageState extends ConsumerState<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: SafeArea(child: body()),
+    return Stack(
+      children: [
+        Scaffold(
+          appBar: AppBar(),
+          body: SafeArea(child: body()),
+        ),
+        if (isLoading) ...[
+          // 배경을 어둡게 하는 투명 레이어
+          Positioned.fill(
+            child: ModalBarrier(
+              color: Colors.black.withValues(alpha: 0.3), // 반투명 배경
+              dismissible: false, // 터치 막기
+            ),
+          ),
+          const Center(
+            child: CircularProgressIndicator(),
+          ), // 로딩 표시
+        ]
+      ],
     );
   }
 
@@ -73,6 +90,9 @@ class _LoginPageState extends ConsumerState<LoginPage> {
           children: [
             ElevatedButton(
               onPressed: () {
+                setState(() {
+                  isLoading = true;
+                });
                 _googleSignIn();
               },
               child: const Text('GOGGLE 로그인'),
@@ -82,6 +102,9 @@ class _LoginPageState extends ConsumerState<LoginPage> {
             ),
             ElevatedButton(
               onPressed: () {
+                setState(() {
+                  isLoading = true;
+                });
                 _kakaoSignIn();
               },
               child: const Text('카카오 로그인'),
@@ -89,11 +112,30 @@ class _LoginPageState extends ConsumerState<LoginPage> {
             const SizedBox(
               height: 8,
             ),
-            ElevatedButton(
-              onPressed: () {
+            InkWell(
+              onTap: () async {
                 _appleLogIn();
               },
-              child: const Text('애플 로그인'),
+              child: Container(
+                height: 50,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(14),
+                  color: Colors.black,
+                ),
+                child: centerText(
+                  Image.asset(
+                    'assets/icons/ic_apple.png',
+                    width: 24,
+                    height: 24,
+                  ),
+                  Text(
+                    'Apple로 계속하기',
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
             ),
             const SizedBox(
               height: 8,
@@ -111,15 +153,15 @@ class _LoginPageState extends ConsumerState<LoginPage> {
   }
 
   Future<void> _googleSignIn() async {
-    final loading = await showLoadingIndicator(context);
+    // final loading = await showLoadingIndicator(context);
     await SocialService().signInWithGoogle();
-    if (loading.mounted) loading.pop();
+    // if (loading.mounted) loading.pop();
   }
 
   Future<void> _kakaoSignIn() async {
-    final loading = await showLoadingIndicator(context);
+    // final loading = await showLoadingIndicator(context);
     await SocialService().signInWithKakao();
-    if (loading.mounted) loading.pop();
+    // if (loading.mounted) loading.pop();
   }
 
   Future<void> _appleLogIn() async {
@@ -135,12 +177,29 @@ class _LoginPageState extends ConsumerState<LoginPage> {
   }
 
   Future<bool> checkUser(String userId) async {
-  try {
-    final response = await Supabase.instance.client
-        .rpc('check_user', params: {'user_id': userId});
-    return response as bool;
-  } catch (e) {
-    throw Exception('사용자 확인 중 오류가 발생했습니다: $e');
+    try {
+      final response = await Supabase.instance.client
+          .rpc('check_user', params: {'user_id': userId});
+      return response as bool;
+    } catch (e) {
+      throw Exception('사용자 확인 중 오류가 발생했습니다: $e');
+    }
   }
-}
+
+  Padding centerText(Widget icon, Widget label) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+      child: Stack(
+        children: [
+          Align(
+            alignment: Alignment.centerLeft,
+            child: icon,
+          ),
+          Center(
+            child: label,
+          )
+        ],
+      ),
+    );
+  }
 }
