@@ -1,7 +1,4 @@
 import 'dart:async';
-
-// import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
-
 import '../../../../index.dart';
 
 class LoginPage extends ConsumerStatefulWidget {
@@ -12,7 +9,7 @@ class LoginPage extends ConsumerStatefulWidget {
 }
 
 class _LoginPageState extends ConsumerState<LoginPage> {
-  bool isLoading = false;
+  // bool isLoading = false;
 
   @override
   void initState() {
@@ -64,18 +61,18 @@ class _LoginPageState extends ConsumerState<LoginPage> {
           appBar: AppBar(),
           body: SafeArea(child: body()),
         ),
-        if (isLoading) ...[
-          // 배경을 어둡게 하는 투명 레이어
-          Positioned.fill(
-            child: ModalBarrier(
-              color: Colors.black.withValues(alpha: 0.3), // 반투명 배경
-              dismissible: false, // 터치 막기
-            ),
-          ),
-          const Center(
-            child: CircularProgressIndicator(),
-          ), // 로딩 표시
-        ]
+        // if (isLoading) ...[
+        //   // 배경을 어둡게 하는 투명 레이어
+        //   Positioned.fill(
+        //     child: ModalBarrier(
+        //       color: Colors.black.withValues(alpha: 0.3), // 반투명 배경
+        //       dismissible: false, // 터치 막기
+        //     ),
+        //   ),
+        //   const Center(
+        //     child: CircularProgressIndicator(),
+        //   ), // 로딩 표시
+        // ]
       ],
     );
   }
@@ -88,26 +85,54 @@ class _LoginPageState extends ConsumerState<LoginPage> {
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            ElevatedButton(
-              onPressed: () {
-                setState(() {
-                  isLoading = true;
-                });
+            InkWell(
+              onTap: () async {
+                // setState(() {
+                //   isLoading = true;
+                // });
                 _googleSignIn();
               },
-              child: const Text('GOGGLE 로그인'),
+              child: Container(
+                height: 50,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(color: Colors.grey),
+                  color: Colors.white,
+                ),
+                child: centerText(
+                  Image.asset(
+                    'assets/icons/ic_google.png',
+                    width: 24,
+                    height: 24,
+                  ),
+                  const Text('Google로 계속하기'),
+                ),
+              ),
             ),
             const SizedBox(
               height: 8,
             ),
-            ElevatedButton(
-              onPressed: () {
-                setState(() {
-                  isLoading = true;
-                });
+            InkWell(
+              onTap: () async {
+                // setState(() {
+                //   isLoading = true;
+                // });
                 _kakaoSignIn();
               },
-              child: const Text('카카오 로그인'),
+              child: Container(
+                height: 50,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.yellow,
+                ),
+                child: centerText(
+                    Image.asset(
+                      'assets/icons/ic_kakao.png',
+                      width: 24,
+                      height: 24,
+                    ),
+                    const Text('카카오로 계속하기')),
+              ),
             ),
             const SizedBox(
               height: 8,
@@ -140,12 +165,6 @@ class _LoginPageState extends ConsumerState<LoginPage> {
             const SizedBox(
               height: 8,
             ),
-            // ElevatedButton(
-            //   onPressed: () {
-            //     const SignUpScreenRoute().push(context);
-            //   },
-            //   child: const Text('회원가입'),
-            // ),
           ],
         ),
       ),
@@ -153,15 +172,15 @@ class _LoginPageState extends ConsumerState<LoginPage> {
   }
 
   Future<void> _googleSignIn() async {
-    // final loading = await showLoadingIndicator(context);
+    final loading = await showLoadingIndicator(context);
     await SocialService().signInWithGoogle();
-    // if (loading.mounted) loading.pop();
+    if (loading.mounted) loading.pop();
   }
 
   Future<void> _kakaoSignIn() async {
-    // final loading = await showLoadingIndicator(context);
+    final loading = await showLoadingIndicator(context);
     await SocialService().signInWithKakao();
-    // if (loading.mounted) loading.pop();
+    if (loading.mounted) loading.pop();
   }
 
   Future<void> _appleLogIn() async {
