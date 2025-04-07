@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,93 +10,59 @@ part of 'member_model.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-MemberModel _$MemberModelFromJson(Map<String, dynamic> json) {
-  return _MemberModel.fromJson(json);
-}
 
 /// @nodoc
 mixin _$MemberModel {
-  Map<String, dynamic> get memberName => throw _privateConstructorUsedError;
-  Map<String, String> get memberNumber => throw _privateConstructorUsedError;
-  Map<String, dynamic> get memberId => throw _privateConstructorUsedError;
-  Map<String, dynamic> get phone => throw _privateConstructorUsedError;
-
-  /// Serializes this MemberModel to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> get memberName;
+  Map<String, String> get memberNumber;
+  Map<String, dynamic> get memberId;
+  Map<String, dynamic> get phone;
 
   /// Create a copy of MemberModel
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $MemberModelCopyWith<MemberModel> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $MemberModelCopyWith<$Res> {
-  factory $MemberModelCopyWith(
-          MemberModel value, $Res Function(MemberModel) then) =
-      _$MemberModelCopyWithImpl<$Res, MemberModel>;
-  @useResult
-  $Res call(
-      {Map<String, dynamic> memberName,
-      Map<String, String> memberNumber,
-      Map<String, dynamic> memberId,
-      Map<String, dynamic> phone});
-}
-
-/// @nodoc
-class _$MemberModelCopyWithImpl<$Res, $Val extends MemberModel>
-    implements $MemberModelCopyWith<$Res> {
-  _$MemberModelCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of MemberModel
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $MemberModelCopyWith<MemberModel> get copyWith =>
+      _$MemberModelCopyWithImpl<MemberModel>(this as MemberModel, _$identity);
+
+  /// Serializes this MemberModel to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? memberName = null,
-    Object? memberNumber = null,
-    Object? memberId = null,
-    Object? phone = null,
-  }) {
-    return _then(_value.copyWith(
-      memberName: null == memberName
-          ? _value.memberName
-          : memberName // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-      memberNumber: null == memberNumber
-          ? _value.memberNumber
-          : memberNumber // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>,
-      memberId: null == memberId
-          ? _value.memberId
-          : memberId // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-      phone: null == phone
-          ? _value.phone
-          : phone // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is MemberModel &&
+            const DeepCollectionEquality()
+                .equals(other.memberName, memberName) &&
+            const DeepCollectionEquality()
+                .equals(other.memberNumber, memberNumber) &&
+            const DeepCollectionEquality().equals(other.memberId, memberId) &&
+            const DeepCollectionEquality().equals(other.phone, phone));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(memberName),
+      const DeepCollectionEquality().hash(memberNumber),
+      const DeepCollectionEquality().hash(memberId),
+      const DeepCollectionEquality().hash(phone));
+
+  @override
+  String toString() {
+    return 'MemberModel(memberName: $memberName, memberNumber: $memberNumber, memberId: $memberId, phone: $phone)';
   }
 }
 
 /// @nodoc
-abstract class _$$MemberModelImplCopyWith<$Res>
-    implements $MemberModelCopyWith<$Res> {
-  factory _$$MemberModelImplCopyWith(
-          _$MemberModelImpl value, $Res Function(_$MemberModelImpl) then) =
-      __$$MemberModelImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $MemberModelCopyWith<$Res> {
+  factory $MemberModelCopyWith(
+          MemberModel value, $Res Function(MemberModel) _then) =
+      _$MemberModelCopyWithImpl;
   @useResult
   $Res call(
       {Map<String, dynamic> memberName,
@@ -105,12 +72,11 @@ abstract class _$$MemberModelImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$MemberModelImplCopyWithImpl<$Res>
-    extends _$MemberModelCopyWithImpl<$Res, _$MemberModelImpl>
-    implements _$$MemberModelImplCopyWith<$Res> {
-  __$$MemberModelImplCopyWithImpl(
-      _$MemberModelImpl _value, $Res Function(_$MemberModelImpl) _then)
-      : super(_value, _then);
+class _$MemberModelCopyWithImpl<$Res> implements $MemberModelCopyWith<$Res> {
+  _$MemberModelCopyWithImpl(this._self, this._then);
+
+  final MemberModel _self;
+  final $Res Function(MemberModel) _then;
 
   /// Create a copy of MemberModel
   /// with the given fields replaced by the non-null parameter values.
@@ -122,21 +88,21 @@ class __$$MemberModelImplCopyWithImpl<$Res>
     Object? memberId = null,
     Object? phone = null,
   }) {
-    return _then(_$MemberModelImpl(
+    return _then(_self.copyWith(
       memberName: null == memberName
-          ? _value._memberName
+          ? _self.memberName
           : memberName // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
       memberNumber: null == memberNumber
-          ? _value._memberNumber
+          ? _self.memberNumber
           : memberNumber // ignore: cast_nullable_to_non_nullable
               as Map<String, String>,
       memberId: null == memberId
-          ? _value._memberId
+          ? _self.memberId
           : memberId // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
       phone: null == phone
-          ? _value._phone
+          ? _self.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
     ));
@@ -146,8 +112,8 @@ class __$$MemberModelImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false, explicitToJson: true)
-class _$MemberModelImpl implements _MemberModel {
-  _$MemberModelImpl(
+class _MemberModel implements MemberModel {
+  _MemberModel(
       {required final Map<String, dynamic> memberName,
       required final Map<String, String> memberNumber,
       required final Map<String, dynamic> memberId,
@@ -156,9 +122,8 @@ class _$MemberModelImpl implements _MemberModel {
         _memberNumber = memberNumber,
         _memberId = memberId,
         _phone = phone;
-
-  factory _$MemberModelImpl.fromJson(Map<String, dynamic> json) =>
-      _$$MemberModelImplFromJson(json);
+  factory _MemberModel.fromJson(Map<String, dynamic> json) =>
+      _$MemberModelFromJson(json);
 
   final Map<String, dynamic> _memberName;
   @override
@@ -192,16 +157,26 @@ class _$MemberModelImpl implements _MemberModel {
     return EqualUnmodifiableMapView(_phone);
   }
 
+  /// Create a copy of MemberModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'MemberModel(memberName: $memberName, memberNumber: $memberNumber, memberId: $memberId, phone: $phone)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$MemberModelCopyWith<_MemberModel> get copyWith =>
+      __$MemberModelCopyWithImpl<_MemberModel>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$MemberModelToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MemberModelImpl &&
+            other is _MemberModel &&
             const DeepCollectionEquality()
                 .equals(other._memberName, _memberName) &&
             const DeepCollectionEquality()
@@ -219,45 +194,63 @@ class _$MemberModelImpl implements _MemberModel {
       const DeepCollectionEquality().hash(_memberId),
       const DeepCollectionEquality().hash(_phone));
 
-  /// Create a copy of MemberModel
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$MemberModelImplCopyWith<_$MemberModelImpl> get copyWith =>
-      __$$MemberModelImplCopyWithImpl<_$MemberModelImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$MemberModelImplToJson(
-      this,
-    );
+  String toString() {
+    return 'MemberModel(memberName: $memberName, memberNumber: $memberNumber, memberId: $memberId, phone: $phone)';
   }
 }
 
-abstract class _MemberModel implements MemberModel {
-  factory _MemberModel(
-      {required final Map<String, dynamic> memberName,
-      required final Map<String, String> memberNumber,
-      required final Map<String, dynamic> memberId,
-      required final Map<String, dynamic> phone}) = _$MemberModelImpl;
+/// @nodoc
+abstract mixin class _$MemberModelCopyWith<$Res>
+    implements $MemberModelCopyWith<$Res> {
+  factory _$MemberModelCopyWith(
+          _MemberModel value, $Res Function(_MemberModel) _then) =
+      __$MemberModelCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {Map<String, dynamic> memberName,
+      Map<String, String> memberNumber,
+      Map<String, dynamic> memberId,
+      Map<String, dynamic> phone});
+}
 
-  factory _MemberModel.fromJson(Map<String, dynamic> json) =
-      _$MemberModelImpl.fromJson;
+/// @nodoc
+class __$MemberModelCopyWithImpl<$Res> implements _$MemberModelCopyWith<$Res> {
+  __$MemberModelCopyWithImpl(this._self, this._then);
 
-  @override
-  Map<String, dynamic> get memberName;
-  @override
-  Map<String, String> get memberNumber;
-  @override
-  Map<String, dynamic> get memberId;
-  @override
-  Map<String, dynamic> get phone;
+  final _MemberModel _self;
+  final $Res Function(_MemberModel) _then;
 
   /// Create a copy of MemberModel
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$MemberModelImplCopyWith<_$MemberModelImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? memberName = null,
+    Object? memberNumber = null,
+    Object? memberId = null,
+    Object? phone = null,
+  }) {
+    return _then(_MemberModel(
+      memberName: null == memberName
+          ? _self._memberName
+          : memberName // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+      memberNumber: null == memberNumber
+          ? _self._memberNumber
+          : memberNumber // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>,
+      memberId: null == memberId
+          ? _self._memberId
+          : memberId // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+      phone: null == phone
+          ? _self._phone
+          : phone // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+    ));
+  }
 }
+
+// dart format on

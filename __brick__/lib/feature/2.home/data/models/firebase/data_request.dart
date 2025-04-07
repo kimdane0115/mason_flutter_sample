@@ -51,7 +51,7 @@ part 'data_request.g.dart';
 
 @freezed
 @JsonSerializable(genericArgumentFactories: true)
-class DataRequest<T> with _$DataRequest<T> {
+abstract class DataRequest<T> with _$DataRequest<T> {
   const DataRequest._();
 
   const factory DataRequest({

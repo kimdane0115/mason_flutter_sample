@@ -4,7 +4,7 @@ part 'sb_profile_model.freezed.dart';
 part 'sb_profile_model.g.dart';
 
 @freezed
-class SbProfileModel with _$SbProfileModel {
+abstract class SbProfileModel with _$SbProfileModel {
   // @JsonSerializable(includeIfNull: false, explicitToJson: true)
   factory SbProfileModel({
     required int id,

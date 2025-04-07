@@ -5,7 +5,7 @@ part 'data_response.g.dart';
 
 @freezed
 @JsonSerializable(genericArgumentFactories: true)
-class DataResponse<T> with _$DataResponse<T> {
+abstract class DataResponse<T> with _$DataResponse<T> {
   const DataResponse._();
 
   const factory DataResponse({

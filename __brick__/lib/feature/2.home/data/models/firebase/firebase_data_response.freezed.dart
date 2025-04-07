@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,157 +10,29 @@ part of 'firebase_data_response.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$FirebaseDataResponse<T> {
-  String get name => throw _privateConstructorUsedError;
-  T? get fields => throw _privateConstructorUsedError;
-  String get createTime => throw _privateConstructorUsedError;
-  String get updateTime => throw _privateConstructorUsedError;
+  String? get name;
+  T? get fields;
+  String? get createTime;
+  String? get updateTime;
 
   /// Create a copy of FirebaseDataResponse
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $FirebaseDataResponseCopyWith<T, FirebaseDataResponse<T>> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $FirebaseDataResponseCopyWith<T, $Res> {
-  factory $FirebaseDataResponseCopyWith(FirebaseDataResponse<T> value,
-          $Res Function(FirebaseDataResponse<T>) then) =
-      _$FirebaseDataResponseCopyWithImpl<T, $Res, FirebaseDataResponse<T>>;
-  @useResult
-  $Res call({String name, T? fields, String createTime, String updateTime});
-}
-
-/// @nodoc
-class _$FirebaseDataResponseCopyWithImpl<T, $Res,
-        $Val extends FirebaseDataResponse<T>>
-    implements $FirebaseDataResponseCopyWith<T, $Res> {
-  _$FirebaseDataResponseCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of FirebaseDataResponse
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-    Object? fields = freezed,
-    Object? createTime = null,
-    Object? updateTime = null,
-  }) {
-    return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      fields: freezed == fields
-          ? _value.fields
-          : fields // ignore: cast_nullable_to_non_nullable
-              as T?,
-      createTime: null == createTime
-          ? _value.createTime
-          : createTime // ignore: cast_nullable_to_non_nullable
-              as String,
-      updateTime: null == updateTime
-          ? _value.updateTime
-          : updateTime // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$FirebaseDataResponseImplCopyWith<T, $Res>
-    implements $FirebaseDataResponseCopyWith<T, $Res> {
-  factory _$$FirebaseDataResponseImplCopyWith(
-          _$FirebaseDataResponseImpl<T> value,
-          $Res Function(_$FirebaseDataResponseImpl<T>) then) =
-      __$$FirebaseDataResponseImplCopyWithImpl<T, $Res>;
-  @override
-  @useResult
-  $Res call({String name, T? fields, String createTime, String updateTime});
-}
-
-/// @nodoc
-class __$$FirebaseDataResponseImplCopyWithImpl<T, $Res>
-    extends _$FirebaseDataResponseCopyWithImpl<T, $Res,
-        _$FirebaseDataResponseImpl<T>>
-    implements _$$FirebaseDataResponseImplCopyWith<T, $Res> {
-  __$$FirebaseDataResponseImplCopyWithImpl(_$FirebaseDataResponseImpl<T> _value,
-      $Res Function(_$FirebaseDataResponseImpl<T>) _then)
-      : super(_value, _then);
-
-  /// Create a copy of FirebaseDataResponse
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-    Object? fields = freezed,
-    Object? createTime = null,
-    Object? updateTime = null,
-  }) {
-    return _then(_$FirebaseDataResponseImpl<T>(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      fields: freezed == fields
-          ? _value.fields
-          : fields // ignore: cast_nullable_to_non_nullable
-              as T?,
-      createTime: null == createTime
-          ? _value.createTime
-          : createTime // ignore: cast_nullable_to_non_nullable
-              as String,
-      updateTime: null == updateTime
-          ? _value.updateTime
-          : updateTime // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$FirebaseDataResponseImpl<T> extends _FirebaseDataResponse<T> {
-  const _$FirebaseDataResponseImpl(
-      {required this.name,
-      this.fields,
-      required this.createTime,
-      required this.updateTime})
-      : super._();
-
-  @override
-  final String name;
-  @override
-  final T? fields;
-  @override
-  final String createTime;
-  @override
-  final String updateTime;
-
-  @override
-  String toString() {
-    return 'FirebaseDataResponse<$T>(name: $name, fields: $fields, createTime: $createTime, updateTime: $updateTime)';
-  }
+      _$FirebaseDataResponseCopyWithImpl<T, FirebaseDataResponse<T>>(
+          this as FirebaseDataResponse<T>, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FirebaseDataResponseImpl<T> &&
+            other is FirebaseDataResponse<T> &&
             (identical(other.name, name) || other.name == name) &&
             const DeepCollectionEquality().equals(other.fields, fields) &&
             (identical(other.createTime, createTime) ||
@@ -172,37 +45,156 @@ class _$FirebaseDataResponseImpl<T> extends _FirebaseDataResponse<T> {
   int get hashCode => Object.hash(runtimeType, name,
       const DeepCollectionEquality().hash(fields), createTime, updateTime);
 
+  @override
+  String toString() {
+    return 'FirebaseDataResponse<$T>(name: $name, fields: $fields, createTime: $createTime, updateTime: $updateTime)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $FirebaseDataResponseCopyWith<T, $Res> {
+  factory $FirebaseDataResponseCopyWith(FirebaseDataResponse<T> value,
+          $Res Function(FirebaseDataResponse<T>) _then) =
+      _$FirebaseDataResponseCopyWithImpl;
+  @useResult
+  $Res call({String? name, T? fields, String? createTime, String? updateTime});
+}
+
+/// @nodoc
+class _$FirebaseDataResponseCopyWithImpl<T, $Res>
+    implements $FirebaseDataResponseCopyWith<T, $Res> {
+  _$FirebaseDataResponseCopyWithImpl(this._self, this._then);
+
+  final FirebaseDataResponse<T> _self;
+  final $Res Function(FirebaseDataResponse<T>) _then;
+
   /// Create a copy of FirebaseDataResponse
   /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = freezed,
+    Object? fields = freezed,
+    Object? createTime = freezed,
+    Object? updateTime = freezed,
+  }) {
+    return _then(_self.copyWith(
+      name: freezed == name
+          ? _self.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      fields: freezed == fields
+          ? _self.fields
+          : fields // ignore: cast_nullable_to_non_nullable
+              as T?,
+      createTime: freezed == createTime
+          ? _self.createTime
+          : createTime // ignore: cast_nullable_to_non_nullable
+              as String?,
+      updateTime: freezed == updateTime
+          ? _self.updateTime
+          : updateTime // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _FirebaseDataResponse<T> extends FirebaseDataResponse<T> {
+  const _FirebaseDataResponse(
+      {this.name, this.fields, this.createTime, this.updateTime})
+      : super._();
+
+  @override
+  final String? name;
+  @override
+  final T? fields;
+  @override
+  final String? createTime;
+  @override
+  final String? updateTime;
+
+  /// Create a copy of FirebaseDataResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$FirebaseDataResponseCopyWith<T, _FirebaseDataResponse<T>> get copyWith =>
+      __$FirebaseDataResponseCopyWithImpl<T, _FirebaseDataResponse<T>>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _FirebaseDataResponse<T> &&
+            (identical(other.name, name) || other.name == name) &&
+            const DeepCollectionEquality().equals(other.fields, fields) &&
+            (identical(other.createTime, createTime) ||
+                other.createTime == createTime) &&
+            (identical(other.updateTime, updateTime) ||
+                other.updateTime == updateTime));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, name,
+      const DeepCollectionEquality().hash(fields), createTime, updateTime);
+
+  @override
+  String toString() {
+    return 'FirebaseDataResponse<$T>(name: $name, fields: $fields, createTime: $createTime, updateTime: $updateTime)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$FirebaseDataResponseCopyWith<T, $Res>
+    implements $FirebaseDataResponseCopyWith<T, $Res> {
+  factory _$FirebaseDataResponseCopyWith(_FirebaseDataResponse<T> value,
+          $Res Function(_FirebaseDataResponse<T>) _then) =
+      __$FirebaseDataResponseCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String? name, T? fields, String? createTime, String? updateTime});
+}
+
+/// @nodoc
+class __$FirebaseDataResponseCopyWithImpl<T, $Res>
+    implements _$FirebaseDataResponseCopyWith<T, $Res> {
+  __$FirebaseDataResponseCopyWithImpl(this._self, this._then);
+
+  final _FirebaseDataResponse<T> _self;
+  final $Res Function(_FirebaseDataResponse<T>) _then;
+
+  /// Create a copy of FirebaseDataResponse
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  _$$FirebaseDataResponseImplCopyWith<T, _$FirebaseDataResponseImpl<T>>
-      get copyWith => __$$FirebaseDataResponseImplCopyWithImpl<T,
-          _$FirebaseDataResponseImpl<T>>(this, _$identity);
+  $Res call({
+    Object? name = freezed,
+    Object? fields = freezed,
+    Object? createTime = freezed,
+    Object? updateTime = freezed,
+  }) {
+    return _then(_FirebaseDataResponse<T>(
+      name: freezed == name
+          ? _self.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      fields: freezed == fields
+          ? _self.fields
+          : fields // ignore: cast_nullable_to_non_nullable
+              as T?,
+      createTime: freezed == createTime
+          ? _self.createTime
+          : createTime // ignore: cast_nullable_to_non_nullable
+              as String?,
+      updateTime: freezed == updateTime
+          ? _self.updateTime
+          : updateTime // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
 
-abstract class _FirebaseDataResponse<T> extends FirebaseDataResponse<T> {
-  const factory _FirebaseDataResponse(
-      {required final String name,
-      final T? fields,
-      required final String createTime,
-      required final String updateTime}) = _$FirebaseDataResponseImpl<T>;
-  const _FirebaseDataResponse._() : super._();
-
-  @override
-  String get name;
-  @override
-  T? get fields;
-  @override
-  String get createTime;
-  @override
-  String get updateTime;
-
-  /// Create a copy of FirebaseDataResponse
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$FirebaseDataResponseImplCopyWith<T, _$FirebaseDataResponseImpl<T>>
-      get copyWith => throw _privateConstructorUsedError;
-}
+// dart format on

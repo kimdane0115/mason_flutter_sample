@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,188 +10,33 @@ part of 'sb_member_model.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-SbMemberModel _$SbMemberModelFromJson(Map<String, dynamic> json) {
-  return _SbMemberModel.fromJson(json);
-}
 
 /// @nodoc
 mixin _$SbMemberModel {
-  int get id => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
-  String get fcm_token => throw _privateConstructorUsedError;
-  String get profile_image_url => throw _privateConstructorUsedError;
-  DateTime get created_at => throw _privateConstructorUsedError;
-
-  /// Serializes this SbMemberModel to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  int get id;
+  String get name;
+  String get fcm_token;
+  String get profile_image_url;
+  DateTime get created_at;
 
   /// Create a copy of SbMemberModel
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $SbMemberModelCopyWith<SbMemberModel> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$SbMemberModelCopyWithImpl<SbMemberModel>(
+          this as SbMemberModel, _$identity);
 
-/// @nodoc
-abstract class $SbMemberModelCopyWith<$Res> {
-  factory $SbMemberModelCopyWith(
-          SbMemberModel value, $Res Function(SbMemberModel) then) =
-      _$SbMemberModelCopyWithImpl<$Res, SbMemberModel>;
-  @useResult
-  $Res call(
-      {int id,
-      String name,
-      String fcm_token,
-      String profile_image_url,
-      DateTime created_at});
-}
-
-/// @nodoc
-class _$SbMemberModelCopyWithImpl<$Res, $Val extends SbMemberModel>
-    implements $SbMemberModelCopyWith<$Res> {
-  _$SbMemberModelCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of SbMemberModel
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? name = null,
-    Object? fcm_token = null,
-    Object? profile_image_url = null,
-    Object? created_at = null,
-  }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      fcm_token: null == fcm_token
-          ? _value.fcm_token
-          : fcm_token // ignore: cast_nullable_to_non_nullable
-              as String,
-      profile_image_url: null == profile_image_url
-          ? _value.profile_image_url
-          : profile_image_url // ignore: cast_nullable_to_non_nullable
-              as String,
-      created_at: null == created_at
-          ? _value.created_at
-          : created_at // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$SbMemberModelImplCopyWith<$Res>
-    implements $SbMemberModelCopyWith<$Res> {
-  factory _$$SbMemberModelImplCopyWith(
-          _$SbMemberModelImpl value, $Res Function(_$SbMemberModelImpl) then) =
-      __$$SbMemberModelImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {int id,
-      String name,
-      String fcm_token,
-      String profile_image_url,
-      DateTime created_at});
-}
-
-/// @nodoc
-class __$$SbMemberModelImplCopyWithImpl<$Res>
-    extends _$SbMemberModelCopyWithImpl<$Res, _$SbMemberModelImpl>
-    implements _$$SbMemberModelImplCopyWith<$Res> {
-  __$$SbMemberModelImplCopyWithImpl(
-      _$SbMemberModelImpl _value, $Res Function(_$SbMemberModelImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of SbMemberModel
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? name = null,
-    Object? fcm_token = null,
-    Object? profile_image_url = null,
-    Object? created_at = null,
-  }) {
-    return _then(_$SbMemberModelImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      fcm_token: null == fcm_token
-          ? _value.fcm_token
-          : fcm_token // ignore: cast_nullable_to_non_nullable
-              as String,
-      profile_image_url: null == profile_image_url
-          ? _value.profile_image_url
-          : profile_image_url // ignore: cast_nullable_to_non_nullable
-              as String,
-      created_at: null == created_at
-          ? _value.created_at
-          : created_at // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ));
-  }
-}
-
-/// @nodoc
-
-@JsonSerializable(includeIfNull: false, explicitToJson: true)
-class _$SbMemberModelImpl implements _SbMemberModel {
-  _$SbMemberModelImpl(
-      {required this.id,
-      required this.name,
-      required this.fcm_token,
-      required this.profile_image_url,
-      required this.created_at});
-
-  factory _$SbMemberModelImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SbMemberModelImplFromJson(json);
-
-  @override
-  final int id;
-  @override
-  final String name;
-  @override
-  final String fcm_token;
-  @override
-  final String profile_image_url;
-  @override
-  final DateTime created_at;
-
-  @override
-  String toString() {
-    return 'SbMemberModel(id: $id, name: $name, fcm_token: $fcm_token, profile_image_url: $profile_image_url, created_at: $created_at)';
-  }
+  /// Serializes this SbMemberModel to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SbMemberModelImpl &&
+            other is SbMemberModel &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.fcm_token, fcm_token) ||
@@ -206,48 +52,193 @@ class _$SbMemberModelImpl implements _SbMemberModel {
   int get hashCode => Object.hash(
       runtimeType, id, name, fcm_token, profile_image_url, created_at);
 
-  /// Create a copy of SbMemberModel
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$SbMemberModelImplCopyWith<_$SbMemberModelImpl> get copyWith =>
-      __$$SbMemberModelImplCopyWithImpl<_$SbMemberModelImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SbMemberModelImplToJson(
-      this,
-    );
+  String toString() {
+    return 'SbMemberModel(id: $id, name: $name, fcm_token: $fcm_token, profile_image_url: $profile_image_url, created_at: $created_at)';
   }
 }
 
-abstract class _SbMemberModel implements SbMemberModel {
-  factory _SbMemberModel(
-      {required final int id,
-      required final String name,
-      required final String fcm_token,
-      required final String profile_image_url,
-      required final DateTime created_at}) = _$SbMemberModelImpl;
+/// @nodoc
+abstract mixin class $SbMemberModelCopyWith<$Res> {
+  factory $SbMemberModelCopyWith(
+          SbMemberModel value, $Res Function(SbMemberModel) _then) =
+      _$SbMemberModelCopyWithImpl;
+  @useResult
+  $Res call(
+      {int id,
+      String name,
+      String fcm_token,
+      String profile_image_url,
+      DateTime created_at});
+}
 
-  factory _SbMemberModel.fromJson(Map<String, dynamic> json) =
-      _$SbMemberModelImpl.fromJson;
+/// @nodoc
+class _$SbMemberModelCopyWithImpl<$Res>
+    implements $SbMemberModelCopyWith<$Res> {
+  _$SbMemberModelCopyWithImpl(this._self, this._then);
+
+  final SbMemberModel _self;
+  final $Res Function(SbMemberModel) _then;
+
+  /// Create a copy of SbMemberModel
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? name = null,
+    Object? fcm_token = null,
+    Object? profile_image_url = null,
+    Object? created_at = null,
+  }) {
+    return _then(_self.copyWith(
+      id: null == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      name: null == name
+          ? _self.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      fcm_token: null == fcm_token
+          ? _self.fcm_token
+          : fcm_token // ignore: cast_nullable_to_non_nullable
+              as String,
+      profile_image_url: null == profile_image_url
+          ? _self.profile_image_url
+          : profile_image_url // ignore: cast_nullable_to_non_nullable
+              as String,
+      created_at: null == created_at
+          ? _self.created_at
+          : created_at // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+}
+
+/// @nodoc
+
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
+class _SbMemberModel implements SbMemberModel {
+  _SbMemberModel(
+      {required this.id,
+      required this.name,
+      required this.fcm_token,
+      required this.profile_image_url,
+      required this.created_at});
+  factory _SbMemberModel.fromJson(Map<String, dynamic> json) =>
+      _$SbMemberModelFromJson(json);
 
   @override
-  int get id;
+  final int id;
   @override
-  String get name;
+  final String name;
   @override
-  String get fcm_token;
+  final String fcm_token;
   @override
-  String get profile_image_url;
+  final String profile_image_url;
   @override
-  DateTime get created_at;
+  final DateTime created_at;
 
   /// Create a copy of SbMemberModel
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SbMemberModelImplCopyWith<_$SbMemberModelImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$SbMemberModelCopyWith<_SbMemberModel> get copyWith =>
+      __$SbMemberModelCopyWithImpl<_SbMemberModel>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$SbMemberModelToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _SbMemberModel &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.fcm_token, fcm_token) ||
+                other.fcm_token == fcm_token) &&
+            (identical(other.profile_image_url, profile_image_url) ||
+                other.profile_image_url == profile_image_url) &&
+            (identical(other.created_at, created_at) ||
+                other.created_at == created_at));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, id, name, fcm_token, profile_image_url, created_at);
+
+  @override
+  String toString() {
+    return 'SbMemberModel(id: $id, name: $name, fcm_token: $fcm_token, profile_image_url: $profile_image_url, created_at: $created_at)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$SbMemberModelCopyWith<$Res>
+    implements $SbMemberModelCopyWith<$Res> {
+  factory _$SbMemberModelCopyWith(
+          _SbMemberModel value, $Res Function(_SbMemberModel) _then) =
+      __$SbMemberModelCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {int id,
+      String name,
+      String fcm_token,
+      String profile_image_url,
+      DateTime created_at});
+}
+
+/// @nodoc
+class __$SbMemberModelCopyWithImpl<$Res>
+    implements _$SbMemberModelCopyWith<$Res> {
+  __$SbMemberModelCopyWithImpl(this._self, this._then);
+
+  final _SbMemberModel _self;
+  final $Res Function(_SbMemberModel) _then;
+
+  /// Create a copy of SbMemberModel
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? id = null,
+    Object? name = null,
+    Object? fcm_token = null,
+    Object? profile_image_url = null,
+    Object? created_at = null,
+  }) {
+    return _then(_SbMemberModel(
+      id: null == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      name: null == name
+          ? _self.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      fcm_token: null == fcm_token
+          ? _self.fcm_token
+          : fcm_token // ignore: cast_nullable_to_non_nullable
+              as String,
+      profile_image_url: null == profile_image_url
+          ? _self.profile_image_url
+          : profile_image_url // ignore: cast_nullable_to_non_nullable
+              as String,
+      created_at: null == created_at
+          ? _self.created_at
+          : created_at // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+}
+
+// dart format on

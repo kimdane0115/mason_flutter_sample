@@ -5,14 +5,14 @@ part 'firebase_data_response.g.dart';
 
 @freezed
 @JsonSerializable(genericArgumentFactories: true)
-class FirebaseDataResponse<T> with _$FirebaseDataResponse<T> {
+abstract class FirebaseDataResponse<T> with _$FirebaseDataResponse<T> {
   const FirebaseDataResponse._();
 
   const factory FirebaseDataResponse({
-    required final String name,
+    final String? name,
     final T? fields,
-    required final String createTime,
-    required final String updateTime,
+    final String? createTime,
+    final String? updateTime,
   }) = _FirebaseDataResponse;
 
   factory FirebaseDataResponse.fromJson(

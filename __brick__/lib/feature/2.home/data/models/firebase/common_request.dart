@@ -22,7 +22,7 @@ part 'common_request.g.dart';
 
 @freezed
 @JsonSerializable(genericArgumentFactories: true)
-class CommonRequest<T> with _$CommonRequest<T> {
+abstract class CommonRequest<T> with _$CommonRequest<T> {
   const CommonRequest._();
 
   const factory CommonRequest({

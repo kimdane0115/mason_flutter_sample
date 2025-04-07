@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,75 +10,55 @@ part of 'data_response.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$DataResponse<T> {
-  List<T>? get documents => throw _privateConstructorUsedError;
+  List<T>? get documents;
 
   /// Create a copy of DataResponse
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $DataResponseCopyWith<T, DataResponse<T>> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $DataResponseCopyWith<T, $Res> {
-  factory $DataResponseCopyWith(
-          DataResponse<T> value, $Res Function(DataResponse<T>) then) =
-      _$DataResponseCopyWithImpl<T, $Res, DataResponse<T>>;
-  @useResult
-  $Res call({List<T>? documents});
-}
-
-/// @nodoc
-class _$DataResponseCopyWithImpl<T, $Res, $Val extends DataResponse<T>>
-    implements $DataResponseCopyWith<T, $Res> {
-  _$DataResponseCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of DataResponse
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $DataResponseCopyWith<T, DataResponse<T>> get copyWith =>
+      _$DataResponseCopyWithImpl<T, DataResponse<T>>(
+          this as DataResponse<T>, _$identity);
+
   @override
-  $Res call({
-    Object? documents = freezed,
-  }) {
-    return _then(_value.copyWith(
-      documents: freezed == documents
-          ? _value.documents
-          : documents // ignore: cast_nullable_to_non_nullable
-              as List<T>?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is DataResponse<T> &&
+            const DeepCollectionEquality().equals(other.documents, documents));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(documents));
+
+  @override
+  String toString() {
+    return 'DataResponse<$T>(documents: $documents)';
   }
 }
 
 /// @nodoc
-abstract class _$$DataResponseImplCopyWith<T, $Res>
-    implements $DataResponseCopyWith<T, $Res> {
-  factory _$$DataResponseImplCopyWith(_$DataResponseImpl<T> value,
-          $Res Function(_$DataResponseImpl<T>) then) =
-      __$$DataResponseImplCopyWithImpl<T, $Res>;
-  @override
+abstract mixin class $DataResponseCopyWith<T, $Res> {
+  factory $DataResponseCopyWith(
+          DataResponse<T> value, $Res Function(DataResponse<T>) _then) =
+      _$DataResponseCopyWithImpl;
   @useResult
   $Res call({List<T>? documents});
 }
 
 /// @nodoc
-class __$$DataResponseImplCopyWithImpl<T, $Res>
-    extends _$DataResponseCopyWithImpl<T, $Res, _$DataResponseImpl<T>>
-    implements _$$DataResponseImplCopyWith<T, $Res> {
-  __$$DataResponseImplCopyWithImpl(
-      _$DataResponseImpl<T> _value, $Res Function(_$DataResponseImpl<T>) _then)
-      : super(_value, _then);
+class _$DataResponseCopyWithImpl<T, $Res>
+    implements $DataResponseCopyWith<T, $Res> {
+  _$DataResponseCopyWithImpl(this._self, this._then);
+
+  final DataResponse<T> _self;
+  final $Res Function(DataResponse<T>) _then;
 
   /// Create a copy of DataResponse
   /// with the given fields replaced by the non-null parameter values.
@@ -86,9 +67,9 @@ class __$$DataResponseImplCopyWithImpl<T, $Res>
   $Res call({
     Object? documents = freezed,
   }) {
-    return _then(_$DataResponseImpl<T>(
+    return _then(_self.copyWith(
       documents: freezed == documents
-          ? _value._documents
+          ? _self.documents
           : documents // ignore: cast_nullable_to_non_nullable
               as List<T>?,
     ));
@@ -97,8 +78,8 @@ class __$$DataResponseImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$DataResponseImpl<T> extends _DataResponse<T> {
-  const _$DataResponseImpl({final List<T>? documents})
+class _DataResponse<T> extends DataResponse<T> {
+  const _DataResponse({final List<T>? documents})
       : _documents = documents,
         super._();
 
@@ -112,16 +93,19 @@ class _$DataResponseImpl<T> extends _DataResponse<T> {
     return EqualUnmodifiableListView(value);
   }
 
+  /// Create a copy of DataResponse
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'DataResponse<$T>(documents: $documents)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$DataResponseCopyWith<T, _DataResponse<T>> get copyWith =>
+      __$DataResponseCopyWithImpl<T, _DataResponse<T>>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DataResponseImpl<T> &&
+            other is _DataResponse<T> &&
             const DeepCollectionEquality()
                 .equals(other._documents, _documents));
   }
@@ -130,28 +114,45 @@ class _$DataResponseImpl<T> extends _DataResponse<T> {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_documents));
 
+  @override
+  String toString() {
+    return 'DataResponse<$T>(documents: $documents)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$DataResponseCopyWith<T, $Res>
+    implements $DataResponseCopyWith<T, $Res> {
+  factory _$DataResponseCopyWith(
+          _DataResponse<T> value, $Res Function(_DataResponse<T>) _then) =
+      __$DataResponseCopyWithImpl;
+  @override
+  @useResult
+  $Res call({List<T>? documents});
+}
+
+/// @nodoc
+class __$DataResponseCopyWithImpl<T, $Res>
+    implements _$DataResponseCopyWith<T, $Res> {
+  __$DataResponseCopyWithImpl(this._self, this._then);
+
+  final _DataResponse<T> _self;
+  final $Res Function(_DataResponse<T>) _then;
+
   /// Create a copy of DataResponse
   /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$DataResponseImplCopyWith<T, _$DataResponseImpl<T>> get copyWith =>
-      __$$DataResponseImplCopyWithImpl<T, _$DataResponseImpl<T>>(
-          this, _$identity);
+  $Res call({
+    Object? documents = freezed,
+  }) {
+    return _then(_DataResponse<T>(
+      documents: freezed == documents
+          ? _self._documents
+          : documents // ignore: cast_nullable_to_non_nullable
+              as List<T>?,
+    ));
+  }
 }
 
-abstract class _DataResponse<T> extends DataResponse<T> {
-  const factory _DataResponse({final List<T>? documents}) =
-      _$DataResponseImpl<T>;
-  const _DataResponse._() : super._();
-
-  @override
-  List<T>? get documents;
-
-  /// Create a copy of DataResponse
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$DataResponseImplCopyWith<T, _$DataResponseImpl<T>> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+// dart format on

@@ -4,7 +4,7 @@ part 'member_model.freezed.dart';
 part 'member_model.g.dart';
 
 @freezed
-class MemberModel with _$MemberModel {
+abstract class MemberModel with _$MemberModel {
   @JsonSerializable(includeIfNull: false, explicitToJson: true)
   factory MemberModel({
     required Map<String, dynamic> memberName,
