@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,76 +10,56 @@ part of 'common_request.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$CommonRequest<T> {
 // required int iconCodePoint,
-  T? get fields => throw _privateConstructorUsedError;
+  T? get fields;
 
   /// Create a copy of CommonRequest
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $CommonRequestCopyWith<T, CommonRequest<T>> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $CommonRequestCopyWith<T, $Res> {
-  factory $CommonRequestCopyWith(
-          CommonRequest<T> value, $Res Function(CommonRequest<T>) then) =
-      _$CommonRequestCopyWithImpl<T, $Res, CommonRequest<T>>;
-  @useResult
-  $Res call({T? fields});
-}
-
-/// @nodoc
-class _$CommonRequestCopyWithImpl<T, $Res, $Val extends CommonRequest<T>>
-    implements $CommonRequestCopyWith<T, $Res> {
-  _$CommonRequestCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of CommonRequest
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $CommonRequestCopyWith<T, CommonRequest<T>> get copyWith =>
+      _$CommonRequestCopyWithImpl<T, CommonRequest<T>>(
+          this as CommonRequest<T>, _$identity);
+
   @override
-  $Res call({
-    Object? fields = freezed,
-  }) {
-    return _then(_value.copyWith(
-      fields: freezed == fields
-          ? _value.fields
-          : fields // ignore: cast_nullable_to_non_nullable
-              as T?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is CommonRequest<T> &&
+            const DeepCollectionEquality().equals(other.fields, fields));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(fields));
+
+  @override
+  String toString() {
+    return 'CommonRequest<$T>(fields: $fields)';
   }
 }
 
 /// @nodoc
-abstract class _$$CommonRequestImplCopyWith<T, $Res>
-    implements $CommonRequestCopyWith<T, $Res> {
-  factory _$$CommonRequestImplCopyWith(_$CommonRequestImpl<T> value,
-          $Res Function(_$CommonRequestImpl<T>) then) =
-      __$$CommonRequestImplCopyWithImpl<T, $Res>;
-  @override
+abstract mixin class $CommonRequestCopyWith<T, $Res> {
+  factory $CommonRequestCopyWith(
+          CommonRequest<T> value, $Res Function(CommonRequest<T>) _then) =
+      _$CommonRequestCopyWithImpl;
   @useResult
   $Res call({T? fields});
 }
 
 /// @nodoc
-class __$$CommonRequestImplCopyWithImpl<T, $Res>
-    extends _$CommonRequestCopyWithImpl<T, $Res, _$CommonRequestImpl<T>>
-    implements _$$CommonRequestImplCopyWith<T, $Res> {
-  __$$CommonRequestImplCopyWithImpl(_$CommonRequestImpl<T> _value,
-      $Res Function(_$CommonRequestImpl<T>) _then)
-      : super(_value, _then);
+class _$CommonRequestCopyWithImpl<T, $Res>
+    implements $CommonRequestCopyWith<T, $Res> {
+  _$CommonRequestCopyWithImpl(this._self, this._then);
+
+  final CommonRequest<T> _self;
+  final $Res Function(CommonRequest<T>) _then;
 
   /// Create a copy of CommonRequest
   /// with the given fields replaced by the non-null parameter values.
@@ -87,9 +68,9 @@ class __$$CommonRequestImplCopyWithImpl<T, $Res>
   $Res call({
     Object? fields = freezed,
   }) {
-    return _then(_$CommonRequestImpl<T>(
+    return _then(_self.copyWith(
       fields: freezed == fields
-          ? _value.fields
+          ? _self.fields
           : fields // ignore: cast_nullable_to_non_nullable
               as T?,
     ));
@@ -98,23 +79,26 @@ class __$$CommonRequestImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$CommonRequestImpl<T> extends _CommonRequest<T> {
-  const _$CommonRequestImpl({this.fields}) : super._();
+class _CommonRequest<T> extends CommonRequest<T> {
+  const _CommonRequest({this.fields}) : super._();
 
 // required int iconCodePoint,
   @override
   final T? fields;
 
+  /// Create a copy of CommonRequest
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'CommonRequest<$T>(fields: $fields)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$CommonRequestCopyWith<T, _CommonRequest<T>> get copyWith =>
+      __$CommonRequestCopyWithImpl<T, _CommonRequest<T>>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CommonRequestImpl<T> &&
+            other is _CommonRequest<T> &&
             const DeepCollectionEquality().equals(other.fields, fields));
   }
 
@@ -122,28 +106,45 @@ class _$CommonRequestImpl<T> extends _CommonRequest<T> {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(fields));
 
+  @override
+  String toString() {
+    return 'CommonRequest<$T>(fields: $fields)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$CommonRequestCopyWith<T, $Res>
+    implements $CommonRequestCopyWith<T, $Res> {
+  factory _$CommonRequestCopyWith(
+          _CommonRequest<T> value, $Res Function(_CommonRequest<T>) _then) =
+      __$CommonRequestCopyWithImpl;
+  @override
+  @useResult
+  $Res call({T? fields});
+}
+
+/// @nodoc
+class __$CommonRequestCopyWithImpl<T, $Res>
+    implements _$CommonRequestCopyWith<T, $Res> {
+  __$CommonRequestCopyWithImpl(this._self, this._then);
+
+  final _CommonRequest<T> _self;
+  final $Res Function(_CommonRequest<T>) _then;
+
   /// Create a copy of CommonRequest
   /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$CommonRequestImplCopyWith<T, _$CommonRequestImpl<T>> get copyWith =>
-      __$$CommonRequestImplCopyWithImpl<T, _$CommonRequestImpl<T>>(
-          this, _$identity);
+  $Res call({
+    Object? fields = freezed,
+  }) {
+    return _then(_CommonRequest<T>(
+      fields: freezed == fields
+          ? _self.fields
+          : fields // ignore: cast_nullable_to_non_nullable
+              as T?,
+    ));
+  }
 }
 
-abstract class _CommonRequest<T> extends CommonRequest<T> {
-  const factory _CommonRequest({final T? fields}) = _$CommonRequestImpl<T>;
-  const _CommonRequest._() : super._();
-
-// required int iconCodePoint,
-  @override
-  T? get fields;
-
-  /// Create a copy of CommonRequest
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$CommonRequestImplCopyWith<T, _$CommonRequestImpl<T>> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+// dart format on

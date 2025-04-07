@@ -4,7 +4,7 @@ part 'sb_member_model.freezed.dart';
 part 'sb_member_model.g.dart';
 
 @freezed
-class SbMemberModel with _$SbMemberModel {
+abstract class SbMemberModel with _$SbMemberModel {
   @JsonSerializable(includeIfNull: false, explicitToJson: true)
   factory SbMemberModel({
     required int id,

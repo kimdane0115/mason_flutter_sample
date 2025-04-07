@@ -4,7 +4,7 @@ part 'record_model.freezed.dart';
 part 'record_model.g.dart';
 
 @freezed
-class RecordModel with _$RecordModel {
+abstract class RecordModel with _$RecordModel {
   @JsonSerializable(includeIfNull: false)
   factory RecordModel({
     required Map<String, dynamic> game,

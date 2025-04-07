@@ -6,8 +6,8 @@ part of 'sb_profile_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SbProfileModelImpl _$$SbProfileModelImplFromJson(Map<String, dynamic> json) =>
-    _$SbProfileModelImpl(
+_SbProfileModel _$SbProfileModelFromJson(Map<String, dynamic> json) =>
+    _SbProfileModel(
       id: (json['id'] as num).toInt(),
       email: json['email'] as String,
       name: json['name'] as String,
@@ -19,8 +19,7 @@ _$SbProfileModelImpl _$$SbProfileModelImplFromJson(Map<String, dynamic> json) =>
       createdAt: DateTime.parse(json['createdAt'] as String),
     );
 
-Map<String, dynamic> _$$SbProfileModelImplToJson(
-        _$SbProfileModelImpl instance) =>
+Map<String, dynamic> _$SbProfileModelToJson(_SbProfileModel instance) =>
     <String, dynamic>{
       'id': instance.id,
       'email': instance.email,

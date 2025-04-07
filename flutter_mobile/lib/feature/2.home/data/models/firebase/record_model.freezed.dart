@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,93 +10,57 @@ part of 'record_model.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-RecordModel _$RecordModelFromJson(Map<String, dynamic> json) {
-  return _RecordModel.fromJson(json);
-}
 
 /// @nodoc
 mixin _$RecordModel {
-  Map<String, dynamic> get game => throw _privateConstructorUsedError;
-  Map<String, dynamic> get goal => throw _privateConstructorUsedError;
-  Map<String, dynamic> get assist => throw _privateConstructorUsedError;
-  Map<String, dynamic> get mom => throw _privateConstructorUsedError;
-
-  /// Serializes this RecordModel to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> get game;
+  Map<String, dynamic> get goal;
+  Map<String, dynamic> get assist;
+  Map<String, dynamic> get mom;
 
   /// Create a copy of RecordModel
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $RecordModelCopyWith<RecordModel> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $RecordModelCopyWith<$Res> {
-  factory $RecordModelCopyWith(
-          RecordModel value, $Res Function(RecordModel) then) =
-      _$RecordModelCopyWithImpl<$Res, RecordModel>;
-  @useResult
-  $Res call(
-      {Map<String, dynamic> game,
-      Map<String, dynamic> goal,
-      Map<String, dynamic> assist,
-      Map<String, dynamic> mom});
-}
-
-/// @nodoc
-class _$RecordModelCopyWithImpl<$Res, $Val extends RecordModel>
-    implements $RecordModelCopyWith<$Res> {
-  _$RecordModelCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of RecordModel
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $RecordModelCopyWith<RecordModel> get copyWith =>
+      _$RecordModelCopyWithImpl<RecordModel>(this as RecordModel, _$identity);
+
+  /// Serializes this RecordModel to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? game = null,
-    Object? goal = null,
-    Object? assist = null,
-    Object? mom = null,
-  }) {
-    return _then(_value.copyWith(
-      game: null == game
-          ? _value.game
-          : game // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-      goal: null == goal
-          ? _value.goal
-          : goal // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-      assist: null == assist
-          ? _value.assist
-          : assist // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-      mom: null == mom
-          ? _value.mom
-          : mom // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is RecordModel &&
+            const DeepCollectionEquality().equals(other.game, game) &&
+            const DeepCollectionEquality().equals(other.goal, goal) &&
+            const DeepCollectionEquality().equals(other.assist, assist) &&
+            const DeepCollectionEquality().equals(other.mom, mom));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(game),
+      const DeepCollectionEquality().hash(goal),
+      const DeepCollectionEquality().hash(assist),
+      const DeepCollectionEquality().hash(mom));
+
+  @override
+  String toString() {
+    return 'RecordModel(game: $game, goal: $goal, assist: $assist, mom: $mom)';
   }
 }
 
 /// @nodoc
-abstract class _$$RecordModelImplCopyWith<$Res>
-    implements $RecordModelCopyWith<$Res> {
-  factory _$$RecordModelImplCopyWith(
-          _$RecordModelImpl value, $Res Function(_$RecordModelImpl) then) =
-      __$$RecordModelImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $RecordModelCopyWith<$Res> {
+  factory $RecordModelCopyWith(
+          RecordModel value, $Res Function(RecordModel) _then) =
+      _$RecordModelCopyWithImpl;
   @useResult
   $Res call(
       {Map<String, dynamic> game,
@@ -105,12 +70,11 @@ abstract class _$$RecordModelImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$RecordModelImplCopyWithImpl<$Res>
-    extends _$RecordModelCopyWithImpl<$Res, _$RecordModelImpl>
-    implements _$$RecordModelImplCopyWith<$Res> {
-  __$$RecordModelImplCopyWithImpl(
-      _$RecordModelImpl _value, $Res Function(_$RecordModelImpl) _then)
-      : super(_value, _then);
+class _$RecordModelCopyWithImpl<$Res> implements $RecordModelCopyWith<$Res> {
+  _$RecordModelCopyWithImpl(this._self, this._then);
+
+  final RecordModel _self;
+  final $Res Function(RecordModel) _then;
 
   /// Create a copy of RecordModel
   /// with the given fields replaced by the non-null parameter values.
@@ -122,21 +86,21 @@ class __$$RecordModelImplCopyWithImpl<$Res>
     Object? assist = null,
     Object? mom = null,
   }) {
-    return _then(_$RecordModelImpl(
+    return _then(_self.copyWith(
       game: null == game
-          ? _value._game
+          ? _self.game
           : game // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
       goal: null == goal
-          ? _value._goal
+          ? _self.goal
           : goal // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
       assist: null == assist
-          ? _value._assist
+          ? _self.assist
           : assist // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
       mom: null == mom
-          ? _value._mom
+          ? _self.mom
           : mom // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
     ));
@@ -146,8 +110,8 @@ class __$$RecordModelImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$RecordModelImpl implements _RecordModel {
-  _$RecordModelImpl(
+class _RecordModel implements RecordModel {
+  _RecordModel(
       {required final Map<String, dynamic> game,
       required final Map<String, dynamic> goal,
       required final Map<String, dynamic> assist,
@@ -156,9 +120,8 @@ class _$RecordModelImpl implements _RecordModel {
         _goal = goal,
         _assist = assist,
         _mom = mom;
-
-  factory _$RecordModelImpl.fromJson(Map<String, dynamic> json) =>
-      _$$RecordModelImplFromJson(json);
+  factory _RecordModel.fromJson(Map<String, dynamic> json) =>
+      _$RecordModelFromJson(json);
 
   final Map<String, dynamic> _game;
   @override
@@ -192,16 +155,26 @@ class _$RecordModelImpl implements _RecordModel {
     return EqualUnmodifiableMapView(_mom);
   }
 
+  /// Create a copy of RecordModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'RecordModel(game: $game, goal: $goal, assist: $assist, mom: $mom)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$RecordModelCopyWith<_RecordModel> get copyWith =>
+      __$RecordModelCopyWithImpl<_RecordModel>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$RecordModelToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RecordModelImpl &&
+            other is _RecordModel &&
             const DeepCollectionEquality().equals(other._game, _game) &&
             const DeepCollectionEquality().equals(other._goal, _goal) &&
             const DeepCollectionEquality().equals(other._assist, _assist) &&
@@ -217,45 +190,63 @@ class _$RecordModelImpl implements _RecordModel {
       const DeepCollectionEquality().hash(_assist),
       const DeepCollectionEquality().hash(_mom));
 
-  /// Create a copy of RecordModel
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$RecordModelImplCopyWith<_$RecordModelImpl> get copyWith =>
-      __$$RecordModelImplCopyWithImpl<_$RecordModelImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$RecordModelImplToJson(
-      this,
-    );
+  String toString() {
+    return 'RecordModel(game: $game, goal: $goal, assist: $assist, mom: $mom)';
   }
 }
 
-abstract class _RecordModel implements RecordModel {
-  factory _RecordModel(
-      {required final Map<String, dynamic> game,
-      required final Map<String, dynamic> goal,
-      required final Map<String, dynamic> assist,
-      required final Map<String, dynamic> mom}) = _$RecordModelImpl;
+/// @nodoc
+abstract mixin class _$RecordModelCopyWith<$Res>
+    implements $RecordModelCopyWith<$Res> {
+  factory _$RecordModelCopyWith(
+          _RecordModel value, $Res Function(_RecordModel) _then) =
+      __$RecordModelCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {Map<String, dynamic> game,
+      Map<String, dynamic> goal,
+      Map<String, dynamic> assist,
+      Map<String, dynamic> mom});
+}
 
-  factory _RecordModel.fromJson(Map<String, dynamic> json) =
-      _$RecordModelImpl.fromJson;
+/// @nodoc
+class __$RecordModelCopyWithImpl<$Res> implements _$RecordModelCopyWith<$Res> {
+  __$RecordModelCopyWithImpl(this._self, this._then);
 
-  @override
-  Map<String, dynamic> get game;
-  @override
-  Map<String, dynamic> get goal;
-  @override
-  Map<String, dynamic> get assist;
-  @override
-  Map<String, dynamic> get mom;
+  final _RecordModel _self;
+  final $Res Function(_RecordModel) _then;
 
   /// Create a copy of RecordModel
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$RecordModelImplCopyWith<_$RecordModelImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? game = null,
+    Object? goal = null,
+    Object? assist = null,
+    Object? mom = null,
+  }) {
+    return _then(_RecordModel(
+      game: null == game
+          ? _self._game
+          : game // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+      goal: null == goal
+          ? _self._goal
+          : goal // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+      assist: null == assist
+          ? _self._assist
+          : assist // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+      mom: null == mom
+          ? _self._mom
+          : mom // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+    ));
+  }
 }
+
+// dart format on

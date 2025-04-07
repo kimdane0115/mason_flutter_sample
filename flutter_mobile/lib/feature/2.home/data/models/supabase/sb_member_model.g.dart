@@ -6,8 +6,8 @@ part of 'sb_member_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SbMemberModelImpl _$$SbMemberModelImplFromJson(Map<String, dynamic> json) =>
-    _$SbMemberModelImpl(
+_SbMemberModel _$SbMemberModelFromJson(Map<String, dynamic> json) =>
+    _SbMemberModel(
       id: (json['id'] as num).toInt(),
       name: json['name'] as String,
       fcm_token: json['fcm_token'] as String,
@@ -15,7 +15,7 @@ _$SbMemberModelImpl _$$SbMemberModelImplFromJson(Map<String, dynamic> json) =>
       created_at: DateTime.parse(json['created_at'] as String),
     );
 
-Map<String, dynamic> _$$SbMemberModelImplToJson(_$SbMemberModelImpl instance) =>
+Map<String, dynamic> _$SbMemberModelToJson(_SbMemberModel instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
