@@ -17,7 +17,8 @@ class _TabScreenState extends ConsumerState<TabScreen> {
 
     if (location == const HomeScreenRoute().location) {
       return 0;
-    } else if (location == const RecordScreenRoute().location) {
+    // } else if (location == const RecordScreenRoute().location) {
+    } else if (location == const HomeScreenRoute2().location) {
       return 1;
     } else if (location == const MyInfoPageRoute().location) {
       return 2;
@@ -77,7 +78,8 @@ class _TabScreenState extends ConsumerState<TabScreen> {
         const HomeScreenRoute().go(context);
         break;
       case 1:
-        const RecordScreenRoute().go(context);
+        // const RecordScreenRoute().go(context);
+        const HomeScreenRoute2().go(context);
         break;
       case 2:
         const MyInfoPageRoute().go(context);
