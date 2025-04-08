@@ -114,17 +114,19 @@ class _CarouselWithEffectState extends ConsumerState<CarouselWithEffect> {
   }
 }
 
-class WordCarouselPage extends ConsumerStatefulWidget {
+class WordCarouselPage extends StatefulWidget {
   const WordCarouselPage({super.key});
 
   @override
-  ConsumerState<WordCarouselPage> createState() => _WordCarouselPageState();
+  State<WordCarouselPage> createState() => _WordCarouselPageState();
 }
 
-class _WordCarouselPageState extends ConsumerState<WordCarouselPage> {
+class _WordCarouselPageState extends State<WordCarouselPage> {
   bool hideWord = false;
   bool hideMeaning = false;
+  int currentDateIndex = 0;
 
+  // 초기 단어 데이터
   final List<Word> words = [
     Word(word: "abandon", meaning: "버리다", dateAdded: DateTime(2025, 4, 8)),
     Word(word: "compile", meaning: "모으다", dateAdded: DateTime(2025, 4, 8)),
@@ -133,13 +135,24 @@ class _WordCarouselPageState extends ConsumerState<WordCarouselPage> {
     Word(word: "assert", meaning: "주장하다", dateAdded: DateTime(2025, 4, 6)),
   ];
 
-  Map<String, List<Word>> groupWordsByDate(List<Word> words) {
-    Map<String, List<Word>> grouped = {};
+  late Map<String, List<Word>> grouped;
+  late List<String> dates;
+  late List<List<Word>> wordLists;
+
+  @override
+  void initState() {
+    super.initState();
+    _prepareData();
+  }
+
+  void _prepareData() {
+    grouped = {};
     for (var word in words) {
       String dateKey = DateFormat('yyyy-MM-dd').format(word.dateAdded);
       grouped.putIfAbsent(dateKey, () => []).add(word);
     }
-    return grouped;
+    dates = grouped.keys.toList()..sort((a, b) => b.compareTo(a));
+    wordLists = dates.map((d) => grouped[d]!).toList();
   }
 
   Widget buildBlurredText(String text, bool hide) {
@@ -147,12 +160,15 @@ class _WordCarouselPageState extends ConsumerState<WordCarouselPage> {
       children: [
         Text(
           text,
-          style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+          style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
         ),
         if (hide)
           Positioned.fill(
             child: Container(
-              color: Colors.grey.withOpacity(0.5),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                color: Colors.grey.shade200.withValues(alpha: 1.0),
+              ),
             ),
           ),
       ],
@@ -161,102 +177,114 @@ class _WordCarouselPageState extends ConsumerState<WordCarouselPage> {
 
   @override
   Widget build(BuildContext context) {
-    final grouped = groupWordsByDate(words);
-    final dates = grouped.keys.toList()..sort((a, b) => b.compareTo(a));
+    if (dates.isEmpty) {
+      return const Scaffold(
+        body: Center(child: Text("단어가 없습니다")),
+      );
+    }
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("📅 일자별 단어장"),
-        centerTitle: true,
-      ),
-      body: Column(
+    final currentDate = dates[currentDateIndex];
+
+    return Column(
         children: [
-          // 보기 옵션 스위치
+          // 보기 옵션 & 날짜
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                // 보기 옵션
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Switch(
-                      value: !hideWord,
-                      onChanged: (val) => setState(() => hideWord = !val),
+                    Row(
+                      children: [
+                        Switch(
+                          value: !hideWord,
+                          onChanged: (val) => setState(() => hideWord = !val),
+                        ),
+                        const Text("단어 보기"),
+                      ],
                     ),
-                    Text("단어 보기"),
+                    Row(
+                      children: [
+                        Switch(
+                          value: !hideMeaning,
+                          onChanged: (val) => setState(() => hideMeaning = !val),
+                        ),
+                        const Text("뜻 보기"),
+                      ],
+                    ),
                   ],
                 ),
-                Row(
-                  children: [
-                    Switch(
-                      value: !hideMeaning,
-                      onChanged: (val) => setState(() => hideMeaning = !val),
-                    ),
-                    Text("뜻 보기"),
-                  ],
+                const SizedBox(height: 4),
+                Text(
+                  "📅 $currentDate",
+                  style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ],
             ),
           ),
-
-          // 캐러셀
+    
+          // 캐러셀: 단어 리스트만 넘김
           Expanded(
             child: CarouselSlider.builder(
-              itemCount: dates.length,
+              itemCount: wordLists.length,
               options: CarouselOptions(
                 height: double.infinity,
                 enlargeCenterPage: true,
                 enableInfiniteScroll: false,
-                viewportFraction: 0.9,
+                viewportFraction: 0.8,
+                onPageChanged: (index, reason) {
+                  setState(() {
+                    currentDateIndex = index;
+                  });
+                },
               ),
               itemBuilder: (context, index, realIdx) {
-                final dateKey = dates[index];
-                final wordList = grouped[dateKey]!;
-
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "📅 $dateKey",
-                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                    ),
-                    const SizedBox(height: 8),
-                    Expanded(
-                      child: ListView.builder(
-                        itemCount: wordList.length,
-                        itemBuilder: (context, i) {
-                          final word = wordList[i];
-                          return Card(
-                            margin: const EdgeInsets.symmetric(vertical: 8),
-                            elevation: 3,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(16),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(16),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  buildBlurredText(word.word, hideWord),
-                                  const SizedBox(height: 8),
-                                  buildBlurredText(word.meaning, hideMeaning),
-                                ],
-                              ),
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                  ],
+                final wordList = wordLists[index];
+    
+                return Container(
+                  margin: const EdgeInsets.symmetric(vertical: 12,),
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: Colors.grey.shade200,
+                    // color: Colors.red,
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: ListView.builder(
+                    itemCount: wordList.length,
+                    itemBuilder: (context, i) {
+                      final word = wordList[i];
+                      return Card(
+                        margin: const EdgeInsets.symmetric(vertical: 8),
+                        elevation: 3,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(16),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              buildBlurredText(word.word, hideWord),
+                              const SizedBox(height: 8),
+                              buildBlurredText(word.meaning, hideMeaning),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                  ),
                 );
               },
             ),
           ),
         ],
-      ),
-    );
+      );
   }
 }
+
 
 // class WordCarouselPage extends ConsumerStatefulWidget {
 //   const WordCarouselPage({super.key});
