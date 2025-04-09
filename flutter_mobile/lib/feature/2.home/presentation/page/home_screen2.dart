@@ -15,7 +15,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen2> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('팀명'),
+          title: const Text('📅 일자별 단어장'),
           actions: [
             IconButton(
               onPressed: () {
@@ -26,16 +26,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen2> {
             ),
           ],
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: WordCarouselPage(),
-          // child: CarouselWithEffect(),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            print('개인 기록 신청');
-          },
-        ),
+        // body: CarouselWithEffect(),
+        body: WordCarouselPage(),
+        // floatingActionButton: FloatingActionButton(
+        //   onPressed: () {
+        //     print('개인 기록 신청');
+        //   },
+        // ),
       ),
     );
   }
