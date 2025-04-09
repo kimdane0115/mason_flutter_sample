@@ -112,8 +112,8 @@ RouteBase get $tabScreenShell => ShellRouteData.$route(
           factory: $HomeScreenRouteExtension._fromState,
         ),
         GoRouteData.$route(
-          path: '/record',
-          factory: $RecordScreenRouteExtension._fromState,
+          path: '/home2',
+          factory: $HomeScreenRoute2Extension._fromState,
         ),
         GoRouteData.$route(
           path: '/my_info',
@@ -145,12 +145,12 @@ extension $HomeScreenRouteExtension on HomeScreenRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $RecordScreenRouteExtension on RecordScreenRoute {
-  static RecordScreenRoute _fromState(GoRouterState state) =>
-      const RecordScreenRoute();
+extension $HomeScreenRoute2Extension on HomeScreenRoute2 {
+  static HomeScreenRoute2 _fromState(GoRouterState state) =>
+      const HomeScreenRoute2();
 
   String get location => GoRouteData.$location(
-        '/record',
+        '/home2',
       );
 
   void go(BuildContext context) => context.go(location);

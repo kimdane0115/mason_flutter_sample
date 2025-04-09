@@ -90,15 +90,15 @@ class SignUpAgreementScreenRoute extends GoRouteData {
     TypedGoRoute<HomeScreenRoute>(
       path: Routers.home,
     ),
-    // TypedGoRoute<HomeScreenRoute2>(
-    //   path: Routers.home2,
-    // ),
+    TypedGoRoute<HomeScreenRoute2>(
+      path: Routers.home2,
+    ),
     // TypedGoRoute<HomeScreenRoute3>(
     //   path: Routers.home3,
     // ),
-    TypedGoRoute<RecordScreenRoute>(
-      path: Routers.record,
-    ),
+    // TypedGoRoute<RecordScreenRoute>(
+    //   path: Routers.record,
+    // ),
     TypedGoRoute<MyInfoPageRoute>(
       path: Routers.myInfo,
     ),
