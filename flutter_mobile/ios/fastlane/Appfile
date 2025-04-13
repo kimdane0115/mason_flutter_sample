@@ -1,5 +1,4 @@
-# app_identifier("com.kimdane.flutterMobile") # The bundle identifier of your app
-app_identifier(ENV["APP_NAME"])
+app_identifier("com.kimdane.flutterMobile") # The bundle identifier of your app
 apple_id("kimdane0115@gmail.com") # Your Apple Developer Portal username
 
 itc_team_id("127437969") # App Store Connect Team ID

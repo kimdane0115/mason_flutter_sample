@@ -45,9 +45,26 @@ platform :ios do
 
   desc "Push a new release build to the App Store"
   lane :release do
-    increment_build_number(xcodeproj: "Runner.xcodeproj")
-    build_app(workspace: "Runner.xcworkspace", scheme: "Runner")
-    upload_to_app_store(skip_metadata: true, skip_screenshots: true)
+    # increment_build_number(xcodeproj: "Runner.xcodeproj")
+    # build_app(workspace: "Runner.xcworkspace", scheme: "Runner")
+    # upload_to_app_store(skip_metadata: true, skip_screenshots: true)
+
+    ## cocoapods 설치
+    cocoapods(clean_install: true, use_bundle_exec: false)
+
+    flutter_build_ios
+
+    # Add badge to app icon (only dev)
+    # add_badge_to_icon
+
+    # Build app
+    # build_app(workspace: "Runner.xcworkspace", scheme: "Runner")
+
+    # Build app (prod scheme로 배포)
+    build_app(workspace: "Runner.xcworkspace", scheme: "prod") 
+
+    # Upload to testflight
+    upload_to_testflight
   end
 
   # Flutter build iOS
@@ -65,8 +82,8 @@ platform :ios do
     end
     
     if ENV["ENV"] == "prod"
-      # sh("flutter", "build", "ios", "--flavor", ENV['ENV'] , "-t", ENV['MAIN_TARGET'],"--no-codesign")
-      sh("flutter", "build", "ipa", "--flavor", ENV['ENV'] , "-t", ENV['MAIN_TARGET'], "--export-method", "ad-hoc")
+      sh("flutter", "build", "ios", "--flavor", ENV['ENV'] , "-t", ENV['MAIN_TARGET'],"--no-codesign")
+      # sh("flutter", "build", "ipa", "--flavor", ENV['ENV'] , "-t", ENV['MAIN_TARGET'], "--export-method", "ad-hoc")
     end
 
   end
