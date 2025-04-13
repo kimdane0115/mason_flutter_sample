@@ -60,7 +60,7 @@ platform :android do
       # firebase distribute
       firebase_app_distribution(
         app: "1:753175679683:android:753e65d46178d08a76c876",
-        apk_path: "../build/app/outputs/apk/prod/debug/app-prod-debug.apk",
+        apk_path: "../build/app/outputs/apk/prod/release/app-prod-release.apk",
         groups: "android"
       )
 
@@ -84,16 +84,16 @@ platform :android do
     puts "Flutter build Android"
 
     if ENV["ENV"] == "dev"
-      sh("flutter", "build", "apk", "--debug", "--flavor",ENV['ENV'] , "-t", ENV['MAIN_TARGET'])
+      sh("flutter", "build", "apk", "--debug", "--flavor", ENV['ENV'], "-t", ENV['MAIN_TARGET'])
     end
 
     if ENV["ENV"] == "staging"
-      sh("flutter", "build", "apk", "--debug", "--flavor",ENV['ENV'] , "-t", ENV['MAIN_TARGET'])
+      # sh("flutter", "build", "apk", "--debug", "--flavor", ENV['ENV'], "-t", ENV['MAIN_TARGET'])
+      sh("flutter", "build", "apk", "--release", "--flavor", "prod", "-t", "lib/main_prod.dart")
     end
     
     if ENV["ENV"] == "prod"
-      # sh("flutter", "build", "appbundle", "--flavor",ENV['ENV'] , "-t", ENV['MAIN_TARGET'])
-      sh("flutter", "build", "apk", "--debug", "--flavor",ENV['ENV'] , "-t", ENV['MAIN_TARGET'])
+      sh("flutter", "build", "appbundle", "--flavor", ENV['ENV'], "-t", ENV['MAIN_TARGET'])
     end
   end
 

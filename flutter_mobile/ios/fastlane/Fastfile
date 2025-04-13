@@ -83,12 +83,12 @@ platform :ios do
     end
 
     if ENV["ENV"] == "staging"
-      sh("flutter", "build", "ipa", "--flavor", ENV['ENV'] , "-t", ENV['MAIN_TARGET'], "--export-method", "ad-hoc")
+      # sh("flutter", "build", "ipa", "--flavor", ENV['ENV'] , "-t", ENV['MAIN_TARGET'], "--export-method", "ad-hoc")
+      sh("flutter", "build", "ipa", "--flavor", "prod", "-t", "lib/main_prod.dart", "--export-method", "ad-hoc")
     end
     
     if ENV["ENV"] == "prod"
-      sh("flutter", "build", "ios", "--flavor", ENV['ENV'] , "-t", ENV['MAIN_TARGET'],"--no-codesign")
-      # sh("flutter", "build", "ipa", "--flavor", ENV['ENV'] , "-t", ENV['MAIN_TARGET'], "--export-method", "ad-hoc")
+      sh("flutter", "build", "ios", "--flavor", ENV['ENV'], "-t", ENV['MAIN_TARGET'], "--no-codesign")
     end
 
   end
