@@ -61,7 +61,12 @@ platform :ios do
     # build_app(workspace: "Runner.xcworkspace", scheme: "Runner")
 
     # Build app (prod scheme로 배포)
-    build_app(workspace: "Runner.xcworkspace", scheme: "prod") 
+    build_app(workspace: "Runner.xcworkspace", scheme: "prod")
+
+    # sh("zip -d /Users/dao/workspace/mason_flutter_sample/flutter_mobile/ios/Runner.ipa ._Symbols/")
+    ipa_location = "../Runner.ipa"
+    sh("unzip -l #{ipa_location} | grep ._Symbols || true")
+    sh("zip -d #{ipa_location} ._Symbols/ || true")
 
     # Upload to testflight
     upload_to_testflight
