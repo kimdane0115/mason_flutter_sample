@@ -10,9 +10,10 @@ FutureOr<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 
+  await FirebaseService().initialize();
+
   String? fcmToken = await FirebaseMessaging.instance.getToken();
   print('>>> fcmToken : $fcmToken');
-  await FirebaseService().initialize();
 
   await Supabase.initialize(
     url: F.supabaseUrl,
