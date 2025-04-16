@@ -21,7 +21,8 @@ class SocialService {
   }
 
   Future<bool> signInWithGoogle() async {
-    if (await GoogleSignIn().isSignedIn()) {
+    try {
+      if (await GoogleSignIn().isSignedIn()) {
         await GoogleSignIn().signOut();
       }
       
@@ -49,6 +50,10 @@ class SocialService {
       );
 
       return true;
+
+    } catch (e) {
+      return false;
+    }
   }
 
   Future<void> signInWithApple() async {
