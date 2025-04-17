@@ -6,7 +6,7 @@ part of 'home_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$supabaseApiClientHash() => r'c2a0e87075fd5afcfa09cd9b67058a4079cf04ae';
+String _$supabaseApiClientHash() => r'71f13a9a284e09a01b98f3382d8909dc6910cae5';
 
 /// See also [supabaseApiClient].
 @ProviderFor(supabaseApiClient)
@@ -23,7 +23,7 @@ final supabaseApiClientProvider = Provider<SupabaseApiService>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef SupabaseApiClientRef = ProviderRef<SupabaseApiService>;
-String _$homeRepositoryHash() => r'd58b00ed988bb9cd8416d7545962bca742d73f4a';
+String _$homeRepositoryHash() => r'124bc3a1d6a3c902033cc725a18fda88323bc89e';
 
 /// See also [homeRepository].
 @ProviderFor(homeRepository)
@@ -40,7 +40,7 @@ final homeRepositoryProvider = Provider<HomeRepository>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef HomeRepositoryRef = ProviderRef<HomeRepository>;
-String _$getMembersHash() => r'd78b7f781e9dd6043abff776f22970591b375678';
+String _$getMembersHash() => r'ab06406287497540303a18724e126781bb8c7daa';
 
 /// See also [getMembers].
 @ProviderFor(getMembers)
@@ -56,7 +56,7 @@ final getMembersProvider = Provider<GetMembers>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef GetMembersRef = ProviderRef<GetMembers>;
-String _$addMemberHash() => r'77affff3d96cb8cc25913e7f8cd023ed17b6d111';
+String _$addMemberHash() => r'c55f3810ca33ec360c5c1e7ebe0b3b7ca387bdb3';
 
 /// See also [addMember].
 @ProviderFor(addMember)
@@ -72,7 +72,7 @@ final addMemberProvider = Provider<AddMember>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef AddMemberRef = ProviderRef<AddMember>;
-String _$updateMemeberHash() => r'a71b8cedd263274a26aecd1a617df1eb19712e08';
+String _$updateMemeberHash() => r'5f591c98516507bc1dc4648a6feddf76b93f0702';
 
 /// See also [updateMemeber].
 @ProviderFor(updateMemeber)
@@ -89,7 +89,7 @@ final updateMemeberProvider = Provider<UpdateMember>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef UpdateMemeberRef = ProviderRef<UpdateMember>;
-String _$deleteMemeberHash() => r'350aeccd84bb4244ba10e96cd2feabbbf284da3c';
+String _$deleteMemeberHash() => r'2fc2d611b816b771582d0666e62b53dd47a867e5';
 
 /// See also [deleteMemeber].
 @ProviderFor(deleteMemeber)

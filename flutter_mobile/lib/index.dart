@@ -13,5 +13,6 @@ export 'config/theme/themes.dart';
 
 export 'core/core.dart';
 export 'feature/1.sign/sign.dart';
+export 'feature/2.home/home.dart';
 
 export 'flavors.dart';

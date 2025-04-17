@@ -1,13 +1,8 @@
 
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../../../index.dart';
 import '../../data/data_sources/supabase/supabase_home_api_service.dart';
-import '../../data/repository/home_repository_impl.dart';
-import '../../domain/repository/home_repository.dart';
-import '../../domain/usecases/add_member.dart';
-import '../../domain/usecases/delete_member.dart';
-import '../../domain/usecases/get_members.dart';
-import '../../domain/usecases/update_member.dart';
 
 part 'home_provider.g.dart';
 
@@ -16,36 +11,36 @@ part 'home_provider.g.dart';
 //   return SupabaseApiClient();
 // }
 @Riverpod(keepAlive: true)
-SupabaseApiService supabaseApiClient (SupabaseApiClientRef ref) {
+SupabaseApiService supabaseApiClient (Ref ref) {
   return SupabaseApiServiceImpl();
 }
 
 @Riverpod(keepAlive: true)
-HomeRepository homeRepository(HomeRepositoryRef ref) {
+HomeRepository homeRepository(Ref ref) {
   final homeApiService = ref.read(supabaseApiClientProvider);
   return HomeRepositoryImpl(homeApiService);
 }
 
 @Riverpod(keepAlive: true)
-GetMembers getMembers(GetMembersRef ref) {
+GetMembers getMembers(Ref ref) {
   final repository = ref.read(homeRepositoryProvider);
   return GetMembers(repository);
 }
 
 @Riverpod(keepAlive: true)
-AddMember addMember(AddMemberRef ref) {
+AddMember addMember(Ref ref) {
   final repository = ref.read(homeRepositoryProvider);
   return AddMember(repository);
 }
 
 @Riverpod(keepAlive: true)
-UpdateMember updateMemeber(UpdateMemeberRef ref) {
+UpdateMember updateMemeber(Ref ref) {
   final repository = ref.read(homeRepositoryProvider);
   return UpdateMember(repository);
 }
 
 @Riverpod(keepAlive: true)
-DeleteMember deleteMemeber(DeleteMemeberRef ref) {
+DeleteMember deleteMemeber(Ref ref) {
   final repository = ref.read(homeRepositoryProvider);
   return DeleteMember(repository);
 }
