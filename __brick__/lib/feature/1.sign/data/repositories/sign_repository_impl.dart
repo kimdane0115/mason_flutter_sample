@@ -1,6 +1,6 @@
 
 import '../../domain/entities/profile.dart';
-import '../../domain/repository/sign_repository.dart';
+import '../../domain/repositories/sign_repository.dart';
 import '../data_sources/supabase/supabase_sign_api_service.dart';
 
 class SignRepositoryImpl extends SignRepository {
