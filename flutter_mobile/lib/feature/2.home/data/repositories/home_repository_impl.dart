@@ -1,5 +1,5 @@
 
-import '../../domain/repository/home_repository.dart';
+import '../../domain/repositories/home_repository.dart';
 import '../data_sources/supabase/supabase_home_api_service.dart';
 import '../models/models.dart';
 

@@ -1,5 +1,5 @@
 import '../entities/profile.dart';
-import '../repository/sign_repository.dart';
+import '../repositories/sign_repository.dart';
 
 class UserVerify {
   final SignRepository repository;

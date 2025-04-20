@@ -1,4 +1,4 @@
-import '../repository/home_repository.dart';
+import '../repositories/home_repository.dart';
 
 class UpdateMember {
   final HomeRepository repository;

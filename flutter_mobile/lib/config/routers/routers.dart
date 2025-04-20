@@ -1,10 +1,10 @@
 import '../../index.dart';
-import '../../feature/2.home/presentation/page/home_screen.dart';
-import '../../feature/2.home/presentation/page/home_screen2.dart';
-import '../../feature/2.home/presentation/page/home_screen3.dart';
-import '../../feature/2.home/presentation/page/tab_screen.dart';
-import '../../feature/3.record/presentation/page/record_screen.dart';
-import '../../feature/4.my_info/presentation/page/my_info_page.dart';
+import '../../feature/2.home/presentation/pages/home_screen.dart';
+import '../../feature/2.home/presentation/pages/home_screen2.dart';
+import '../../feature/2.home/presentation/pages/home_screen3.dart';
+import '../../feature/2.home/presentation/pages/tab_screen.dart';
+import '../../feature/3.record/presentation/pages/record_screen.dart';
+import '../../feature/4.my_info/presentation/pages/my_info_page.dart';
 import '../../splash_screen.dart';
 import 'router.dart';
 

@@ -6,7 +6,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../core/service/firebase_service.dart';
 import '../../../../index.dart';
-import '../provider/home_provider.dart';
+import '../providers/home_provider.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
