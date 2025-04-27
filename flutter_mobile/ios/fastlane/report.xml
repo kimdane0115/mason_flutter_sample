@@ -5,42 +5,27 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.000226">
+      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.000198">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: cocoapods" time="2.520428">
+      <testcase classname="fastlane.lanes" name="1: cocoapods" time="2.899372">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: Switch to ios flutter_build_ios lane" time="0.000162">
+      <testcase classname="fastlane.lanes" name="2: Switch to ios flutter_build_ios lane" time="0.000177">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: flutter build ios --flavor prod -t lib/main_prod.dart --no-codesign" time="110.176855">
+      <testcase classname="fastlane.lanes" name="3: flutter build ipa --flavor prod -t lib/main_prod.dart --export-method ad-hoc" time="236.996897">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="4: build_app" time="207.385977">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="5: unzip -l ../Runner.ipa | grep ._Symbols || true" time="0.014182">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="6: zip -d ../Runner.ipa ._Symbols/ || true" time="0.047432">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="7: upload_to_testflight" time="757.755946">
+      <testcase classname="fastlane.lanes" name="4: firebase_app_distribution" time="10.195148">
         
       </testcase>
     

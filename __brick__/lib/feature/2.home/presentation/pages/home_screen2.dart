@@ -1,7 +1,4 @@
-import 'package:flutter_mobile/feature/2.home/presentation/pages/word_carousel_page.dart';
-
 import '../../../../index.dart';
-
 class HomeScreen2 extends ConsumerStatefulWidget {
   const HomeScreen2({super.key});
 
