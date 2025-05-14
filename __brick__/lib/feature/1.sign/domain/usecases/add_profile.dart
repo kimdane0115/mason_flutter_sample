@@ -5,8 +5,15 @@ class AddProfile {
 
   AddProfile(this.repository);
 
-  Future<void> call(Map<String, dynamic> request) {
+  Future<Profile> call(Map<String, dynamic> request) async {
     // return repository.patchMemberIdCommon(teamId, memberId, request);
-    return repository.addProfile(request);
-  }  
+    try {
+      return await repository.addProfile(request);
+    } catch (e) {
+      throw CustomProfileException(
+        message: 'Failed to add profile',
+        code: '500',
+      );
+    }
+  }
 }

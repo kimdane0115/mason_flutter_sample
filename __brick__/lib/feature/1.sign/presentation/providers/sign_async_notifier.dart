@@ -8,28 +8,32 @@ part 'sign_async_notifier.g.dart';
 class SignAsyncNotifier extends _$SignAsyncNotifier {
   @override
   FutureOr<Profile?> build() async {
-    return Supabase.instance.client.auth.currentUser?.id != null
-        ? fetchProfile(Supabase.instance.client.auth.currentUser?.id ?? '')
-        : null;
+    // return Supabase.instance.client.auth.currentUser?.id != null
+    //     ? fetchProfile(Supabase.instance.client.auth.currentUser?.id ?? '')
+    //     : null;
+    return null;
   }
 
-  FutureOr<Profile?> fetchProfile(String uuid) async {
+  FutureOr<void> fetchProfile(String uuid) async {
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(() async {
       final getProfile = ref.read(getProfileProvider);
       return getProfile(uuid);
     });
-    return state.value;
+    // return state.value;
   }
 
   Future<void> addProfile(Map<String, dynamic> request) async {
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(() async {
-      final addProfile = ref.read(addProfileProvider);
-      addProfile(request);
-
-      return null;
+      try {
+        final addProfile = ref.read(addProfileProvider);
+        return await addProfile(request);
+      } catch (e) {
+        rethrow;
+      }
     });
+    // return state.value;
   }
 
   Future<void> userVerify(String email, String idToken, String accessToken) async {
@@ -48,7 +52,7 @@ class SignAsyncNotifier extends _$SignAsyncNotifier {
       final deleteProfile = ref.read(deleteProfileProvider);
       deleteProfile(uuid);
 
-      return null;
+      return;
     });
   }
 }

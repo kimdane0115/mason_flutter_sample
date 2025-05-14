@@ -20,7 +20,7 @@ mixin _$SbProfileModel {
   String get name;
   String get profileImageUrl;
   String get accessToken;
-  String get idToken;
+  String? get idToken;
   String get fcmToken;
   String get status;
   DateTime get createdAt;
@@ -79,7 +79,7 @@ abstract mixin class $SbProfileModelCopyWith<$Res> {
       String name,
       String profileImageUrl,
       String accessToken,
-      String idToken,
+      String? idToken,
       String fcmToken,
       String status,
       DateTime createdAt});
@@ -103,7 +103,7 @@ class _$SbProfileModelCopyWithImpl<$Res>
     Object? name = null,
     Object? profileImageUrl = null,
     Object? accessToken = null,
-    Object? idToken = null,
+    Object? idToken = freezed,
     Object? fcmToken = null,
     Object? status = null,
     Object? createdAt = null,
@@ -129,10 +129,10 @@ class _$SbProfileModelCopyWithImpl<$Res>
           ? _self.accessToken
           : accessToken // ignore: cast_nullable_to_non_nullable
               as String,
-      idToken: null == idToken
+      idToken: freezed == idToken
           ? _self.idToken
           : idToken // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       fcmToken: null == fcmToken
           ? _self.fcmToken
           : fcmToken // ignore: cast_nullable_to_non_nullable
@@ -158,7 +158,7 @@ class _SbProfileModel implements SbProfileModel {
       required this.name,
       required this.profileImageUrl,
       required this.accessToken,
-      required this.idToken,
+      this.idToken,
       required this.fcmToken,
       required this.status,
       required this.createdAt});
@@ -176,7 +176,7 @@ class _SbProfileModel implements SbProfileModel {
   @override
   final String accessToken;
   @override
-  final String idToken;
+  final String? idToken;
   @override
   final String fcmToken;
   @override
@@ -244,7 +244,7 @@ abstract mixin class _$SbProfileModelCopyWith<$Res>
       String name,
       String profileImageUrl,
       String accessToken,
-      String idToken,
+      String? idToken,
       String fcmToken,
       String status,
       DateTime createdAt});
@@ -268,7 +268,7 @@ class __$SbProfileModelCopyWithImpl<$Res>
     Object? name = null,
     Object? profileImageUrl = null,
     Object? accessToken = null,
-    Object? idToken = null,
+    Object? idToken = freezed,
     Object? fcmToken = null,
     Object? status = null,
     Object? createdAt = null,
@@ -294,10 +294,10 @@ class __$SbProfileModelCopyWithImpl<$Res>
           ? _self.accessToken
           : accessToken // ignore: cast_nullable_to_non_nullable
               as String,
-      idToken: null == idToken
+      idToken: freezed == idToken
           ? _self.idToken
           : idToken // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       fcmToken: null == fcmToken
           ? _self.fcmToken
           : fcmToken // ignore: cast_nullable_to_non_nullable

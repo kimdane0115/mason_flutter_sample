@@ -6,7 +6,7 @@ part of 'sign_async_notifier.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$signAsyncNotifierHash() => r'8e90c1e166e6c6610ec9b9116113a53d53f5f3cb';
+String _$signAsyncNotifierHash() => r'aea4d1c326311cc1c2dbe0508f39b93a0501ed38';
 
 /// See also [SignAsyncNotifier].
 @ProviderFor(SignAsyncNotifier)

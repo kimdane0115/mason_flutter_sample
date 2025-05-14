@@ -11,6 +11,35 @@ class SignUpScreen extends ConsumerStatefulWidget {
 class _SignUpScreenState extends ConsumerState<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
+
+    ref.listen(signAsyncNotifierProvider, (previous, next) {
+      if (next.hasError) {
+        print(next.error);
+      }
+      if (next.hasValue && next.value != null) {
+        final authState = ref.read(authStreamProvider);
+        ref.read(localRepositoryProvider).setUUID(authState.value!.session!.user.id);
+        showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              title: const Text('회원가입'),
+              content: const Text('회원가입이 완료되었습니다.'),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                    const HomeScreenRoute().go(context);
+                  },
+                  child: const Text('확인'),
+                ),
+              ],
+            );
+          },
+        );
+      }
+    });
+
     return Scaffold(
       appBar: AppBar(
         title:  const Text(
@@ -84,7 +113,6 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
               };
               print('>>> request : $request');
               ref.read(signAsyncNotifierProvider.notifier).addProfile(request);
-              ref.read(localRepositoryProvider).setUUID(authState.value!.session!.user.id);
             },
             child: const Text('회원가입 완료'),
           ),

@@ -13,7 +13,7 @@ _SbProfileModel _$SbProfileModelFromJson(Map<String, dynamic> json) =>
       name: json['name'] as String,
       profileImageUrl: json['profileImageUrl'] as String,
       accessToken: json['accessToken'] as String,
-      idToken: json['idToken'] as String,
+      idToken: json['idToken'] as String?,
       fcmToken: json['fcmToken'] as String,
       status: json['status'] as String,
       createdAt: DateTime.parse(json['createdAt'] as String),
