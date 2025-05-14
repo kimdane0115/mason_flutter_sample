@@ -42,28 +42,56 @@ class SignRepositoryImpl extends SignRepository {
   }
   
   @override
-  Future<void> addProfile(Map<String, dynamic> request) async {
-    final res = _supabaseSignApiService.addProfile(request);
+  Future<Profile> addProfile(Map<String, dynamic> request) async {
+    try {
+      final res = await _supabaseSignApiService.addProfile(request);
+      return Profile(
+        id: res.id,
+        email: res.email,
+        name: res.name,
+        profileImageUrl: res.profileImageUrl,
+        fcmToken: res.fcmToken,
+        accessToken: res.accessToken,
+        idToken: res.idToken,
+        createdAt: res.createdAt,
+      );
+    } catch (e) {
+      rethrow;
+    }
   }
   
   @override
   Future<void> deleteProfile(String uuid) async {
-    final res = await _supabaseSignApiService.deleteProfile(uuid);
+    await _supabaseSignApiService.deleteProfile(uuid);
   }
   
   @override
   Future<Profile> getProfile(String uuid) async {
-    final res = await _supabaseSignApiService.getProfile(uuid);
-    return Profile(
-      id: res?.id ?? 0,
-      email: res?.email ?? '',
-      name: res?.name ?? '',
-      profileImageUrl: res?.profileImageUrl ?? '',
+    try {
+      final res = await _supabaseSignApiService.getProfile(uuid);
+      return Profile(
+        id: res?.id ?? 0,
+        email: res?.email ?? '',
+        name: res?.name ?? '',
+        profileImageUrl: res?.profileImageUrl ?? '',
       fcmToken: res?.fcmToken ?? '',
       accessToken: res?.accessToken ?? '',
       idToken: res?.idToken ?? '',
       status: res?.status ?? '',
       createdAt: res?.createdAt ?? DateTime.now(),
     );
+    } catch (e) {
+      rethrow;
+    }
   }
+}
+
+class CustomProfileException implements Exception {
+  final String message;
+  final String code; // 또는 int code
+
+  CustomProfileException({required this.message, required this.code});
+
+  @override
+  String toString() => 'CustomProfileException(code: $code, message: $message)';
 }

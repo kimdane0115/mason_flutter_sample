@@ -12,7 +12,7 @@ abstract class SbProfileModel with _$SbProfileModel {
     required String name,
     required String profileImageUrl,
     required String accessToken,
-    required String idToken,
+    String? idToken,
     required String fcmToken,
     required String status,
     required DateTime createdAt,
