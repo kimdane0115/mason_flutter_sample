@@ -179,7 +179,8 @@ class _LoginPageState extends ConsumerState<LoginPage> {
 
   Future<void> _kakaoSignIn() async {
     final loading = await showLoadingIndicator(context);
-    await SocialService().signInWithKakao();
+    // await SocialService().signInWithKakao();
+    await SocialService().loginWithKakaoAndSignInToSupabase();
     if (loading.mounted) loading.pop();
   }
 
