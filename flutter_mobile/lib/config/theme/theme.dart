@@ -15,7 +15,7 @@ ThemeData lightThemeData(ColorScheme colorScheme, BuildContext context) {
       splashFactory: NoSplash.splashFactory,
       useMaterial3: true,
       colorScheme: colorScheme,
-      scaffoldBackgroundColor: colorScheme.background,
+      scaffoldBackgroundColor: colorScheme.surface,
       fontFamily: BaseFontFamily.koreanFontFamily,
       progressIndicatorTheme: ProgressIndicatorThemeData(color: colorScheme.neutral80),
       appBarTheme: const AppBarTheme(
@@ -25,25 +25,25 @@ ThemeData lightThemeData(ColorScheme colorScheme, BuildContext context) {
       ),
       dividerTheme: DividerThemeData(color: colorScheme.outlineVariant),
       switchTheme: SwitchThemeData(
-        thumbColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
-          if (states.contains(MaterialState.selected)) {
+        thumbColor: WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+          if (states.contains(WidgetState.selected)) {
             return colorScheme.onPrimary;
           }
-          if (!states.contains(MaterialState.disabled)) {
+          if (!states.contains(WidgetState.disabled)) {
             return colorScheme.surface;
           }
           return null;
         }),
-        trackColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
-          if (states.contains(MaterialState.selected)) {
+        trackColor: WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+          if (states.contains(WidgetState.selected)) {
             return colorScheme.grey700;
           }
-          if (states.contains(MaterialState.disabled)) {
-            return colorScheme.onSurface.withOpacity(0.12);
+          if (states.contains(WidgetState.disabled)) {
+            return colorScheme.onSurface.withValues(alpha: 0.12);
           }
           return null;
         }),
-        trackOutlineColor: MaterialStateColor.resolveWith((states) => Colors.transparent),
+        trackOutlineColor: WidgetStateColor.resolveWith((states) => Colors.transparent),
       ),
       inputDecorationTheme: InputDecorationTheme(
         contentPadding: const EdgeInsets.symmetric(
@@ -83,14 +83,14 @@ ThemeData lightThemeData(ColorScheme colorScheme, BuildContext context) {
       ),
       textSelectionTheme: TextSelectionThemeData(
         cursorColor: colorScheme.tertiary,
-        selectionColor: colorScheme.tertiaryFixedDim.withOpacity(0.5),
+        selectionColor: colorScheme.tertiaryFixedDim.withValues(alpha: 0.5),
         selectionHandleColor: colorScheme.tertiary,
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
             backgroundColor: colorScheme.grey700,
             foregroundColor: colorScheme.primaryContainer,
-            disabledBackgroundColor: colorScheme.onSurface.withOpacity(0.12),
+            disabledBackgroundColor: colorScheme.onSurface.withValues(alpha: 0.12),
             disabledForegroundColor: colorScheme.outline,
             minimumSize: const Size(64, 46),
             shape: RoundedRectangleBorder(
@@ -99,37 +99,37 @@ ThemeData lightThemeData(ColorScheme colorScheme, BuildContext context) {
             elevation: 0),
       ),
       checkboxTheme: CheckboxThemeData(
-        side: MaterialStateBorderSide.resolveWith(
+        side: WidgetStateBorderSide.resolveWith(
           (states) {
-            if (states.contains(MaterialState.selected)) {
+            if (states.contains(WidgetState.selected)) {
               return BorderSide(color: colorScheme.grey700, width: 2);
             }
-            if (states.contains(MaterialState.disabled)) {
-              return BorderSide(color: colorScheme.onSurface.withOpacity(0.38), width: 2);
+            if (states.contains(WidgetState.disabled)) {
+              return BorderSide(color: colorScheme.onSurface.withValues(alpha: 0.38), width: 2);
             }
-            if (states.contains(MaterialState.error)) {
+            if (states.contains(WidgetState.error)) {
               return BorderSide(color: colorScheme.error, width: 2);
             }
 
             return BorderSide(color: colorScheme.grey400, width: 2);
           },
         ),
-        fillColor: MaterialStateProperty.resolveWith<Color?>(
-          (Set<MaterialState> states) {
-            if (states.contains(MaterialState.selected)) {
+        fillColor: WidgetStateProperty.resolveWith<Color?>(
+          (Set<WidgetState> states) {
+            if (states.contains(WidgetState.selected)) {
               return colorScheme.grey700;
             }
-            if (states.contains(MaterialState.disabled)) {
-              return colorScheme.onSurface.withOpacity(0.38);
+            if (states.contains(WidgetState.disabled)) {
+              return colorScheme.onSurface.withValues(alpha: 0.38);
             }
             return null;
           },
         ),
-        checkColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
-          if (states.contains(MaterialState.selected)) {
+        checkColor: WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+          if (states.contains(WidgetState.selected)) {
             return colorScheme.primaryContainer;
           }
-          if (states.contains(MaterialState.disabled)) {
+          if (states.contains(WidgetState.disabled)) {
             return colorScheme.surface;
           }
           return null;
@@ -223,7 +223,7 @@ ThemeData darkThemeData(ColorScheme colorScheme) {
   return ThemeData(
     useMaterial3: true,
     colorScheme: colorScheme,
-    dialogTheme: const DialogTheme(elevation: 0),
+    dialogTheme: const DialogThemeData(elevation: 0),
     // appBarTheme: const AppBarTheme(
     //   surfaceTintColor: Colors.transparent,
     //   systemOverlayStyle: SystemUiOverlayStyle(
