@@ -14,7 +14,6 @@ class SupabaseApiServiceImpl implements SupabaseApiService {
   @override
   // Future<List<Member>> getMember(String teamId) {
   Future<void> getMember(String teamId) async {
-    // TODO: implement getMember
     try {
       print('>>> getMemeber is Call');
       final client = Supabase.instance.client;
@@ -58,7 +57,6 @@ class SupabaseApiServiceImpl implements SupabaseApiService {
   
   @override
   Future<void> addMember(Map<String, dynamic> request) async {
-    // TODO: implement addMember
     final client = Supabase.instance.client;
     final response = await client.from('profiles').insert([request]).select();
     print('>>>> response : $response');
@@ -70,13 +68,11 @@ class SupabaseApiServiceImpl implements SupabaseApiService {
     final client = Supabase.instance.client;
     final response = await client.from('profiles').delete().eq('id', id);
     print('>>>> response : $response');
-    // TODO: implement deleteMemeber
     // throw UnimplementedError();
   }
   
   @override
   Future<void> updateMember(Map<String, dynamic> request, int id) async {
-    // TODO: implement updateMember
     final client = Supabase.instance.client;
     final response = await client.from('profiles').update(request).eq('id', id).select().single();
 
