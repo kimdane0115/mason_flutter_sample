@@ -73,7 +73,6 @@ class SocialService {
 
     if (response.statusCode == 200) {
       final json = jsonDecode(response.body);
-      print('>>>>>>>>>>>>> json : $json');
       await Supabase.instance.client.auth.signInWithIdToken(
         provider: OAuthProvider.kakao,
         idToken: json['id_token'],
