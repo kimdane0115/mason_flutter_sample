@@ -43,7 +43,6 @@ class SupabaseSignApiServiceImpl implements SupabaseSignApiService {
     try {
       final client = Supabase.instance.client;
       final response = await client.from('profiles').insert([request]).select().single();
-      print('>>>> response : $response');
       return SbProfileModel.fromJson(response);
     } catch (e) {
       rethrow;
