@@ -111,7 +111,6 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                 'status': 'active',
                 'socialType': authState.value?.session?.user.appMetadata['provider'],
               };
-              print('>>> request : $request');
               ref.read(signAsyncNotifierProvider.notifier).addProfile(request);
             },
             child: const Text('회원가입 완료'),
