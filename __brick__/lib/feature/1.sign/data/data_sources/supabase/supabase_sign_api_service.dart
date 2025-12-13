@@ -57,7 +57,6 @@ class SupabaseSignApiServiceImpl implements SupabaseSignApiService {
       await client.from('profiles').update({
         'status': 'drop'
       }).eq('uuid', uuid);
-      // print('>>>> response : $response');
     } catch (e) {
       rethrow;
     }
