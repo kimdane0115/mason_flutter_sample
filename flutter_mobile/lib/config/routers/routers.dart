@@ -40,7 +40,7 @@ class Routers {
 @TypedGoRoute<SplashRoute>(
   path: Routers.splash,
 )
-class SplashRoute extends GoRouteData {
+class SplashRoute extends GoRouteData with $SplashRoute {
   const SplashRoute();
   @override
   Page<void> buildPage(BuildContext context, GoRouterState state) {
@@ -59,7 +59,7 @@ class SplashRoute extends GoRouteData {
     ),
   ]
 )
-class LoginPageRoute extends GoRouteData {
+class LoginPageRoute extends GoRouteData with $LoginPageRoute {
   const LoginPageRoute();
   @override
   Page<void> buildPage(BuildContext context, GoRouterState state) {
@@ -67,7 +67,7 @@ class LoginPageRoute extends GoRouteData {
   }
 }
 
-class SignUpScreenRoute extends GoRouteData {
+class SignUpScreenRoute extends GoRouteData with $SignUpScreenRoute {
   const SignUpScreenRoute();
 
   @override
@@ -76,7 +76,7 @@ class SignUpScreenRoute extends GoRouteData {
   }
 }
 
-class SignUpAgreementScreenRoute extends GoRouteData {
+class SignUpAgreementScreenRoute extends GoRouteData with $SignUpAgreementScreenRoute {
   const SignUpAgreementScreenRoute();
 
   @override
@@ -117,7 +117,7 @@ class TabScreenShell extends ShellRouteData {
   }
 }
 
-class HomeScreenRoute extends GoRouteData {
+class HomeScreenRoute extends GoRouteData with $HomeScreenRoute {
   const HomeScreenRoute();
   @override
   Page<void> buildPage(BuildContext context, GoRouterState state) {
@@ -128,7 +128,7 @@ class HomeScreenRoute extends GoRouteData {
   }
 }
 
-class HomeScreenRoute2 extends GoRouteData {
+class HomeScreenRoute2 extends GoRouteData with $HomeScreenRoute2 {
   const HomeScreenRoute2();
   @override
   Page<void> buildPage(BuildContext context, GoRouterState state) {
@@ -139,29 +139,29 @@ class HomeScreenRoute2 extends GoRouteData {
   }
 }
 
-class HomeScreenRoute3 extends GoRouteData {
-  const HomeScreenRoute3();
-  @override
-  Page<void> buildPage(BuildContext context, GoRouterState state) {
-    return const MaterialPage(
-      child: HomeScreen3(),
-      name: Routers.home3,
-    );
-  }
-}
+// class HomeScreenRoute3 extends GoRouteData with $HomeScreenRoute3 {
+//   const HomeScreenRoute3();
+//   @override
+//   Page<void> buildPage(BuildContext context, GoRouterState state) {
+//     return const MaterialPage(
+//       child: HomeScreen3(),
+//       name: Routers.home3,
+//     );
+//   }
+// }
 
-class RecordScreenRoute extends GoRouteData {
-  const RecordScreenRoute();
-  @override
-  Page<void> buildPage(BuildContext context, GoRouterState state) {
-    return const MaterialPage(
-      child: RecordScreen(),
-      name: Routers.record,
-    );
-  }
-}
+// class RecordScreenRoute extends GoRouteData with $RecordScreenRoute {
+//   const RecordScreenRoute();
+//   @override
+//   Page<void> buildPage(BuildContext context, GoRouterState state) {
+//     return const MaterialPage(
+//       child: RecordScreen(),
+//       name: Routers.record,
+//     );
+//   }
+// }
 
-class MyInfoPageRoute extends GoRouteData {
+class MyInfoPageRoute extends GoRouteData with $MyInfoPageRoute {
   const MyInfoPageRoute();
   @override
   Page<void> buildPage(BuildContext context, GoRouterState state) {
