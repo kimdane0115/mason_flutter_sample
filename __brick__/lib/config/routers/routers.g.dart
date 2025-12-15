@@ -14,92 +14,112 @@ List<RouteBase> get $appRoutes => [
 
 RouteBase get $splashRoute => GoRouteData.$route(
       path: '/splash',
-      factory: $SplashRouteExtension._fromState,
+      factory: $SplashRoute._fromState,
     );
 
-extension $SplashRouteExtension on SplashRoute {
+mixin $SplashRoute on GoRouteData {
   static SplashRoute _fromState(GoRouterState state) => const SplashRoute();
 
+  @override
   String get location => GoRouteData.$location(
         '/splash',
       );
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
 RouteBase get $loginPageRoute => GoRouteData.$route(
       path: '/login',
-      factory: $LoginPageRouteExtension._fromState,
+      factory: $LoginPageRoute._fromState,
       routes: [
         GoRouteData.$route(
           path: 'sign_up',
-          factory: $SignUpScreenRouteExtension._fromState,
+          factory: $SignUpScreenRoute._fromState,
         ),
         GoRouteData.$route(
           path: 'sign_up_agreement',
-          factory: $SignUpAgreementScreenRouteExtension._fromState,
+          factory: $SignUpAgreementScreenRoute._fromState,
         ),
       ],
     );
 
-extension $LoginPageRouteExtension on LoginPageRoute {
+mixin $LoginPageRoute on GoRouteData {
   static LoginPageRoute _fromState(GoRouterState state) =>
       const LoginPageRoute();
 
+  @override
   String get location => GoRouteData.$location(
         '/login',
       );
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $SignUpScreenRouteExtension on SignUpScreenRoute {
+mixin $SignUpScreenRoute on GoRouteData {
   static SignUpScreenRoute _fromState(GoRouterState state) =>
       const SignUpScreenRoute();
 
+  @override
   String get location => GoRouteData.$location(
         '/login/sign_up',
       );
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $SignUpAgreementScreenRouteExtension on SignUpAgreementScreenRoute {
+mixin $SignUpAgreementScreenRoute on GoRouteData {
   static SignUpAgreementScreenRoute _fromState(GoRouterState state) =>
       const SignUpAgreementScreenRoute();
 
+  @override
   String get location => GoRouteData.$location(
         '/login/sign_up_agreement',
       );
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
@@ -109,15 +129,15 @@ RouteBase get $tabScreenShell => ShellRouteData.$route(
       routes: [
         GoRouteData.$route(
           path: '/home',
-          factory: $HomeScreenRouteExtension._fromState,
+          factory: $HomeScreenRoute._fromState,
         ),
         GoRouteData.$route(
           path: '/home2',
-          factory: $HomeScreenRoute2Extension._fromState,
+          factory: $HomeScreenRoute2._fromState,
         ),
         GoRouteData.$route(
           path: '/my_info',
-          factory: $MyInfoPageRouteExtension._fromState,
+          factory: $MyInfoPageRoute._fromState,
         ),
       ],
     );
@@ -127,56 +147,71 @@ extension $TabScreenShellExtension on TabScreenShell {
       const TabScreenShell();
 }
 
-extension $HomeScreenRouteExtension on HomeScreenRoute {
+mixin $HomeScreenRoute on GoRouteData {
   static HomeScreenRoute _fromState(GoRouterState state) =>
       const HomeScreenRoute();
 
+  @override
   String get location => GoRouteData.$location(
         '/home',
       );
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $HomeScreenRoute2Extension on HomeScreenRoute2 {
+mixin $HomeScreenRoute2 on GoRouteData {
   static HomeScreenRoute2 _fromState(GoRouterState state) =>
       const HomeScreenRoute2();
 
+  @override
   String get location => GoRouteData.$location(
         '/home2',
       );
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $MyInfoPageRouteExtension on MyInfoPageRoute {
+mixin $MyInfoPageRoute on GoRouteData {
   static MyInfoPageRoute _fromState(GoRouterState state) =>
       const MyInfoPageRoute();
 
+  @override
   String get location => GoRouteData.$location(
         '/my_info',
       );
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
